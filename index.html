@@ -157,7 +157,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                25
+                26
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -250,7 +250,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </div>
 
-    <a data-url="http://feng.lu/2020/04/03/How-to-Decrypt-Native-Apps-HTTPS-Traffic-and-Debug-for-In-app-Browser/" data-id="ck9dxnv3y000c0cipclknhvmi" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://feng.lu/2020/04/03/How-to-Decrypt-Native-Apps-HTTPS-Traffic-and-Debug-for-In-app-Browser/" data-id="ck9eanqpb000cl8ipj6i0ev6i" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -386,7 +386,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </div>
 
-    <a data-url="http://feng.lu/2019/10/05/Jump-start-Kubernetes-with-Docker-Desktop-on-Windows-10/" data-id="ck9dxnv44000h0cipjszrt626" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://feng.lu/2019/10/05/Jump-start-Kubernetes-with-Docker-Desktop-on-Windows-10/" data-id="ck9eanqpf000il8ipe4vmx2qv" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -522,7 +522,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </div>
 
-    <a data-url="http://feng.lu/2019/02/06/Customize-social-sharing-on-Linkedin-via-API/" data-id="ck9dxnv3p00080cipya1x1uh6" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://feng.lu/2019/02/06/Customize-social-sharing-on-Linkedin-via-API/" data-id="ck9eanqp30007l8ip2m1q67ax" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -600,6 +600,159 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
+    <article id="post-Data-Integrity-and-Lineage-by-using-DLT-Part-3" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2019/01/03/Data-Integrity-and-Lineage-by-using-DLT-Part-3/">Data Integrity and Lineage by using DLT, Part 3</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2019/01/03/Data-Integrity-and-Lineage-by-using-DLT-Part-3/">
+            <time datetime="2019-01-03T10:08:30.000Z" itemprop="datePublished">2019-01-03</time>
+        </a>
+    </div>
+
+
+                        
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/DLT/">DLT</a>, <a class="tag-link" href="/tags/Data-Integrity/">Data Integrity</a>, <a class="tag-link" href="/tags/Data-Lineage/">Data Lineage</a>, <a class="tag-link" href="/tags/Distributed-Ledger-Technology/">Distributed Ledger Technology</a>, <a class="tag-link" href="/tags/IOTA/">IOTA</a>, <a class="tag-link" href="/tags/IoT/">IoT</a>, <a class="tag-link" href="/tags/Tangle/">Tangle</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            <p><p><strong>Other articles in this series:</strong></p>
+<ul>
+<li><a href="http://feng.lu/2018/09/25/Data-Integrity-and-Lineage-by-using-DLT-Part-1/">Part 1</a></li>
+<li><a href="http://feng.lu/2018/10/03/Data-Integrity-and-Lineage-by-using-DLT-Part-2/">Part 2</a> </li>
+<li>Part 3 (this article)</li>
+</ul>
+<h1 id="Recap"><a href="#Recap" class="headerlink" title="Recap"></a>Recap</h1><p>In the second part of this series, we have went though both the detailed technical design that is based on IOTA. Some quick recap are:</p>
+<ol>
+<li>Use MAM protocol for interacting with IOTA Tangle.</li>
+<li>Defined the core data schema (4 mandatory fields: “dataPackageId”, “wayOfProof” , “valueOfProof” and “inputs”). </li>
+</ol>
+<p>Although the core data schema is quite easy to implement, companies and developers might meet some challenges to get started, such as:</p>
+<ol>
+<li>Developers need to build the knowledge of IOTA and MAM protocol.</li>
+<li>Need to build user interface for data lineage visualization.</li>
+<li>Companies most likely need to setup and maintain their dedicated infrastructure (Web server that runs IOTA server code, database, resource to perform Proof-of-Work, connection to neighbor nodes in IOTA network, etc), as public nodes from community are not stable.  </li>
+</ol>
+<h1 id="Data-Lineage-Service-an-open-source-application-to-get-you-started"><a href="#Data-Lineage-Service-an-open-source-application-to-get-you-started" class="headerlink" title="Data Lineage Service - an open source application to get you started"></a>Data Lineage Service - an open source application to get you started</h1><p>We want to address above challenges, and help everyone to gain benefits of data integrity and lineage. Therefore, we have built “<strong>Data Lineage Service</strong>“ application. Developers and companies can apply this technology without deep understanding of IOTA and MAM protocol. It can be used either as a standalone application, or a microservice that integrates with existing systems.</p>
+<p>The key functions are:</p>
+<ul>
+<li>Wrapped IOTA MAM protocol to well-known HTTP(s) protocol as standard Restful API, with swagger definition. Developers do not need to worry about MAM protocol and it technical details, but focus on the normal data pipeline.</li>
+<li>Reusable web interface for lineage visualization.</li>
+<li>User-friendly interface for submitting data integrity and lineage information to DLT.</li>
+<li>Built-in functionalities for addressing common issues such as caching and monitoring.</li>
+<li>It is <a href="https://github.com/veracity/data-lineage-service" target="_blank" rel="noopener">open-sourced on github</a> with MIT license.</li>
+</ul></p>
+            <p class="article-more-link">
+                <a href="/2019/01/03/Data-Integrity-and-Lineage-by-using-DLT-Part-3/#more">Read More</a>
+            </p>
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://feng.lu/2019/01/03/Data-Integrity-and-Lineage-by-using-DLT-Part-3/" data-id="ck9eanqp8000al8ipjjl2tn8u" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://feng.lu/2019/01/03/Data-Integrity-and-Lineage-by-using-DLT-Part-3/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://feng.lu/2019/01/03/Data-Integrity-and-Lineage-by-using-DLT-Part-3/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-Data-Integrity-and-Lineage-by-using-DLT-Part-2" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -641,7 +794,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <ul>
 <li><a href="http://feng.lu/2018/09/25/Data-Integrity-and-Lineage-by-using-DLT-Part-1/">Part 1</a></li>
 <li>Part 2 (this article)</li>
-<li>Part 3</li>
+<li><a href="http://feng.lu/2019/01/03/Data-Integrity-and-Lineage-by-using-DLT-Part-3/">Part 3</a></li>
 </ul>
 <p>In my previous article, we discussed different approaches for solving the data integrity and lineage challenges, and concluded that the “<strong>Hashing with DLT</strong>“ solution is the direction we will move forward. In this article, we will have deep dive into it. Please not that Veracity’s work on data integrity and data lineage is testing many technologies in parallel. We utilise and test proven centralized technologies as well as new distributed ledger technologies like Tangle and Blockchain. This article series uses the IOTA Tangle as the distributed ledger technology. The use cases described can be solved with other technologies. This article does not necessarily reflect the technologies used in Veracity production environments.</p>
 <h1 id="Which-DLT-to-select"><a href="#Which-DLT-to-select" class="headerlink" title="Which DLT to select?"></a>Which DLT to select?</h1><p>As Veracity is part of an Open Industry Ecosystem we have focused our data integrity and data lineage work using public DLT and open sourced technologies. We believe that to succeed with providing transparency from the user to the origin of data many technology vendors must collaborate around common standards and technologies. The organizational setup and philosophies for some of the public distributed ledgers provides the right environment to learn and develop fast with an adaptive ecosystem. </p>
@@ -658,7 +811,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </div>
 
-    <a data-url="http://feng.lu/2018/10/03/Data-Integrity-and-Lineage-by-using-DLT-Part-2/" data-id="ck9dxnv3t000a0cip8ckvgtke" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://feng.lu/2018/10/03/Data-Integrity-and-Lineage-by-using-DLT-Part-2/" data-id="ck9eanqp70009l8ip9x54p9yb" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -777,7 +930,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <ul>
 <li>Part 1 (this article)</li>
 <li><a href="http://feng.lu/2018/10/03/Data-Integrity-and-Lineage-by-using-DLT-Part-2/">Part 2</a> </li>
-<li>Part 3</li>
+<li><a href="http://feng.lu/2019/01/03/Data-Integrity-and-Lineage-by-using-DLT-Part-3/">Part 3</a></li>
 </ul>
 <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>With the proliferation of data – collecting and storing it, sharing it, mining it for gains – a basic question goes unanswered: is this data even good? The quality of data is of utmost concern because you can’t do meaningful analysis on data which you can’t trust. Here in Veracity, we are trying to address this is very concern. This is a 3 part series, going all the way from concept to a working implementation using DLT (Distributed Ledger Technology).</p>
 <p>Side note, Veracity is designed to help companies unlock, qualify, combine and prepare data for analytics and benchmarking. It helps data providers to easily onboard data to the platform, and enable data consumers to access and mine value. The data can be from various sources, such as sensors and edge devices, production systems, historical databases and human inputs. Data is generated, transferred, processed and stored, from one system to another system, one company to another company. </p>
@@ -799,7 +952,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </div>
 
-    <a data-url="http://feng.lu/2018/09/25/Data-Integrity-and-Lineage-by-using-DLT-Part-1/" data-id="ck9dxnv3q00090cipckdttm56" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://feng.lu/2018/09/25/Data-Integrity-and-Lineage-by-using-DLT-Part-1/" data-id="ck9eanqp40008l8ipfnp4e4l1" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -940,7 +1093,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </div>
 
-    <a data-url="http://feng.lu/2018/08/27/Using-new-domain-feng-lu/" data-id="ck9dxnv4b000p0cipndwo73ci" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://feng.lu/2018/08/27/Using-new-domain-feng-lu/" data-id="ck9eanqpj000pl8ipeaiibduk" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1077,7 +1230,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </div>
 
-    <a data-url="http://feng.lu/2018/04/16/Data-integrity-and-data-lineage-by-using-IOTA/" data-id="ck9dxnv3v000b0cipd7ur299m" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://feng.lu/2018/04/16/Data-integrity-and-data-lineage-by-using-IOTA/" data-id="ck9eanqp9000bl8ippp0l26uw" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1213,7 +1366,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </div>
 
-    <a data-url="http://feng.lu/2018/02/19/Running-IOTA-Full-Node/" data-id="ck9dxnv48000m0cipar39m2en" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://feng.lu/2018/02/19/Running-IOTA-Full-Node/" data-id="ck9eanqph000ml8ipnltjliow" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1345,7 +1498,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </div>
 
-    <a data-url="http://feng.lu/2017/11/05/Infrastructure-as-code-in-the-real-world/" data-id="ck9dxnv42000g0cipqe3qiglw" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://feng.lu/2017/11/05/Infrastructure-as-code-in-the-real-world/" data-id="ck9eanqpd000gl8ipu88akzng" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1423,136 +1576,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
-    <article id="post-OAuth-in-Azure-AD-B2C-with-Nodejs" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/06/28/OAuth-in-Azure-AD-B2C-with-Nodejs/">OAuth in Azure AD B2C with Nodejs</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/06/28/OAuth-in-Azure-AD-B2C-with-Nodejs/">
-            <time datetime="2017-06-28T12:54:24.000Z" itemprop="datePublished">2017-06-28</time>
-        </a>
-    </div>
-
-
-                        
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Authentication/">Authentication</a>, <a class="tag-link" href="/tags/Authorization/">Authorization</a>, <a class="tag-link" href="/tags/Azure/">Azure</a>, <a class="tag-link" href="/tags/Azure-AD-B2C/">Azure AD B2C</a>, <a class="tag-link" href="/tags/Nodejs/">Nodejs</a>, <a class="tag-link" href="/tags/OAuth/">OAuth</a>, <a class="tag-link" href="/tags/OpenID/">OpenID</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            <p><p>Recently we need to build a Nodejs single-page-application (SPA) solution that is using Azure AD B2C as the identity provider (idp). Since it is a single-page-application, we are going to use OAuth2 Implicit Flow.</p>
-<img src="/2017/06/28/OAuth-in-Azure-AD-B2C-with-Nodejs/what-is-oauth.jpg" title="picture credit:stormpath.com">
-<p>This article demonstrates the basic steps for setting up both the server side (WebAPI)  as well as the client application.</p></p>
-            <p class="article-more-link">
-                <a href="/2017/06/28/OAuth-in-Azure-AD-B2C-with-Nodejs/#more">Read More</a>
-            </p>
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="http://feng.lu/2017/06/28/OAuth-in-Azure-AD-B2C-with-Nodejs/" data-id="ck9dxnv47000k0cip347mcbkt" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="http://feng.lu/2017/06/28/OAuth-in-Azure-AD-B2C-with-Nodejs/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://feng.lu/2017/06/28/OAuth-in-Azure-AD-B2C-with-Nodejs/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
     <nav id="page-nav">
         <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
@@ -1597,8 +1620,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         
                         <div class="item-inner">
                             <p class="item-category"></p>
-                            <p class="item-title"><a href="/2018/10/03/Data-Integrity-and-Lineage-by-using-DLT-Part-2/" class="title">Data Integrity and Lineage by using DLT, Part 2</a></p>
-                            <p class="item-date"><time datetime="2018-10-03T18:14:40.000Z" itemprop="datePublished">2018-10-03</time></p>
+                            <p class="item-title"><a href="/2019/01/03/Data-Integrity-and-Lineage-by-using-DLT-Part-3/" class="title">Data Integrity and Lineage by using DLT, Part 3</a></p>
+                            <p class="item-date"><time datetime="2019-01-03T10:08:30.000Z" itemprop="datePublished">2019-01-03</time></p>
                         </div>
                     </li>
                 
@@ -1606,8 +1629,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         
                         <div class="item-inner">
                             <p class="item-category"></p>
-                            <p class="item-title"><a href="/2018/09/25/Data-Integrity-and-Lineage-by-using-DLT-Part-1/" class="title">Data Integrity and Lineage by using DLT, Part 1</a></p>
-                            <p class="item-date"><time datetime="2018-09-25T18:33:49.000Z" itemprop="datePublished">2018-09-25</time></p>
+                            <p class="item-title"><a href="/2018/10/03/Data-Integrity-and-Lineage-by-using-DLT-Part-2/" class="title">Data Integrity and Lineage by using DLT, Part 2</a></p>
+                            <p class="item-date"><time datetime="2018-10-03T18:14:40.000Z" itemprop="datePublished">2018-10-03</time></p>
                         </div>
                     </li>
                 
@@ -1622,7 +1645,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="widget-wrap">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">3</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">3</span></li></ul>
         </div>
     </div>
 
@@ -1631,7 +1654,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="widget-wrap">
         <h3 class="widget-title">tag cloud</h3>
         <div class="widget tagcloud">
-            <a href="/tags/ADFS/" style="font-size: 10px;">ADFS</a> <a href="/tags/API/" style="font-size: 10px;">API</a> <a href="/tags/ASP-Net-Core/" style="font-size: 10px;">ASP.Net Core</a> <a href="/tags/Application-Insights/" style="font-size: 15px;">Application Insights</a> <a href="/tags/Artificial-Intelligence/" style="font-size: 12.5px;">Artificial Intelligence</a> <a href="/tags/Authentication/" style="font-size: 10px;">Authentication</a> <a href="/tags/Authorization/" style="font-size: 10px;">Authorization</a> <a href="/tags/Azure/" style="font-size: 20px;">Azure</a> <a href="/tags/Azure-AD-B2C/" style="font-size: 10px;">Azure AD B2C</a> <a href="/tags/Azure-Template/" style="font-size: 10px;">Azure Template</a> <a href="/tags/Blockchain/" style="font-size: 10px;">Blockchain</a> <a href="/tags/Blog/" style="font-size: 15px;">Blog</a> <a href="/tags/Build/" style="font-size: 12.5px;">Build</a> <a href="/tags/Chatbot/" style="font-size: 12.5px;">Chatbot</a> <a href="/tags/Continuous-Deployment/" style="font-size: 10px;">Continuous Deployment</a> <a href="/tags/Continuous-Integration/" style="font-size: 10px;">Continuous Integration</a> <a href="/tags/DLT/" style="font-size: 17.5px;">DLT</a> <a href="/tags/DNS/" style="font-size: 10px;">DNS</a> <a href="/tags/Data-Integrity/" style="font-size: 15px;">Data Integrity</a> <a href="/tags/Data-Lineage/" style="font-size: 15px;">Data Lineage</a> <a href="/tags/Decryption/" style="font-size: 10px;">Decryption</a> <a href="/tags/DevOps/" style="font-size: 17.5px;">DevOps</a> <a href="/tags/Distributed-Ledger-Technology/" style="font-size: 17.5px;">Distributed Ledger Technology</a> <a href="/tags/Docker/" style="font-size: 12.5px;">Docker</a> <a href="/tags/Domain/" style="font-size: 10px;">Domain</a> <a href="/tags/Fiddler/" style="font-size: 10px;">Fiddler</a> <a href="/tags/Fullnode/" style="font-size: 10px;">Fullnode</a> <a href="/tags/Git/" style="font-size: 15px;">Git</a> <a href="/tags/Github/" style="font-size: 12.5px;">Github</a> <a href="/tags/Google-Analytics/" style="font-size: 10px;">Google Analytics</a> <a href="/tags/Google-Tag-Manager/" style="font-size: 10px;">Google Tag Manager</a> <a href="/tags/HTTPS/" style="font-size: 10px;">HTTPS</a> <a href="/tags/Hexo/" style="font-size: 12.5px;">Hexo</a> <a href="/tags/IOTA/" style="font-size: 17.5px;">IOTA</a> <a href="/tags/Infrastructure-as-Code/" style="font-size: 10px;">Infrastructure as Code</a> <a href="/tags/IoT/" style="font-size: 15px;">IoT</a> <a href="/tags/Istio/" style="font-size: 10px;">Istio</a> <a href="/tags/Jump-start/" style="font-size: 10px;">Jump-start</a> <a href="/tags/KUDU/" style="font-size: 10px;">KUDU</a> <a href="/tags/Kiali/" style="font-size: 10px;">Kiali</a> <a href="/tags/Kubernetes/" style="font-size: 10px;">Kubernetes</a> <a href="/tags/Linkedin/" style="font-size: 10px;">Linkedin</a> <a href="/tags/Load-Testing/" style="font-size: 10px;">Load Testing</a> <a href="/tags/Machine-Learning/" style="font-size: 12.5px;">Machine Learning</a> <a href="/tags/Microsoft-language-understanding-intelligent-service/" style="font-size: 12.5px;">Microsoft language understanding intelligent service</a> <a href="/tags/Monitoring/" style="font-size: 15px;">Monitoring</a> <a href="/tags/Native-App/" style="font-size: 10px;">Native App</a> <a href="/tags/Nodejs/" style="font-size: 10px;">Nodejs</a> <a href="/tags/OAuth/" style="font-size: 12.5px;">OAuth</a> <a href="/tags/OpenID/" style="font-size: 10px;">OpenID</a> <a href="/tags/Plugin/" style="font-size: 10px;">Plugin</a> <a href="/tags/Postman/" style="font-size: 10px;">Postman</a> <a href="/tags/PowerBI/" style="font-size: 12.5px;">PowerBI</a> <a href="/tags/Prototype/" style="font-size: 12.5px;">Prototype</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Release-Management/" style="font-size: 10px;">Release Management</a> <a href="/tags/Release-management/" style="font-size: 10px;">Release management</a> <a href="/tags/Scripting/" style="font-size: 10px;">Scripting</a> <a href="/tags/Service-mesh/" style="font-size: 10px;">Service mesh</a> <a href="/tags/SharePoint-PnP/" style="font-size: 10px;">SharePoint PnP</a> <a href="/tags/Social-Sharing/" style="font-size: 10px;">Social Sharing</a> <a href="/tags/Tangle/" style="font-size: 15px;">Tangle</a> <a href="/tags/Troubleshooting/" style="font-size: 12.5px;">Troubleshooting</a> <a href="/tags/VSTS/" style="font-size: 15px;">VSTS</a> <a href="/tags/Vim/" style="font-size: 10px;">Vim</a> <a href="/tags/Web-Testing/" style="font-size: 10px;">Web Testing</a>
+            <a href="/tags/ADFS/" style="font-size: 10px;">ADFS</a> <a href="/tags/API/" style="font-size: 10px;">API</a> <a href="/tags/ASP-Net-Core/" style="font-size: 10px;">ASP.Net Core</a> <a href="/tags/Application-Insights/" style="font-size: 14px;">Application Insights</a> <a href="/tags/Artificial-Intelligence/" style="font-size: 12px;">Artificial Intelligence</a> <a href="/tags/Authentication/" style="font-size: 10px;">Authentication</a> <a href="/tags/Authorization/" style="font-size: 10px;">Authorization</a> <a href="/tags/Azure/" style="font-size: 20px;">Azure</a> <a href="/tags/Azure-AD-B2C/" style="font-size: 10px;">Azure AD B2C</a> <a href="/tags/Azure-Template/" style="font-size: 10px;">Azure Template</a> <a href="/tags/Blockchain/" style="font-size: 10px;">Blockchain</a> <a href="/tags/Blog/" style="font-size: 14px;">Blog</a> <a href="/tags/Build/" style="font-size: 12px;">Build</a> <a href="/tags/Chatbot/" style="font-size: 12px;">Chatbot</a> <a href="/tags/Continuous-Deployment/" style="font-size: 10px;">Continuous Deployment</a> <a href="/tags/Continuous-Integration/" style="font-size: 10px;">Continuous Integration</a> <a href="/tags/DLT/" style="font-size: 18px;">DLT</a> <a href="/tags/DNS/" style="font-size: 10px;">DNS</a> <a href="/tags/Data-Integrity/" style="font-size: 16px;">Data Integrity</a> <a href="/tags/Data-Lineage/" style="font-size: 16px;">Data Lineage</a> <a href="/tags/Decryption/" style="font-size: 10px;">Decryption</a> <a href="/tags/DevOps/" style="font-size: 16px;">DevOps</a> <a href="/tags/Distributed-Ledger-Technology/" style="font-size: 18px;">Distributed Ledger Technology</a> <a href="/tags/Docker/" style="font-size: 12px;">Docker</a> <a href="/tags/Domain/" style="font-size: 10px;">Domain</a> <a href="/tags/Fiddler/" style="font-size: 10px;">Fiddler</a> <a href="/tags/Fullnode/" style="font-size: 10px;">Fullnode</a> <a href="/tags/Git/" style="font-size: 14px;">Git</a> <a href="/tags/Github/" style="font-size: 12px;">Github</a> <a href="/tags/Google-Analytics/" style="font-size: 10px;">Google Analytics</a> <a href="/tags/Google-Tag-Manager/" style="font-size: 10px;">Google Tag Manager</a> <a href="/tags/HTTPS/" style="font-size: 10px;">HTTPS</a> <a href="/tags/Hexo/" style="font-size: 12px;">Hexo</a> <a href="/tags/IOTA/" style="font-size: 18px;">IOTA</a> <a href="/tags/Infrastructure-as-Code/" style="font-size: 10px;">Infrastructure as Code</a> <a href="/tags/IoT/" style="font-size: 16px;">IoT</a> <a href="/tags/Istio/" style="font-size: 10px;">Istio</a> <a href="/tags/Jump-start/" style="font-size: 10px;">Jump-start</a> <a href="/tags/KUDU/" style="font-size: 10px;">KUDU</a> <a href="/tags/Kiali/" style="font-size: 10px;">Kiali</a> <a href="/tags/Kubernetes/" style="font-size: 10px;">Kubernetes</a> <a href="/tags/Linkedin/" style="font-size: 10px;">Linkedin</a> <a href="/tags/Load-Testing/" style="font-size: 10px;">Load Testing</a> <a href="/tags/Machine-Learning/" style="font-size: 12px;">Machine Learning</a> <a href="/tags/Microsoft-language-understanding-intelligent-service/" style="font-size: 12px;">Microsoft language understanding intelligent service</a> <a href="/tags/Monitoring/" style="font-size: 14px;">Monitoring</a> <a href="/tags/Native-App/" style="font-size: 10px;">Native App</a> <a href="/tags/Nodejs/" style="font-size: 10px;">Nodejs</a> <a href="/tags/OAuth/" style="font-size: 12px;">OAuth</a> <a href="/tags/OpenID/" style="font-size: 10px;">OpenID</a> <a href="/tags/Plugin/" style="font-size: 10px;">Plugin</a> <a href="/tags/Postman/" style="font-size: 10px;">Postman</a> <a href="/tags/PowerBI/" style="font-size: 12px;">PowerBI</a> <a href="/tags/Prototype/" style="font-size: 12px;">Prototype</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Release-Management/" style="font-size: 10px;">Release Management</a> <a href="/tags/Release-management/" style="font-size: 10px;">Release management</a> <a href="/tags/Scripting/" style="font-size: 10px;">Scripting</a> <a href="/tags/Service-mesh/" style="font-size: 10px;">Service mesh</a> <a href="/tags/SharePoint-PnP/" style="font-size: 10px;">SharePoint PnP</a> <a href="/tags/Social-Sharing/" style="font-size: 10px;">Social Sharing</a> <a href="/tags/Tangle/" style="font-size: 16px;">Tangle</a> <a href="/tags/Troubleshooting/" style="font-size: 12px;">Troubleshooting</a> <a href="/tags/VSTS/" style="font-size: 14px;">VSTS</a> <a href="/tags/Vim/" style="font-size: 10px;">Vim</a> <a href="/tags/Web-Testing/" style="font-size: 10px;">Web Testing</a>
         </div>
     </div>
 

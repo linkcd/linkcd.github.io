@@ -13,15 +13,23 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	
     <meta charset="utf-8">
     
-    <title>Tag: Istio | feng.blog();</title>
+    <title>Data Integrity and Lineage by using DLT, Part 3 | feng.blog();</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta property="og:type" content="website">
-<meta property="og:title" content="feng.blog();">
-<meta property="og:url" content="http://feng.lu/tags/Istio/index.html">
+    <meta name="description" content="Other articles in this series:  Part 1 Part 2  Part 3 (this article)  RecapIn the second part of this series, we have went though both the detailed technical design that is based on IOTA. Some quick r">
+<meta name="keywords" content="IOTA,Data Lineage,Data Integrity,IoT,DLT,Distributed Ledger Technology,Tangle">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Data Integrity and Lineage by using DLT, Part 3">
+<meta property="og:url" content="http://feng.lu/2019/01/03/Data-Integrity-and-Lineage-by-using-DLT-Part-3/index.html">
 <meta property="og:site_name" content="feng.blog();">
+<meta property="og:description" content="Other articles in this series:  Part 1 Part 2  Part 3 (this article)  RecapIn the second part of this series, we have went though both the detailed technical design that is based on IOTA. Some quick r">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="http://feng.lu/2019/01/03/Data-Integrity-and-Lineage-by-using-DLT-Part-3/datalineage-screenshot.png">
+<meta property="og:image" content="http://feng.lu/2019/01/03/Data-Integrity-and-Lineage-by-using-DLT-Part-3/Performace%20testing.png">
+<meta property="og:updated_time" content="2020-04-24T14:32:14.675Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="feng.blog();">
+<meta name="twitter:title" content="Data Integrity and Lineage by using DLT, Part 3">
+<meta name="twitter:description" content="Other articles in this series:  Part 1 Part 2  Part 3 (this article)  RecapIn the second part of this series, we have went though both the detailed technical design that is based on IOTA. Some quick r">
+<meta name="twitter:image" content="http://feng.lu/2019/01/03/Data-Integrity-and-Lineage-by-using-DLT-Part-3/datalineage-screenshot.png">
     
 
     
@@ -191,45 +199,238 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </aside>
 
             
-            <section id="main">
-<div class="timeline timeline-wrap">
-    <div class="timeline-row timeline-row-major">
-        <span class="node"><i class="fa fa-tag"></i></span>
-        <h1 class="title">#Istio</h1>
-    </div>
-    
-        <div class="timeline-row">
-            <span class="node"></span>
-            <div class="content">
+            <section id="main"><article id="post-Data-Integrity-and-Lineage-by-using-DLT-Part-3" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
                 
     
-        <h1 itemprop="name">
-            <a class="timeline-article-title" href="/2019/10/05/Jump-start-Kubernetes-with-Docker-Desktop-on-Windows-10/">Jump-start Kubernetes and Istio with Docker Desktop on Windows 10</a>
+        <h1 class="article-title" itemprop="name">
+            Data Integrity and Lineage by using DLT, Part 3
         </h1>
     
 
-                <div class="article-meta">
-                    
+                
+                    <div class="article-meta">
+                        
     <div class="article-date">
         <i class="fa fa-calendar"></i>
-        <a href="/2019/10/05/Jump-start-Kubernetes-with-Docker-Desktop-on-Windows-10/">
-            <time datetime="2019-10-05T17:57:31.000Z" itemprop="datePublished">2019-10-05</time>
+        <a href="/2019/01/03/Data-Integrity-and-Lineage-by-using-DLT-Part-3/">
+            <time datetime="2019-01-03T10:08:30.000Z" itemprop="datePublished">2019-01-03</time>
         </a>
     </div>
 
 
-                    
-                    
+                        
+                        
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Docker/">Docker</a>, <a class="tag-link" href="/tags/Istio/">Istio</a>, <a class="tag-link" href="/tags/Jump-start/">Jump-start</a>, <a class="tag-link" href="/tags/Kiali/">Kiali</a>, <a class="tag-link" href="/tags/Kubernetes/">Kubernetes</a>, <a class="tag-link" href="/tags/Service-mesh/">Service mesh</a>
+        <a class="tag-link" href="/tags/DLT/">DLT</a>, <a class="tag-link" href="/tags/Data-Integrity/">Data Integrity</a>, <a class="tag-link" href="/tags/Data-Lineage/">Data Lineage</a>, <a class="tag-link" href="/tags/Distributed-Ledger-Technology/">Distributed Ledger Technology</a>, <a class="tag-link" href="/tags/IOTA/">IOTA</a>, <a class="tag-link" href="/tags/IoT/">IoT</a>, <a class="tag-link" href="/tags/Tangle/">Tangle</a>
     </div>
 
-                </div>
-            </div>
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p><strong>Other articles in this series:</strong></p>
+<ul>
+<li><a href="http://feng.lu/2018/09/25/Data-Integrity-and-Lineage-by-using-DLT-Part-1/">Part 1</a></li>
+<li><a href="http://feng.lu/2018/10/03/Data-Integrity-and-Lineage-by-using-DLT-Part-2/">Part 2</a> </li>
+<li>Part 3 (this article)</li>
+</ul>
+<h1 id="Recap"><a href="#Recap" class="headerlink" title="Recap"></a>Recap</h1><p>In the second part of this series, we have went though both the detailed technical design that is based on IOTA. Some quick recap are:</p>
+<ol>
+<li>Use MAM protocol for interacting with IOTA Tangle.</li>
+<li>Defined the core data schema (4 mandatory fields: “dataPackageId”, “wayOfProof” , “valueOfProof” and “inputs”). </li>
+</ol>
+<p>Although the core data schema is quite easy to implement, companies and developers might meet some challenges to get started, such as:</p>
+<ol>
+<li>Developers need to build the knowledge of IOTA and MAM protocol.</li>
+<li>Need to build user interface for data lineage visualization.</li>
+<li>Companies most likely need to setup and maintain their dedicated infrastructure (Web server that runs IOTA server code, database, resource to perform Proof-of-Work, connection to neighbor nodes in IOTA network, etc), as public nodes from community are not stable.  </li>
+</ol>
+<h1 id="Data-Lineage-Service-an-open-source-application-to-get-you-started"><a href="#Data-Lineage-Service-an-open-source-application-to-get-you-started" class="headerlink" title="Data Lineage Service - an open source application to get you started"></a>Data Lineage Service - an open source application to get you started</h1><p>We want to address above challenges, and help everyone to gain benefits of data integrity and lineage. Therefore, we have built “<strong>Data Lineage Service</strong>“ application. Developers and companies can apply this technology without deep understanding of IOTA and MAM protocol. It can be used either as a standalone application, or a microservice that integrates with existing systems.</p>
+<p>The key functions are:</p>
+<ul>
+<li>Wrapped IOTA MAM protocol to well-known HTTP(s) protocol as standard Restful API, with swagger definition. Developers do not need to worry about MAM protocol and it technical details, but focus on the normal data pipeline.</li>
+<li>Reusable web interface for lineage visualization.</li>
+<li>User-friendly interface for submitting data integrity and lineage information to DLT.</li>
+<li>Built-in functionalities for addressing common issues such as caching and monitoring.</li>
+<li>It is <a href="https://github.com/veracity/data-lineage-service" target="_blank" rel="noopener">open-sourced on github</a> with MIT license.</li>
+</ul>
+<a id="more"></a>
+<p>Also, for one who simply wanna try it out in the live environment, we are hosting this service that connects to the live DLT environment (IOTA tangle mainnet). </p>
+<p>As a live environment, it allows anyone to:</p>
+<ul>
+<li>Submit and receive integrity/lineage information with the live IOTA tangle mainnet, without maintain his/her own infrastructure.</li>
+<li>Outsource Proof-of-work (PoW) from clients to the service. Our host environment is taking care of the PoW on the server side. It helps IoT devices with low computing power (such as Raspberry PI) to submit information to DLT without consuming local resources. This also helps to improve the submission throughput (Number of submission per second). </li>
+<li>All functions can be done via either web browser or restful APIs.</li>
+<li><strong>Zero cost</strong> for testing and building Proof-of-Concept applications with real-world DLT. </li>
+</ul>
+<h2 id="Source-code-of-Data-Lineage-Service"><a href="#Source-code-of-Data-Lineage-Service" class="headerlink" title="Source code of Data-Lineage-Service"></a>Source code of Data-Lineage-Service</h2><p>The source code is hosted in Github: <a href="https://github.com/veracity/data-lineage-service" target="_blank" rel="noopener">https://github.com/veracity/data-lineage-service</a></p>
+<h2 id="Live-environment"><a href="#Live-environment" class="headerlink" title="Live environment"></a>Live environment</h2><p>The live demo environment can be found at <a href="https://datalineage-viewer.azurewebsites.net" target="_blank" rel="noopener">https://datalineage-viewer.azurewebsites.net</a><br>This live environment is backed by IOTA public network (public IOTA nodes). Feel free to use it (either GUI or API swagger) to store your integrity and lineage data into IOTA mainnet, as well as visualize the existing data. </p>
+<p>The API Swagger is at <a href="https://datalineage-viewer.azurewebsites.net/swagger/" target="_blank" rel="noopener">https://datalineage-viewer.azurewebsites.net/swagger/</a> </p>
+<p>Screenshot:<br><img src="/2019/01/03/Data-Integrity-and-Lineage-by-using-DLT-Part-3/datalineage-screenshot.png" title="Screenshot of data lineage view"></p>
+<h2 id="Real-World-Demo-Real-time-data-integrity-on-IoT-device"><a href="#Real-World-Demo-Real-time-data-integrity-on-IoT-device" class="headerlink" title="Real World Demo: Real-time data integrity on IoT device"></a>Real World Demo: Real-time data integrity on IoT device</h2><p>By using this service, an IoT device can ensure the integrity of its IoT data stream. As a demo, I have a raspberry pi with <a href="https://www.raspberrypi.org/products/sense-hat/" target="_blank" rel="noopener">sense hat</a> that is reporting temperature as well as saving the integrity information to DLT. The integrity information can be read at <a href="https://thetangle.org/mam/UZFQPIFSPRNEXLGYLKQIFUZNZWLSQCUWBFHRWLBJDKIANJLKRMEYAMEPFEFHQBTENPSLPQBKKCVGYLMUN" target="_blank" rel="noopener">here</a> from DLT.<br><div class="video-container"><iframe src="//www.youtube.com/embed/uL5f_d1Np20" frameborder="0" allowfullscreen></iframe></div><br>Therefore, the data consumer of this temperature sensor can be confident that:</p>
+<ul>
+<li>the temperature report (and the report timestamp) is not tampered  </li>
+<li>it is indeed from <em>this</em> raspberry pi </li>
+<li>this data integrity information can be included into the downstream data lineage</li>
+</ul>
+<p>The source code of this demo is at <a href="https://github.com/linkcd/data-integrity-on-pi" target="_blank" rel="noopener">https://github.com/linkcd/data-integrity-on-pi</a></p>
+<h1 id="Performance-testing-and-results"><a href="#Performance-testing-and-results" class="headerlink" title="Performance testing and results"></a>Performance testing and results</h1><p>From day 1, the performance of DLT is a known issue. By expanding this technology into the IoT and real-time data exchanging world, the performance can be a blocking issue. This is also the reason that we started look into IOTA in the beginning, hope its performance can meet the need.</p>
+<p>We have conducted the performance testing in 3 iterations:</p>
+<ol>
+<li>Using a public IOTA node</li>
+<li>Using our own self-hosted IOTA node</li>
+<li>Using self-hosted IOTA node but outsource the PoW to <a href="https://powsrv.io/" target="_blank" rel="noopener">https://powsrv.io/</a></li>
+</ol>
+<p>In each iteration, we tested performance both for reading and writing. The testing code is also open-sourced at github <a href="https://github.com/veracity/IOTA-MAM-performance-testing" target="_blank" rel="noopener">https://github.com/veracity/IOTA-MAM-performance-testing</a></p>
+<p><strong>Test results (on 20.09.2018)</strong><br><img src="/2019/01/03/Data-Integrity-and-Lineage-by-using-DLT-Part-3/Performace%20testing.png" title="Performance testing"></p>
+<p><strong>Conclusion</strong>:</p>
+<ul>
+<li>Performance of <strong>reading</strong> is OK (0.5 second per read), as far as you have a stable IOTA node (either self-host or from a provider)</li>
+<li>Outsource the PoW to dedicated service providers such as powsrv.io can significantly improve the performance of <strong>writing</strong>, but the best result allows us to do about 15 transactions per minute. </li>
+</ul>
+<h1 id="Next-step"><a href="#Next-step" class="headerlink" title="Next step"></a>Next step</h1><p>In veracity we are researching and building <strong>Data Integrity and Lineage as a Service (DILAAS)</strong>  to bring down the barriers for both data providers and data consumers. DILAAS offers:</p>
+<ol>
+<li>A cloud service for managing and exchanging data integrity and lineage information between parties.</li>
+<li>Standard HTTP(s) API, without building competence of backend DLT, such as MAM programming. It helps to reduce the development cost and boost the onboard progress.</li>
+<li>Visualization of data integrity and lineage information.</li>
+<li>Managed infrastructure that offers stable IOTA network accessibility. </li>
+<li>Seed/Identity management, for properly managing the seeds/identifies in the secure environment.</li>
+</ol>
+<p><strong>Other articles in this series:</strong></p>
+<ul>
+<li><a href="http://feng.lu/2018/09/25/Data-Integrity-and-Lineage-by-using-DLT-Part-1/">Part 1</a></li>
+<li><a href="http://feng.lu/2018/10/03/Data-Integrity-and-Lineage-by-using-DLT-Part-2/">Part 2</a> </li>
+<li>Part 3 (this article)</li>
+</ul>
+
+        
         </div>
-    
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
 </div>
+
+    <a data-url="http://feng.lu/2019/01/03/Data-Integrity-and-Lineage-by-using-DLT-Part-3/" data-id="ck9eanqp8000al8ipjjl2tn8u" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="http://feng.lu/2019/01/03/Data-Integrity-and-Lineage-by-using-DLT-Part-3/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://feng.lu/2019/01/03/Data-Integrity-and-Lineage-by-using-DLT-Part-3/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2019/02/06/Customize-social-sharing-on-Linkedin-via-API/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    Customize social sharing on Linkedin via API
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2018/10/03/Data-Integrity-and-Lineage-by-using-DLT-Part-2/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">Data Integrity and Lineage by using DLT, Part 2</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
 </section>
             
                 <aside id="sidebar">
@@ -327,11 +528,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <script>
     var disqus_config = function () {
         
-        this.page.identifier = 'undefined';
+            this.page.url = 'http://feng.lu/2019/01/03/Data-Integrity-and-Lineage-by-using-DLT-Part-3/';
+        
+        this.page.identifier = 'Data-Integrity-and-Lineage-by-using-DLT-Part-3';
     };
     (function() { 
         var d = document, s = d.createElement('script');  
-        s.src = '//' + 'linkcd' + '.disqus.com/count.js';
+        s.src = '//' + 'linkcd' + '.disqus.com/embed.js';
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);
     })();
