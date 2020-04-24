@@ -24,8 +24,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta property="og:description" content="Problem with in-app browser of LinkedIn and Facebook iOS appsRecently our QA reported an interesting issue regarding the native app and our website: When the webpage was shared on Linkedin iOS App and">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http://feng.lu/2020/04/03/How-to-Decrypt-Native-Apps-HTTPS-Traffic-and-Debug-for-In-app-Browser/problem.gif">
+<meta property="og:image" content="http://feng.lu/2020/04/03/How-to-Decrypt-Native-Apps-HTTPS-Traffic-and-Debug-for-In-app-Browser/dzonemitmdiagram.png">
 <meta property="og:image" content="http://feng.lu/2020/04/03/How-to-Decrypt-Native-Apps-HTTPS-Traffic-and-Debug-for-In-app-Browser/fiddler.png">
-<meta property="og:updated_time" content="2020-04-22T12:15:54.262Z">
+<meta property="og:updated_time" content="2020-04-24T08:27:33.017Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="How to Decrypt Native App&#39;s HTTPS Traffic (and Debug for In-app Browser)">
 <meta name="twitter:description" content="Problem with in-app browser of LinkedIn and Facebook iOS appsRecently our QA reported an interesting issue regarding the native app and our website: When the webpage was shared on Linkedin iOS App and">
@@ -330,7 +331,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <li>Search on the internet and hope there is a solution for it. </li>
 <li>Let’s become a hacker: Perform a <a href="https://en.wikipedia.org/wiki/Man-in-the-middle_attack" target="_blank" rel="noopener">Man-in-the-middle attack</a> between apps and the internet, and to decrypt and manipulate the web traffic of Apps as troubleshooting.</li>
 </ol>
-<p>The #1 and #2 are long shots, then I will continue with approach #3.</p>
+<p>The #1 and #2 are long shots, then I will continue with approach #3. The following diagram shows the architecture.</p>
+<img src="/2020/04/03/How-to-Decrypt-Native-Apps-HTTPS-Traffic-and-Debug-for-In-app-Browser/dzonemitmdiagram.png" title="Man-in-the-middle (credit:dzone.com)">
 <h2 id="Let’s-decrypt-the-web-traffic-of-a-native-app-with-Fiddler"><a href="#Let’s-decrypt-the-web-traffic-of-a-native-app-with-Fiddler" class="headerlink" title="Let’s decrypt the web traffic of a native app with Fiddler"></a>Let’s decrypt the web traffic of a native app with Fiddler</h2><p>There some many ways to place a “Man-in-the-middle” between mobile and internet. For example, the famous fiddler can do it. </p>
 <p>Follow the documentation <a href="https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/ConfigureForiOS" target="_blank" rel="noopener">https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/ConfigureForiOS</a>. The key steps are:</p>
 <ol>
@@ -401,7 +403,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </div>
 
-    <a data-url="http://feng.lu/2020/04/03/How-to-Decrypt-Native-Apps-HTTPS-Traffic-and-Debug-for-In-app-Browser/" data-id="ck9bayste000aqoip7ede7gd3" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="http://feng.lu/2020/04/03/How-to-Decrypt-Native-Apps-HTTPS-Traffic-and-Debug-for-In-app-Browser/" data-id="ck9dxnv3y000c0cipclknhvmi" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
