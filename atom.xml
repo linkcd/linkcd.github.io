@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://feng.lu/"/>
-  <updated>2020-04-24T08:27:33.017Z</updated>
+  <updated>2020-08-04T12:33:52.605Z</updated>
   <id>http://feng.lu/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Encoding issue when calling API via powershell</title>
+    <link href="http://feng.lu/2020/08/04/Encoding-issue-when-calling-API-via-powershell/"/>
+    <id>http://feng.lu/2020/08/04/Encoding-issue-when-calling-API-via-powershell/</id>
+    <published>2020-08-04T11:40:00.000Z</published>
+    <updated>2020-08-04T12:33:52.605Z</updated>
+    
+    <content type="html"><![CDATA[<p>Recently we need to fetch a big dataset from an API via powershell, then import to Azure Data Explorer (ADX).</p><h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Used Measure-Command for measuring performance</span></span><br><span class="line">Measure-Command &#123;curl <span class="string">'THE_API_END_POINT'</span> | select -expand Content &gt; data.json&#125;</span><br></pre></td></tr></table></figure><p>The data.json file looks perfectly fine, but during import to ADX, it reported error “invalid json format”.</p><h2 id="Troubleshooting"><a href="#Troubleshooting" class="headerlink" title="Troubleshooting"></a>Troubleshooting</h2><ol><li><p>Using online validation tool such as <a href="https://jsonlint.com/" target="_blank" rel="noopener">https://jsonlint.com/</a>, copy &amp; paste the content from data.json. The json objects are valid.</p></li><li><p>Using local tool <a href="https://www.npmjs.com/package/jsonlint" target="_blank" rel="noopener">jsonlint</a>, reports error. It shows the data.json file has encoding issue.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">PS C:\Users\lufeng\Desktop&gt; jsonlint .\data.json</span><br><span class="line">Error: Parse error on line 1:</span><br><span class="line">��[ &#123; &quot; _ i d &quot; : &#123;</span><br><span class="line">^</span><br><span class="line">Expecting &apos;STRING&apos;, &apos;NUMBER&apos;, &apos;NULL&apos;, &apos;TRUE&apos;, &apos;FALSE&apos;, &apos;&#123;&apos;, &apos;[&apos;, got &apos;undefined&apos;</span><br><span class="line">    at Object.parseError (C:\Users\lufeng\AppData\Roaming\npm\node_modules\jsonlint\lib\jsonlint.js:55:11)  </span><br><span class="line">    at Object.parse (C:\Users\lufeng\AppData\Roaming\npm\node_modules\jsonlint\lib\jsonlint.js:132:22)      </span><br><span class="line">    at parse (C:\Users\lufeng\AppData\Roaming\npm\node_modules\jsonlint\lib\cli.js:82:14)</span><br><span class="line">    at main (C:\Users\lufeng\AppData\Roaming\npm\node_modules\jsonlint\lib\cli.js:135:14)</span><br><span class="line">    at Object.&lt;anonymous&gt; (C:\Users\lufeng\AppData\Roaming\npm\node_modules\jsonlint\lib\cli.js:179:1)      </span><br><span class="line">    at Module._compile (internal/modules/cjs/loader.js:955:30)</span><br><span class="line">    at Object.Module._extensions..js (internal/modules/cjs/loader.js:991:10)</span><br><span class="line">    at Module.load (internal/modules/cjs/loader.js:811:32)</span><br><span class="line">    at Function.Module._load (internal/modules/cjs/loader.js:723:14)</span><br><span class="line">    at Function.Module.runMain (internal/modules/cjs/loader.js:1043:10)</span><br></pre></td></tr></table></figure></li></ol><h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Switch to a different powershell command solved the problem<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Invoke-WebRequest -Uri &apos;THE_API_END_POINT&apos; -OutFile data.json</span><br></pre></td></tr></table></figure></p><p>EOF</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Recently we need to fetch a big dataset from an API via powershell, then import to Azure Data Explorer (ADX).&lt;/p&gt;
+&lt;h2 id=&quot;Problem&quot;&gt;&lt;a hre
+      
+    
+    </summary>
+    
+    
+      <category term="Powershell" scheme="http://feng.lu/tags/Powershell/"/>
+    
+      <category term="Encoding" scheme="http://feng.lu/tags/Encoding/"/>
+    
+      <category term="Json" scheme="http://feng.lu/tags/Json/"/>
+    
+  </entry>
   
   <entry>
     <title>How to Decrypt Native App&#39;s HTTPS Traffic (and Debug for In-app Browser)</title>
@@ -688,38 +716,6 @@ Failed to add the agent.  Try again or ctrl-c to quit
       <category term="PowerBI" scheme="http://feng.lu/tags/PowerBI/"/>
     
       <category term="DevOps" scheme="http://feng.lu/tags/DevOps/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Web/Load testing against an ADFS federated application</title>
-    <link href="http://feng.lu/2016/10/29/Web-testing-and-load-testing-against-an-ADFS-federated-application/"/>
-    <id>http://feng.lu/2016/10/29/Web-testing-and-load-testing-against-an-ADFS-federated-application/</id>
-    <published>2016-10-29T18:25:07.000Z</published>
-    <updated>2020-03-24T08:22:24.991Z</updated>
-    
-    <content type="html"><![CDATA[<p>In Application Insights, you can create an <a href="https://azure.microsoft.com/en-us/documentation/articles/app-insights-monitor-web-app-availability/" target="_blank" rel="noopener">availability web testing</a> to monitor the availability of a web application. It supports 2 type of testing:</p><ul><li>URL ping test: a simple test that you can create in the Azure portal.</li><li>Multi-step web test: which you create in Visual Studio Ultimate or Visual Studio Enterprise and upload to the portal.</li></ul><p>Normally it is easy to setup ping test and multiple step testing against a public site.</p><p>However, in order to have a multiple step testing against an ADFS federated application, you will have to do some extra in order to take care of the authentication part.</p><a id="more"></a><h1 id="The-problem"><a href="#The-problem" class="headerlink" title="The problem"></a>The problem</h1><p>By default, the test scripts that you recorded via Visual studio cannot handle the ADFS authentication. Depends on the version of your Visual Studio, the generated script either has no token, or has a token with a timestamp.</p><img src="/2016/10/29/Web-testing-and-load-testing-against-an-ADFS-federated-application/Recorded%20script%20with%20a%20timestamp.png" title="Recorded script with a timestamp"><p>If you setup the multiple step web test with this script, after the token with a timestamp expired, you will see error message such as “System.IdentityModel.Tokens.SecurityTokenExpiredException at System.IdentityModel.Tokens.SamlSecurityTokenHandler.ValidateToken”, “The SamlSecurityToken is rejected because the SamlAssertion.NotOnOrAfter condition is not satisfied. NotOnOrAfter: ‘10/24/2016 2:03:42 PM’ Current time: ‘10/27/2016 1:20:52 AM’ “</p><img src="/2016/10/29/Web-testing-and-load-testing-against-an-ADFS-federated-application/Exception%20due%20to%20invalid%20token%20timestamp.png" title="Exception due to invalid token timestamp"><h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><h2 id="Steps-of-ADFS-login"><a href="#Steps-of-ADFS-login" class="headerlink" title="Steps of ADFS login"></a>Steps of ADFS login</h2><ol><li><p>Redirect to ADFS for login<br> If the current session does not have an valid ADFS token, the end user will be automatically redirected to the ADFS login page. Pay attention to the hyperlink in the response body. </p> <img src="/2016/10/29/Web-testing-and-load-testing-against-an-ADFS-federated-application/1%20Redirect%20to%20ADFS%20for%20login.png" title="Step 1: Redirect to ADFS for login"></li><li><p>In the ADFS login form, user types the account name and password, then submit. The input values can be found in step 3 HTTP request body in below.</p> <img src="/2016/10/29/Web-testing-and-load-testing-against-an-ADFS-federated-application/2%20ADFS%20login%20form.png" title="Step 2: ADFS login form"></li><li><p>HTTP POST the user name and password to ADFS URL for verification. </p> <img src="/2016/10/29/Web-testing-and-load-testing-against-an-ADFS-federated-application/3%20Post%20credential%20back%20to%20ADFS.png" title="Step 3: Post credential back to ADFS"></li><li><p>If the credential is valid, generate a response HTML which triggers a HTTP POST back to the application URL. The values in the HTTP POST can be found in Step 5 screenshot in below.</p> <img src="/2016/10/29/Web-testing-and-load-testing-against-an-ADFS-federated-application/4%20Completed%20login%20and%20post%20form.png" title="Step 4: Completed login and post form.png"></li><li><p>As the result of the generated HTTP POST to application URL, User got the authentication token to login </p> <img src="/2016/10/29/Web-testing-and-load-testing-against-an-ADFS-federated-application/5%20Form%20posted%20and%20got%20authenticated%20cookie.png" title="Step 5: Form posted and got authenticated cookie"></li></ol><h2 id="Setup-script"><a href="#Setup-script" class="headerlink" title="Setup script"></a>Setup script</h2><p>In the script, we have following setup: (Please note that the script is accessing a specify application URL: “/notifications”, instead of the root URL “/“)<br>    <img src="/2016/10/29/Web-testing-and-load-testing-against-an-ADFS-federated-application/Test%20steps.png" title="Test steps"></p><ol><li><p>Conduct a directly <strong>POST</strong> call to ADFS URL<br> <strong>Querystring</strong>: values for protocol(wa), application information(wtrealm and wctx) and RedirectToIdentityProvider<br> <strong>Form</strong>: authenticaiton method, account name and password</p></li><li><p>Once we got the response, extract from context parameter _cert</p> <img src="/2016/10/29/Web-testing-and-load-testing-against-an-ADFS-federated-application/Extract%20hidden%20field.png" title="Extract hidden field to a variable _cert"></li><li><p>Conduct a directly <strong>POST</strong> call to application URL , with values that we extracted from previous call to ADFS</p> <img src="/2016/10/29/Web-testing-and-load-testing-against-an-ADFS-federated-application/Pass%20values%20from%20hidden%20field.png" title="Pass values from hidden field"></li><li><p>From now on, you can continue the testing with more URLs of the application, without passed values from hidden fields as we did in above.</p></li><li>Successed tests<img src="/2016/10/29/Web-testing-and-load-testing-against-an-ADFS-federated-application/Successed%20tests.png" title="Successed tests"> </li></ol><h1 id="Load-Testing"><a href="#Load-Testing" class="headerlink" title="Load Testing"></a>Load Testing</h1><p>As far as the web testing script is ready, you can quickly load them into the load test cases.<br><img src="/2016/10/29/Web-testing-and-load-testing-against-an-ADFS-federated-application/Load%20testing%20results.png" title="Load testing results"></p><h1 id="Ref"><a href="#Ref" class="headerlink" title="Ref"></a>Ref</h1><p>There are two similar posts about authentication of ADFS:</p><ul><li><a href="http://southworks.com/blog/2013/01/03/load-testing-adfs-federated-sharepoint-applications/" target="_blank" rel="noopener">http://southworks.com/blog/2013/01/03/load-testing-adfs-federated-sharepoint-applications/</a></li><li><a href="https://blogs.msdn.microsoft.com/zwsong/2014/07/23/load-testing-saml-ping-based-sharepoint-2013-sites/" target="_blank" rel="noopener">https://blogs.msdn.microsoft.com/zwsong/2014/07/23/load-testing-saml-ping-based-sharepoint-2013-sites/</a> </li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;In Application Insights, you can create an &lt;a href=&quot;https://azure.microsoft.com/en-us/documentation/articles/app-insights-monitor-web-app-availability/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;availability web testing&lt;/a&gt; to monitor the availability of a web application. It supports 2 type of testing:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;URL ping test: a simple test that you can create in the Azure portal.&lt;/li&gt;
-&lt;li&gt;Multi-step web test: which you create in Visual Studio Ultimate or Visual Studio Enterprise and upload to the portal.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Normally it is easy to setup ping test and multiple step testing against a public site.&lt;/p&gt;
-&lt;p&gt;However, in order to have a multiple step testing against an ADFS federated application, you will have to do some extra in order to take care of the authentication part.&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Web Testing" scheme="http://feng.lu/tags/Web-Testing/"/>
-    
-      <category term="Load Testing" scheme="http://feng.lu/tags/Load-Testing/"/>
-    
-      <category term="Application Insights" scheme="http://feng.lu/tags/Application-Insights/"/>
-    
-      <category term="ADFS" scheme="http://feng.lu/tags/ADFS/"/>
     
   </entry>
   
