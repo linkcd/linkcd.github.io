@@ -19,34 +19,34 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta name="keywords" content="Application Insights,Azure,Monitoring,PowerBI,DevOps">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Application Insights Export and PowerBI">
-<meta property="og:url" content="http://feng.lu/2016/10/15/Application-Insights-Export-and-PowerBI/index.html">
+<meta property="og:url" content="https://feng.lu/2016/10/15/Application-Insights-Export-and-PowerBI/index.html">
 <meta property="og:site_name" content="feng.blog();">
 <meta property="og:description" content="IntroductionApplication Insight is a great tool for monitoring your application. However, there is a limitation regarding historical data: Regardless the different plans, you can only have:   7 days r">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://feng.lu/2016/10/15/Application-Insights-Export-and-PowerBI/export%20settings.png">
-<meta property="og:image" content="http://feng.lu/2016/10/15/Application-Insights-Export-and-PowerBI/Folders%20in%20blob.png">
-<meta property="og:image" content="http://feng.lu/2016/10/15/Application-Insights-Export-and-PowerBI/Blob%20file%20list.png">
-<meta property="og:image" content="http://feng.lu/2016/10/15/Application-Insights-Export-and-PowerBI/Page%20view%20record%20in%20blob%20file.png">
-<meta property="og:image" content="http://feng.lu/2016/10/15/Application-Insights-Export-and-PowerBI/Path%20in%20storage%20account.png">
-<meta property="og:image" content="http://feng.lu/2016/10/15/Application-Insights-Export-and-PowerBI/setup%20input.png">
-<meta property="og:image" content="http://feng.lu/2016/10/15/Application-Insights-Export-and-PowerBI/Error%20in%20sampling%20input%20data.png">
-<meta property="og:image" content="http://feng.lu/2016/10/15/Application-Insights-Export-and-PowerBI/Download%20sample%20data.png">
-<meta property="og:image" content="http://feng.lu/2016/10/15/Application-Insights-Export-and-PowerBI/Setup%20SQL%20DB%20and%20Firewalls.png">
-<meta property="og:image" content="http://feng.lu/2016/10/15/Application-Insights-Export-and-PowerBI/Needed%20fields%20in%20availability.png">
-<meta property="og:image" content="http://feng.lu/2016/10/15/Application-Insights-Export-and-PowerBI/Needed%20fields%20in%20pageviews.png">
-<meta property="og:image" content="http://feng.lu/2016/10/15/Application-Insights-Export-and-PowerBI/setup%20output.png">
-<meta property="og:image" content="http://feng.lu/2016/10/15/Application-Insights-Export-and-PowerBI/Sample%20content.png">
-<meta property="og:image" content="http://feng.lu/2016/10/15/Application-Insights-Export-and-PowerBI/Test%20query%20with%20sample%20data.png">
-<meta property="og:image" content="http://feng.lu/2016/10/15/Application-Insights-Export-and-PowerBI/Stream%20analytic%20monitoring.png">
-<meta property="og:image" content="http://feng.lu/2016/10/15/Application-Insights-Export-and-PowerBI/Error%20log%20in%20stream%20analytic%20job.png">
-<meta property="og:image" content="http://feng.lu/2016/10/15/Application-Insights-Export-and-PowerBI/Connect%20tables%20from%20PowerBI.png">
-<meta property="og:image" content="http://feng.lu/2016/10/15/Application-Insights-Export-and-PowerBI/Add%20column%20in%20PowerBI.png">
-<meta property="og:image" content="http://feng.lu/2016/10/15/Application-Insights-Export-and-PowerBI/Sample%20of%20PowerBi%20dashboard.png">
+<meta property="og:image" content="https://feng.lu/2016/10/15/Application-Insights-Export-and-PowerBI/export%20settings.png">
+<meta property="og:image" content="https://feng.lu/2016/10/15/Application-Insights-Export-and-PowerBI/Folders%20in%20blob.png">
+<meta property="og:image" content="https://feng.lu/2016/10/15/Application-Insights-Export-and-PowerBI/Blob%20file%20list.png">
+<meta property="og:image" content="https://feng.lu/2016/10/15/Application-Insights-Export-and-PowerBI/Page%20view%20record%20in%20blob%20file.png">
+<meta property="og:image" content="https://feng.lu/2016/10/15/Application-Insights-Export-and-PowerBI/Path%20in%20storage%20account.png">
+<meta property="og:image" content="https://feng.lu/2016/10/15/Application-Insights-Export-and-PowerBI/setup%20input.png">
+<meta property="og:image" content="https://feng.lu/2016/10/15/Application-Insights-Export-and-PowerBI/Error%20in%20sampling%20input%20data.png">
+<meta property="og:image" content="https://feng.lu/2016/10/15/Application-Insights-Export-and-PowerBI/Download%20sample%20data.png">
+<meta property="og:image" content="https://feng.lu/2016/10/15/Application-Insights-Export-and-PowerBI/Setup%20SQL%20DB%20and%20Firewalls.png">
+<meta property="og:image" content="https://feng.lu/2016/10/15/Application-Insights-Export-and-PowerBI/Needed%20fields%20in%20availability.png">
+<meta property="og:image" content="https://feng.lu/2016/10/15/Application-Insights-Export-and-PowerBI/Needed%20fields%20in%20pageviews.png">
+<meta property="og:image" content="https://feng.lu/2016/10/15/Application-Insights-Export-and-PowerBI/setup%20output.png">
+<meta property="og:image" content="https://feng.lu/2016/10/15/Application-Insights-Export-and-PowerBI/Sample%20content.png">
+<meta property="og:image" content="https://feng.lu/2016/10/15/Application-Insights-Export-and-PowerBI/Test%20query%20with%20sample%20data.png">
+<meta property="og:image" content="https://feng.lu/2016/10/15/Application-Insights-Export-and-PowerBI/Stream%20analytic%20monitoring.png">
+<meta property="og:image" content="https://feng.lu/2016/10/15/Application-Insights-Export-and-PowerBI/Error%20log%20in%20stream%20analytic%20job.png">
+<meta property="og:image" content="https://feng.lu/2016/10/15/Application-Insights-Export-and-PowerBI/Connect%20tables%20from%20PowerBI.png">
+<meta property="og:image" content="https://feng.lu/2016/10/15/Application-Insights-Export-and-PowerBI/Add%20column%20in%20PowerBI.png">
+<meta property="og:image" content="https://feng.lu/2016/10/15/Application-Insights-Export-and-PowerBI/Sample%20of%20PowerBi%20dashboard.png">
 <meta property="og:updated_time" content="2020-03-24T08:22:24.604Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Application Insights Export and PowerBI">
 <meta name="twitter:description" content="IntroductionApplication Insight is a great tool for monitoring your application. However, there is a limitation regarding historical data: Regardless the different plans, you can only have:   7 days r">
-<meta name="twitter:image" content="http://feng.lu/2016/10/15/Application-Insights-Export-and-PowerBI/export%20settings.png">
+<meta name="twitter:image" content="https://feng.lu/2016/10/15/Application-Insights-Export-and-PowerBI/export%20settings.png">
     
 
     
@@ -203,6 +203,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </td>
                     
                     <td>
+                        <a href="https://github.com/linkcd" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
                         <a href="/atom.xml" target="_blank" title="rss" class=tooltip>
                             <i class="fa fa-rss"></i>
                         </a>
@@ -332,7 +338,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </div>
 
-    <a data-url="http://feng.lu/2016/10/15/Application-Insights-Export-and-PowerBI/" data-id="ckdiy7dul0005wwipxr5f5b8w" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://feng.lu/2016/10/15/Application-Insights-Export-and-PowerBI/" data-id="ckeic4qll00032wipguanld4e" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -400,7 +406,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
             
     
-        <a href="http://feng.lu/2016/10/15/Application-Insights-Export-and-PowerBI/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://feng.lu/2016/10/15/Application-Insights-Export-and-PowerBI/">Comments</a>
+        <a href="https://feng.lu/2016/10/15/Application-Insights-Export-and-PowerBI/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://feng.lu/2016/10/15/Application-Insights-Export-and-PowerBI/">Comments</a>
     
 
         </footer>
@@ -539,7 +545,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <script>
     var disqus_config = function () {
         
-            this.page.url = 'http://feng.lu/2016/10/15/Application-Insights-Export-and-PowerBI/';
+            this.page.url = 'https://feng.lu/2016/10/15/Application-Insights-Export-and-PowerBI/';
         
         this.page.identifier = 'Application-Insights-Export-and-PowerBI';
     };

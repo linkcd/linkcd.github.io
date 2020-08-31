@@ -19,31 +19,31 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta name="keywords" content="IOTA,Data Lineage,Data Integrity,IoT,DLT,Distributed Ledger Technology,Tangle">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Data Integrity and Lineage by using DLT, Part 1">
-<meta property="og:url" content="http://feng.lu/2018/09/25/Data-Integrity-and-Lineage-by-using-DLT-Part-1/index.html">
+<meta property="og:url" content="https://feng.lu/2018/09/25/Data-Integrity-and-Lineage-by-using-DLT-Part-1/index.html">
 <meta property="og:site_name" content="feng.blog();">
 <meta property="og:description" content="Other articles in this series:  Part 1 (this article) Part 2  Part 3  IntroductionWith the proliferation of data – collecting and storing it, sharing it, mining it for gains – a basic question goes un">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://feng.lu/2018/09/25/Data-Integrity-and-Lineage-by-using-DLT-Part-1/Blackbox%20in%20data%20platform.png">
-<meta property="og:image" content="http://feng.lu/2018/09/25/Data-Integrity-and-Lineage-by-using-DLT-Part-1/Data%20integrity%20lineage%20and%20trust.png">
-<meta property="og:image" content="http://feng.lu/2018/09/25/Data-Integrity-and-Lineage-by-using-DLT-Part-1/Alice%20sends%20msg%20to%20Bob.png">
-<meta property="og:image" content="http://feng.lu/2018/09/25/Data-Integrity-and-Lineage-by-using-DLT-Part-1/Sending%20msg%20with%20encryption.png">
-<meta property="og:image" content="http://feng.lu/2018/09/25/Data-Integrity-and-Lineage-by-using-DLT-Part-1/Sending%20msg%20with%20hash.png">
-<meta property="og:image" content="http://feng.lu/2018/09/25/Data-Integrity-and-Lineage-by-using-DLT-Part-1/Sending%20msg%20with%20hash%20with%20trust%20area.png">
-<meta property="og:image" content="http://feng.lu/2018/09/25/Data-Integrity-and-Lineage-by-using-DLT-Part-1/Sending%20msg%20with%20asymmetric%20encryption.png">
-<meta property="og:image" content="http://feng.lu/2018/09/25/Data-Integrity-and-Lineage-by-using-DLT-Part-1/Can%20trust%20message%20with%20hash.png">
-<meta property="og:image" content="http://feng.lu/2018/09/25/Data-Integrity-and-Lineage-by-using-DLT-Part-1/Bobs%20problem.png">
-<meta property="og:image" content="http://feng.lu/2018/09/25/Data-Integrity-and-Lineage-by-using-DLT-Part-1/Alice%20replaces%20both%20message%20and%20its%20hash.png">
-<meta property="og:image" content="http://feng.lu/2018/09/25/Data-Integrity-and-Lineage-by-using-DLT-Part-1/Hashing%20solution%20with%20dlt.png">
-<meta property="og:image" content="http://feng.lu/2018/09/25/Data-Integrity-and-Lineage-by-using-DLT-Part-1/Question%20of%20data%20lineage.png">
-<meta property="og:image" content="http://feng.lu/2018/09/25/Data-Integrity-and-Lineage-by-using-DLT-Part-1/Data%20lineage%20by%20using%20DLT.png">
-<meta property="og:image" content="http://feng.lu/2018/09/25/Data-Integrity-and-Lineage-by-using-DLT-Part-1/Extract%20lineage%20from%20DLT.png">
-<meta property="og:image" content="http://feng.lu/2018/09/25/Data-Integrity-and-Lineage-by-using-DLT-Part-1/Track%20down%20the%20root%20cause.png">
-<meta property="og:image" content="http://feng.lu/2018/09/25/Data-Integrity-and-Lineage-by-using-DLT-Part-1/No%20longer%20a%20blackbox%20on%20veracity.png">
+<meta property="og:image" content="https://feng.lu/2018/09/25/Data-Integrity-and-Lineage-by-using-DLT-Part-1/Blackbox%20in%20data%20platform.png">
+<meta property="og:image" content="https://feng.lu/2018/09/25/Data-Integrity-and-Lineage-by-using-DLT-Part-1/Data%20integrity%20lineage%20and%20trust.png">
+<meta property="og:image" content="https://feng.lu/2018/09/25/Data-Integrity-and-Lineage-by-using-DLT-Part-1/Alice%20sends%20msg%20to%20Bob.png">
+<meta property="og:image" content="https://feng.lu/2018/09/25/Data-Integrity-and-Lineage-by-using-DLT-Part-1/Sending%20msg%20with%20encryption.png">
+<meta property="og:image" content="https://feng.lu/2018/09/25/Data-Integrity-and-Lineage-by-using-DLT-Part-1/Sending%20msg%20with%20hash.png">
+<meta property="og:image" content="https://feng.lu/2018/09/25/Data-Integrity-and-Lineage-by-using-DLT-Part-1/Sending%20msg%20with%20hash%20with%20trust%20area.png">
+<meta property="og:image" content="https://feng.lu/2018/09/25/Data-Integrity-and-Lineage-by-using-DLT-Part-1/Sending%20msg%20with%20asymmetric%20encryption.png">
+<meta property="og:image" content="https://feng.lu/2018/09/25/Data-Integrity-and-Lineage-by-using-DLT-Part-1/Can%20trust%20message%20with%20hash.png">
+<meta property="og:image" content="https://feng.lu/2018/09/25/Data-Integrity-and-Lineage-by-using-DLT-Part-1/Bobs%20problem.png">
+<meta property="og:image" content="https://feng.lu/2018/09/25/Data-Integrity-and-Lineage-by-using-DLT-Part-1/Alice%20replaces%20both%20message%20and%20its%20hash.png">
+<meta property="og:image" content="https://feng.lu/2018/09/25/Data-Integrity-and-Lineage-by-using-DLT-Part-1/Hashing%20solution%20with%20dlt.png">
+<meta property="og:image" content="https://feng.lu/2018/09/25/Data-Integrity-and-Lineage-by-using-DLT-Part-1/Question%20of%20data%20lineage.png">
+<meta property="og:image" content="https://feng.lu/2018/09/25/Data-Integrity-and-Lineage-by-using-DLT-Part-1/Data%20lineage%20by%20using%20DLT.png">
+<meta property="og:image" content="https://feng.lu/2018/09/25/Data-Integrity-and-Lineage-by-using-DLT-Part-1/Extract%20lineage%20from%20DLT.png">
+<meta property="og:image" content="https://feng.lu/2018/09/25/Data-Integrity-and-Lineage-by-using-DLT-Part-1/Track%20down%20the%20root%20cause.png">
+<meta property="og:image" content="https://feng.lu/2018/09/25/Data-Integrity-and-Lineage-by-using-DLT-Part-1/No%20longer%20a%20blackbox%20on%20veracity.png">
 <meta property="og:updated_time" content="2020-04-24T09:40:37.838Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Data Integrity and Lineage by using DLT, Part 1">
 <meta name="twitter:description" content="Other articles in this series:  Part 1 (this article) Part 2  Part 3  IntroductionWith the proliferation of data – collecting and storing it, sharing it, mining it for gains – a basic question goes un">
-<meta name="twitter:image" content="http://feng.lu/2018/09/25/Data-Integrity-and-Lineage-by-using-DLT-Part-1/Blackbox%20in%20data%20platform.png">
+<meta name="twitter:image" content="https://feng.lu/2018/09/25/Data-Integrity-and-Lineage-by-using-DLT-Part-1/Blackbox%20in%20data%20platform.png">
     
 
     
@@ -196,6 +196,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <td>
                         <a href="https://www.linkedin.com/in/linkcd" target="_blank" title="linkedin" class=tooltip>
                             <i class="fa fa-linkedin"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="https://github.com/linkcd" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
                         </a>
                     </td>
                     
@@ -383,7 +389,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </div>
 
-    <a data-url="http://feng.lu/2018/09/25/Data-Integrity-and-Lineage-by-using-DLT-Part-1/" data-id="ckdiy7duu000awwipo2kuwcrm" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://feng.lu/2018/09/25/Data-Integrity-and-Lineage-by-using-DLT-Part-1/" data-id="ckeic4qlq00062wipl5yk6iov" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -451,7 +457,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
             
     
-        <a href="http://feng.lu/2018/09/25/Data-Integrity-and-Lineage-by-using-DLT-Part-1/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://feng.lu/2018/09/25/Data-Integrity-and-Lineage-by-using-DLT-Part-1/">Comments</a>
+        <a href="https://feng.lu/2018/09/25/Data-Integrity-and-Lineage-by-using-DLT-Part-1/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://feng.lu/2018/09/25/Data-Integrity-and-Lineage-by-using-DLT-Part-1/">Comments</a>
     
 
         </footer>
@@ -590,7 +596,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <script>
     var disqus_config = function () {
         
-            this.page.url = 'http://feng.lu/2018/09/25/Data-Integrity-and-Lineage-by-using-DLT-Part-1/';
+            this.page.url = 'https://feng.lu/2018/09/25/Data-Integrity-and-Lineage-by-using-DLT-Part-1/';
         
         this.page.identifier = 'Data-Integrity-and-Lineage-by-using-DLT-Part-1';
     };

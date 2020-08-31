@@ -19,33 +19,33 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta name="keywords" content="Azure,OAuth,OpenID,Azure AD B2C,Nodejs,Authentication,Authorization">
 <meta property="og:type" content="article">
 <meta property="og:title" content="OAuth in Azure AD B2C with Nodejs">
-<meta property="og:url" content="http://feng.lu/2017/06/28/OAuth-in-Azure-AD-B2C-with-Nodejs/index.html">
+<meta property="og:url" content="https://feng.lu/2017/06/28/OAuth-in-Azure-AD-B2C-with-Nodejs/index.html">
 <meta property="og:site_name" content="feng.blog();">
 <meta property="og:description" content="Recently we need to build a Nodejs single-page-application (SPA) solution that is using Azure AD B2C as the identity provider (idp). Since it is a single-page-application, we are going to use OAuth2 I">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://feng.lu/2017/06/28/OAuth-in-Azure-AD-B2C-with-Nodejs/what-is-oauth.jpg">
-<meta property="og:image" content="http://feng.lu/2017/06/28/OAuth-in-Azure-AD-B2C-with-Nodejs/Azure%20AD%20B2C%20Create%20Tenant.png">
-<meta property="og:image" content="http://feng.lu/2017/06/28/OAuth-in-Azure-AD-B2C-with-Nodejs/Switch%20domain.png">
-<meta property="og:image" content="http://feng.lu/2017/06/28/OAuth-in-Azure-AD-B2C-with-Nodejs/Connect%20Azure%20AD%20B2C%20to%20subscription.png">
-<meta property="og:image" content="http://feng.lu/2017/06/28/OAuth-in-Azure-AD-B2C-with-Nodejs/AAD%20B2C%20Dashboard.png">
-<meta property="og:image" content="http://feng.lu/2017/06/28/OAuth-in-Azure-AD-B2C-with-Nodejs/Create%20Linkedin%20App.png">
-<meta property="og:image" content="http://feng.lu/2017/06/28/OAuth-in-Azure-AD-B2C-with-Nodejs/Add%20linkedin%20as%20an%20Identity%20provider.png">
-<meta property="og:image" content="http://feng.lu/2017/06/28/OAuth-in-Azure-AD-B2C-with-Nodejs/Select%20sign-up%20attributes.png">
-<meta property="og:image" content="http://feng.lu/2017/06/28/OAuth-in-Azure-AD-B2C-with-Nodejs/Select%20application%20claims.png">
-<meta property="og:image" content="http://feng.lu/2017/06/28/OAuth-in-Azure-AD-B2C-with-Nodejs/Register%20Web%20Api.png">
-<meta property="og:image" content="http://feng.lu/2017/06/28/OAuth-in-Azure-AD-B2C-with-Nodejs/Published%20scopes.png">
-<meta property="og:image" content="http://feng.lu/2017/06/28/OAuth-in-Azure-AD-B2C-with-Nodejs/Run%20webapi%20on%20localhost.png">
-<meta property="og:image" content="http://feng.lu/2017/06/28/OAuth-in-Azure-AD-B2C-with-Nodejs/Unauthorized%20access%20to%20the%20api.png">
-<meta property="og:image" content="http://feng.lu/2017/06/28/OAuth-in-Azure-AD-B2C-with-Nodejs/Register%20client%20app.png">
-<meta property="og:image" content="http://feng.lu/2017/06/28/OAuth-in-Azure-AD-B2C-with-Nodejs/Grant%20client%20app%20API%20access.png">
-<meta property="og:image" content="http://feng.lu/2017/06/28/OAuth-in-Azure-AD-B2C-with-Nodejs/login%20with%20linkedin.gif">
-<meta property="og:image" content="http://feng.lu/2017/06/28/OAuth-in-Azure-AD-B2C-with-Nodejs/Claim%20properties.png">
-<meta property="og:image" content="http://feng.lu/2017/06/28/OAuth-in-Azure-AD-B2C-with-Nodejs/All%20users%20in%20AAD%20B2C.png">
+<meta property="og:image" content="https://feng.lu/2017/06/28/OAuth-in-Azure-AD-B2C-with-Nodejs/what-is-oauth.jpg">
+<meta property="og:image" content="https://feng.lu/2017/06/28/OAuth-in-Azure-AD-B2C-with-Nodejs/Azure%20AD%20B2C%20Create%20Tenant.png">
+<meta property="og:image" content="https://feng.lu/2017/06/28/OAuth-in-Azure-AD-B2C-with-Nodejs/Switch%20domain.png">
+<meta property="og:image" content="https://feng.lu/2017/06/28/OAuth-in-Azure-AD-B2C-with-Nodejs/Connect%20Azure%20AD%20B2C%20to%20subscription.png">
+<meta property="og:image" content="https://feng.lu/2017/06/28/OAuth-in-Azure-AD-B2C-with-Nodejs/AAD%20B2C%20Dashboard.png">
+<meta property="og:image" content="https://feng.lu/2017/06/28/OAuth-in-Azure-AD-B2C-with-Nodejs/Create%20Linkedin%20App.png">
+<meta property="og:image" content="https://feng.lu/2017/06/28/OAuth-in-Azure-AD-B2C-with-Nodejs/Add%20linkedin%20as%20an%20Identity%20provider.png">
+<meta property="og:image" content="https://feng.lu/2017/06/28/OAuth-in-Azure-AD-B2C-with-Nodejs/Select%20sign-up%20attributes.png">
+<meta property="og:image" content="https://feng.lu/2017/06/28/OAuth-in-Azure-AD-B2C-with-Nodejs/Select%20application%20claims.png">
+<meta property="og:image" content="https://feng.lu/2017/06/28/OAuth-in-Azure-AD-B2C-with-Nodejs/Register%20Web%20Api.png">
+<meta property="og:image" content="https://feng.lu/2017/06/28/OAuth-in-Azure-AD-B2C-with-Nodejs/Published%20scopes.png">
+<meta property="og:image" content="https://feng.lu/2017/06/28/OAuth-in-Azure-AD-B2C-with-Nodejs/Run%20webapi%20on%20localhost.png">
+<meta property="og:image" content="https://feng.lu/2017/06/28/OAuth-in-Azure-AD-B2C-with-Nodejs/Unauthorized%20access%20to%20the%20api.png">
+<meta property="og:image" content="https://feng.lu/2017/06/28/OAuth-in-Azure-AD-B2C-with-Nodejs/Register%20client%20app.png">
+<meta property="og:image" content="https://feng.lu/2017/06/28/OAuth-in-Azure-AD-B2C-with-Nodejs/Grant%20client%20app%20API%20access.png">
+<meta property="og:image" content="https://feng.lu/2017/06/28/OAuth-in-Azure-AD-B2C-with-Nodejs/login%20with%20linkedin.gif">
+<meta property="og:image" content="https://feng.lu/2017/06/28/OAuth-in-Azure-AD-B2C-with-Nodejs/Claim%20properties.png">
+<meta property="og:image" content="https://feng.lu/2017/06/28/OAuth-in-Azure-AD-B2C-with-Nodejs/All%20users%20in%20AAD%20B2C.png">
 <meta property="og:updated_time" content="2020-04-03T16:04:15.486Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="OAuth in Azure AD B2C with Nodejs">
 <meta name="twitter:description" content="Recently we need to build a Nodejs single-page-application (SPA) solution that is using Azure AD B2C as the identity provider (idp). Since it is a single-page-application, we are going to use OAuth2 I">
-<meta name="twitter:image" content="http://feng.lu/2017/06/28/OAuth-in-Azure-AD-B2C-with-Nodejs/what-is-oauth.jpg">
+<meta name="twitter:image" content="https://feng.lu/2017/06/28/OAuth-in-Azure-AD-B2C-with-Nodejs/what-is-oauth.jpg">
     
 
     
@@ -202,6 +202,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </td>
                     
                     <td>
+                        <a href="https://github.com/linkcd" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
                         <a href="/atom.xml" target="_blank" title="rss" class=tooltip>
                             <i class="fa fa-rss"></i>
                         </a>
@@ -326,7 +332,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </div>
 
-    <a data-url="http://feng.lu/2017/06/28/OAuth-in-Azure-AD-B2C-with-Nodejs/" data-id="ckdiy7dv9000mwwiptcv7tmkx" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://feng.lu/2017/06/28/OAuth-in-Azure-AD-B2C-with-Nodejs/" data-id="ckeic4qm4000k2wipkobz5k14" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -394,7 +400,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
             
     
-        <a href="http://feng.lu/2017/06/28/OAuth-in-Azure-AD-B2C-with-Nodejs/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="http://feng.lu/2017/06/28/OAuth-in-Azure-AD-B2C-with-Nodejs/">Comments</a>
+        <a href="https://feng.lu/2017/06/28/OAuth-in-Azure-AD-B2C-with-Nodejs/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://feng.lu/2017/06/28/OAuth-in-Azure-AD-B2C-with-Nodejs/">Comments</a>
     
 
         </footer>
@@ -533,7 +539,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <script>
     var disqus_config = function () {
         
-            this.page.url = 'http://feng.lu/2017/06/28/OAuth-in-Azure-AD-B2C-with-Nodejs/';
+            this.page.url = 'https://feng.lu/2017/06/28/OAuth-in-Azure-AD-B2C-with-Nodejs/';
         
         this.page.identifier = 'OAuth-in-Azure-AD-B2C-with-Nodejs';
     };

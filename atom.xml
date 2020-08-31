@@ -5,9 +5,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://feng.lu/"/>
+  <link href="https://feng.lu/"/>
   <updated>2020-08-06T14:58:59.373Z</updated>
-  <id>http://feng.lu/</id>
+  <id>https://feng.lu/</id>
   
   <author>
     <name>Feng Lu</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>How to measure your Hamster&#39;s running with wireless IoT</title>
-    <link href="http://feng.lu/2020/08/05/How-to-measure-your-Hamster-s-running-with-IoT/"/>
-    <id>http://feng.lu/2020/08/05/How-to-measure-your-Hamster-s-running-with-IoT/</id>
+    <link href="https://feng.lu/2020/08/05/How-to-measure-your-Hamster-s-running-with-IoT/"/>
+    <id>https://feng.lu/2020/08/05/How-to-measure-your-Hamster-s-running-with-IoT/</id>
     <published>2020-08-05T17:30:43.000Z</published>
     <updated>2020-08-06T14:58:59.373Z</updated>
     
@@ -36,26 +36,26 @@
     </summary>
     
     
-      <category term="IoT" scheme="http://feng.lu/tags/IoT/"/>
+      <category term="IoT" scheme="https://feng.lu/tags/IoT/"/>
     
-      <category term="Hamster" scheme="http://feng.lu/tags/Hamster/"/>
+      <category term="Hamster" scheme="https://feng.lu/tags/Hamster/"/>
     
-      <category term="Data Analytics" scheme="http://feng.lu/tags/Data-Analytics/"/>
+      <category term="Data Analytics" scheme="https://feng.lu/tags/Data-Analytics/"/>
     
-      <category term="Home Assistant" scheme="http://feng.lu/tags/Home-Assistant/"/>
+      <category term="Home Assistant" scheme="https://feng.lu/tags/Home-Assistant/"/>
     
-      <category term="Python" scheme="http://feng.lu/tags/Python/"/>
+      <category term="Python" scheme="https://feng.lu/tags/Python/"/>
     
-      <category term="Jupyter Notebook" scheme="http://feng.lu/tags/Jupyter-Notebook/"/>
+      <category term="Jupyter Notebook" scheme="https://feng.lu/tags/Jupyter-Notebook/"/>
     
-      <category term="Zigbee" scheme="http://feng.lu/tags/Zigbee/"/>
+      <category term="Zigbee" scheme="https://feng.lu/tags/Zigbee/"/>
     
   </entry>
   
   <entry>
     <title>Encoding issue when calling API via powershell</title>
-    <link href="http://feng.lu/2020/06/20/Encoding-issue-when-calling-API-via-powershell/"/>
-    <id>http://feng.lu/2020/06/20/Encoding-issue-when-calling-API-via-powershell/</id>
+    <link href="https://feng.lu/2020/06/20/Encoding-issue-when-calling-API-via-powershell/"/>
+    <id>https://feng.lu/2020/06/20/Encoding-issue-when-calling-API-via-powershell/</id>
     <published>2020-06-20T11:40:00.000Z</published>
     <updated>2020-08-05T16:24:23.911Z</updated>
     
@@ -72,18 +72,18 @@
     </summary>
     
     
-      <category term="Powershell" scheme="http://feng.lu/tags/Powershell/"/>
+      <category term="Powershell" scheme="https://feng.lu/tags/Powershell/"/>
     
-      <category term="Encoding" scheme="http://feng.lu/tags/Encoding/"/>
+      <category term="Encoding" scheme="https://feng.lu/tags/Encoding/"/>
     
-      <category term="Json" scheme="http://feng.lu/tags/Json/"/>
+      <category term="Json" scheme="https://feng.lu/tags/Json/"/>
     
   </entry>
   
   <entry>
     <title>How to Decrypt Native App&#39;s HTTPS Traffic (and Debug for In-app Browser)</title>
-    <link href="http://feng.lu/2020/04/03/How-to-Decrypt-Native-Apps-HTTPS-Traffic-and-Debug-for-In-app-Browser/"/>
-    <id>http://feng.lu/2020/04/03/How-to-Decrypt-Native-Apps-HTTPS-Traffic-and-Debug-for-In-app-Browser/</id>
+    <link href="https://feng.lu/2020/04/03/How-to-Decrypt-Native-Apps-HTTPS-Traffic-and-Debug-for-In-app-Browser/"/>
+    <id>https://feng.lu/2020/04/03/How-to-Decrypt-Native-Apps-HTTPS-Traffic-and-Debug-for-In-app-Browser/</id>
     <published>2020-04-03T18:10:18.000Z</published>
     <updated>2020-04-24T08:27:33.017Z</updated>
     
@@ -104,22 +104,22 @@
     </summary>
     
     
-      <category term="Troubleshooting" scheme="http://feng.lu/tags/Troubleshooting/"/>
+      <category term="Troubleshooting" scheme="https://feng.lu/tags/Troubleshooting/"/>
     
-      <category term="Fiddler" scheme="http://feng.lu/tags/Fiddler/"/>
+      <category term="Fiddler" scheme="https://feng.lu/tags/Fiddler/"/>
     
-      <category term="Native App" scheme="http://feng.lu/tags/Native-App/"/>
+      <category term="Native App" scheme="https://feng.lu/tags/Native-App/"/>
     
-      <category term="HTTPS" scheme="http://feng.lu/tags/HTTPS/"/>
+      <category term="HTTPS" scheme="https://feng.lu/tags/HTTPS/"/>
     
-      <category term="Decryption" scheme="http://feng.lu/tags/Decryption/"/>
+      <category term="Decryption" scheme="https://feng.lu/tags/Decryption/"/>
     
   </entry>
   
   <entry>
     <title>Jump-start Kubernetes and Istio with Docker Desktop on Windows 10</title>
-    <link href="http://feng.lu/2019/10/05/Jump-start-Kubernetes-with-Docker-Desktop-on-Windows-10/"/>
-    <id>http://feng.lu/2019/10/05/Jump-start-Kubernetes-with-Docker-Desktop-on-Windows-10/</id>
+    <link href="https://feng.lu/2019/10/05/Jump-start-Kubernetes-with-Docker-Desktop-on-Windows-10/"/>
+    <id>https://feng.lu/2019/10/05/Jump-start-Kubernetes-with-Docker-Desktop-on-Windows-10/</id>
     <published>2019-10-05T17:57:31.000Z</published>
     <updated>2020-03-24T08:22:24.879Z</updated>
     
@@ -140,24 +140,24 @@
     </summary>
     
     
-      <category term="Docker" scheme="http://feng.lu/tags/Docker/"/>
+      <category term="Docker" scheme="https://feng.lu/tags/Docker/"/>
     
-      <category term="Kubernetes" scheme="http://feng.lu/tags/Kubernetes/"/>
+      <category term="Kubernetes" scheme="https://feng.lu/tags/Kubernetes/"/>
     
-      <category term="Istio" scheme="http://feng.lu/tags/Istio/"/>
+      <category term="Istio" scheme="https://feng.lu/tags/Istio/"/>
     
-      <category term="Service mesh" scheme="http://feng.lu/tags/Service-mesh/"/>
+      <category term="Service mesh" scheme="https://feng.lu/tags/Service-mesh/"/>
     
-      <category term="Kiali" scheme="http://feng.lu/tags/Kiali/"/>
+      <category term="Kiali" scheme="https://feng.lu/tags/Kiali/"/>
     
-      <category term="Jump-start" scheme="http://feng.lu/tags/Jump-start/"/>
+      <category term="Jump-start" scheme="https://feng.lu/tags/Jump-start/"/>
     
   </entry>
   
   <entry>
     <title>Customize social sharing on Linkedin via API</title>
-    <link href="http://feng.lu/2019/02/06/Customize-social-sharing-on-Linkedin-via-API/"/>
-    <id>http://feng.lu/2019/02/06/Customize-social-sharing-on-Linkedin-via-API/</id>
+    <link href="https://feng.lu/2019/02/06/Customize-social-sharing-on-Linkedin-via-API/"/>
+    <id>https://feng.lu/2019/02/06/Customize-social-sharing-on-Linkedin-via-API/</id>
     <published>2019-02-06T19:34:51.000Z</published>
     <updated>2020-06-10T07:14:46.624Z</updated>
     
@@ -179,22 +179,22 @@
     </summary>
     
     
-      <category term="Linkedin" scheme="http://feng.lu/tags/Linkedin/"/>
+      <category term="Linkedin" scheme="https://feng.lu/tags/Linkedin/"/>
     
-      <category term="Social Sharing" scheme="http://feng.lu/tags/Social-Sharing/"/>
+      <category term="Social Sharing" scheme="https://feng.lu/tags/Social-Sharing/"/>
     
-      <category term="API" scheme="http://feng.lu/tags/API/"/>
+      <category term="API" scheme="https://feng.lu/tags/API/"/>
     
-      <category term="OAuth" scheme="http://feng.lu/tags/OAuth/"/>
+      <category term="OAuth" scheme="https://feng.lu/tags/OAuth/"/>
     
-      <category term="Postman" scheme="http://feng.lu/tags/Postman/"/>
+      <category term="Postman" scheme="https://feng.lu/tags/Postman/"/>
     
   </entry>
   
   <entry>
     <title>Data Integrity and Lineage by using DLT, Part 3</title>
-    <link href="http://feng.lu/2019/01/03/Data-Integrity-and-Lineage-by-using-DLT-Part-3/"/>
-    <id>http://feng.lu/2019/01/03/Data-Integrity-and-Lineage-by-using-DLT-Part-3/</id>
+    <link href="https://feng.lu/2019/01/03/Data-Integrity-and-Lineage-by-using-DLT-Part-3/"/>
+    <id>https://feng.lu/2019/01/03/Data-Integrity-and-Lineage-by-using-DLT-Part-3/</id>
     <published>2019-01-03T10:08:30.000Z</published>
     <updated>2020-04-24T14:32:14.675Z</updated>
     
@@ -232,26 +232,26 @@
     </summary>
     
     
-      <category term="IOTA" scheme="http://feng.lu/tags/IOTA/"/>
+      <category term="IOTA" scheme="https://feng.lu/tags/IOTA/"/>
     
-      <category term="Data Lineage" scheme="http://feng.lu/tags/Data-Lineage/"/>
+      <category term="Data Lineage" scheme="https://feng.lu/tags/Data-Lineage/"/>
     
-      <category term="Data Integrity" scheme="http://feng.lu/tags/Data-Integrity/"/>
+      <category term="Data Integrity" scheme="https://feng.lu/tags/Data-Integrity/"/>
     
-      <category term="IoT" scheme="http://feng.lu/tags/IoT/"/>
+      <category term="IoT" scheme="https://feng.lu/tags/IoT/"/>
     
-      <category term="DLT" scheme="http://feng.lu/tags/DLT/"/>
+      <category term="DLT" scheme="https://feng.lu/tags/DLT/"/>
     
-      <category term="Distributed Ledger Technology" scheme="http://feng.lu/tags/Distributed-Ledger-Technology/"/>
+      <category term="Distributed Ledger Technology" scheme="https://feng.lu/tags/Distributed-Ledger-Technology/"/>
     
-      <category term="Tangle" scheme="http://feng.lu/tags/Tangle/"/>
+      <category term="Tangle" scheme="https://feng.lu/tags/Tangle/"/>
     
   </entry>
   
   <entry>
     <title>Data Integrity and Lineage by using DLT, Part 2</title>
-    <link href="http://feng.lu/2018/10/03/Data-Integrity-and-Lineage-by-using-DLT-Part-2/"/>
-    <id>http://feng.lu/2018/10/03/Data-Integrity-and-Lineage-by-using-DLT-Part-2/</id>
+    <link href="https://feng.lu/2018/10/03/Data-Integrity-and-Lineage-by-using-DLT-Part-2/"/>
+    <id>https://feng.lu/2018/10/03/Data-Integrity-and-Lineage-by-using-DLT-Part-2/</id>
     <published>2018-10-03T18:14:40.000Z</published>
     <updated>2020-04-24T09:40:51.180Z</updated>
     
@@ -272,26 +272,26 @@
     </summary>
     
     
-      <category term="IOTA" scheme="http://feng.lu/tags/IOTA/"/>
+      <category term="IOTA" scheme="https://feng.lu/tags/IOTA/"/>
     
-      <category term="Data Lineage" scheme="http://feng.lu/tags/Data-Lineage/"/>
+      <category term="Data Lineage" scheme="https://feng.lu/tags/Data-Lineage/"/>
     
-      <category term="Data Integrity" scheme="http://feng.lu/tags/Data-Integrity/"/>
+      <category term="Data Integrity" scheme="https://feng.lu/tags/Data-Integrity/"/>
     
-      <category term="IoT" scheme="http://feng.lu/tags/IoT/"/>
+      <category term="IoT" scheme="https://feng.lu/tags/IoT/"/>
     
-      <category term="DLT" scheme="http://feng.lu/tags/DLT/"/>
+      <category term="DLT" scheme="https://feng.lu/tags/DLT/"/>
     
-      <category term="Distributed Ledger Technology" scheme="http://feng.lu/tags/Distributed-Ledger-Technology/"/>
+      <category term="Distributed Ledger Technology" scheme="https://feng.lu/tags/Distributed-Ledger-Technology/"/>
     
-      <category term="Tangle" scheme="http://feng.lu/tags/Tangle/"/>
+      <category term="Tangle" scheme="https://feng.lu/tags/Tangle/"/>
     
   </entry>
   
   <entry>
     <title>Data Integrity and Lineage by using DLT, Part 1</title>
-    <link href="http://feng.lu/2018/09/25/Data-Integrity-and-Lineage-by-using-DLT-Part-1/"/>
-    <id>http://feng.lu/2018/09/25/Data-Integrity-and-Lineage-by-using-DLT-Part-1/</id>
+    <link href="https://feng.lu/2018/09/25/Data-Integrity-and-Lineage-by-using-DLT-Part-1/"/>
+    <id>https://feng.lu/2018/09/25/Data-Integrity-and-Lineage-by-using-DLT-Part-1/</id>
     <published>2018-09-25T18:33:49.000Z</published>
     <updated>2020-04-24T09:40:37.838Z</updated>
     
@@ -317,26 +317,26 @@
     </summary>
     
     
-      <category term="IOTA" scheme="http://feng.lu/tags/IOTA/"/>
+      <category term="IOTA" scheme="https://feng.lu/tags/IOTA/"/>
     
-      <category term="Data Lineage" scheme="http://feng.lu/tags/Data-Lineage/"/>
+      <category term="Data Lineage" scheme="https://feng.lu/tags/Data-Lineage/"/>
     
-      <category term="Data Integrity" scheme="http://feng.lu/tags/Data-Integrity/"/>
+      <category term="Data Integrity" scheme="https://feng.lu/tags/Data-Integrity/"/>
     
-      <category term="IoT" scheme="http://feng.lu/tags/IoT/"/>
+      <category term="IoT" scheme="https://feng.lu/tags/IoT/"/>
     
-      <category term="DLT" scheme="http://feng.lu/tags/DLT/"/>
+      <category term="DLT" scheme="https://feng.lu/tags/DLT/"/>
     
-      <category term="Distributed Ledger Technology" scheme="http://feng.lu/tags/Distributed-Ledger-Technology/"/>
+      <category term="Distributed Ledger Technology" scheme="https://feng.lu/tags/Distributed-Ledger-Technology/"/>
     
-      <category term="Tangle" scheme="http://feng.lu/tags/Tangle/"/>
+      <category term="Tangle" scheme="https://feng.lu/tags/Tangle/"/>
     
   </entry>
   
   <entry>
     <title>Using new domain feng.lu</title>
-    <link href="http://feng.lu/2018/08/27/Using-new-domain-feng-lu/"/>
-    <id>http://feng.lu/2018/08/27/Using-new-domain-feng-lu/</id>
+    <link href="https://feng.lu/2018/08/27/Using-new-domain-feng-lu/"/>
+    <id>https://feng.lu/2018/08/27/Using-new-domain-feng-lu/</id>
     <published>2018-08-27T19:13:52.000Z</published>
     <updated>2020-03-24T08:22:24.985Z</updated>
     
@@ -352,18 +352,18 @@
     </summary>
     
     
-      <category term="Blog" scheme="http://feng.lu/tags/Blog/"/>
+      <category term="Blog" scheme="https://feng.lu/tags/Blog/"/>
     
-      <category term="Domain" scheme="http://feng.lu/tags/Domain/"/>
+      <category term="Domain" scheme="https://feng.lu/tags/Domain/"/>
     
-      <category term="DNS" scheme="http://feng.lu/tags/DNS/"/>
+      <category term="DNS" scheme="https://feng.lu/tags/DNS/"/>
     
   </entry>
   
   <entry>
     <title>Data Integrity and Lineage by using IOTA</title>
-    <link href="http://feng.lu/2018/04/16/Data-integrity-and-data-lineage-by-using-IOTA/"/>
-    <id>http://feng.lu/2018/04/16/Data-integrity-and-data-lineage-by-using-IOTA/</id>
+    <link href="https://feng.lu/2018/04/16/Data-integrity-and-data-lineage-by-using-IOTA/"/>
+    <id>https://feng.lu/2018/04/16/Data-integrity-and-data-lineage-by-using-IOTA/</id>
     <published>2018-04-16T09:22:13.000Z</published>
     <updated>2020-03-24T08:22:24.747Z</updated>
     
@@ -385,26 +385,26 @@
     </summary>
     
     
-      <category term="IOTA" scheme="http://feng.lu/tags/IOTA/"/>
+      <category term="IOTA" scheme="https://feng.lu/tags/IOTA/"/>
     
-      <category term="Data Lineage" scheme="http://feng.lu/tags/Data-Lineage/"/>
+      <category term="Data Lineage" scheme="https://feng.lu/tags/Data-Lineage/"/>
     
-      <category term="Data Integrity" scheme="http://feng.lu/tags/Data-Integrity/"/>
+      <category term="Data Integrity" scheme="https://feng.lu/tags/Data-Integrity/"/>
     
-      <category term="IoT" scheme="http://feng.lu/tags/IoT/"/>
+      <category term="IoT" scheme="https://feng.lu/tags/IoT/"/>
     
-      <category term="DLT" scheme="http://feng.lu/tags/DLT/"/>
+      <category term="DLT" scheme="https://feng.lu/tags/DLT/"/>
     
-      <category term="Distributed Ledger Technology" scheme="http://feng.lu/tags/Distributed-Ledger-Technology/"/>
+      <category term="Distributed Ledger Technology" scheme="https://feng.lu/tags/Distributed-Ledger-Technology/"/>
     
-      <category term="Tangle" scheme="http://feng.lu/tags/Tangle/"/>
+      <category term="Tangle" scheme="https://feng.lu/tags/Tangle/"/>
     
   </entry>
   
   <entry>
     <title>Running IOTA Full Node</title>
-    <link href="http://feng.lu/2018/02/19/Running-IOTA-Full-Node/"/>
-    <id>http://feng.lu/2018/02/19/Running-IOTA-Full-Node/</id>
+    <link href="https://feng.lu/2018/02/19/Running-IOTA-Full-Node/"/>
+    <id>https://feng.lu/2018/02/19/Running-IOTA-Full-Node/</id>
     <published>2018-02-19T21:29:05.000Z</published>
     <updated>2020-03-24T08:22:24.964Z</updated>
     
@@ -425,22 +425,22 @@
     </summary>
     
     
-      <category term="IOTA" scheme="http://feng.lu/tags/IOTA/"/>
+      <category term="IOTA" scheme="https://feng.lu/tags/IOTA/"/>
     
-      <category term="DLT" scheme="http://feng.lu/tags/DLT/"/>
+      <category term="DLT" scheme="https://feng.lu/tags/DLT/"/>
     
-      <category term="Distributed Ledger Technology" scheme="http://feng.lu/tags/Distributed-Ledger-Technology/"/>
+      <category term="Distributed Ledger Technology" scheme="https://feng.lu/tags/Distributed-Ledger-Technology/"/>
     
-      <category term="Blockchain" scheme="http://feng.lu/tags/Blockchain/"/>
+      <category term="Blockchain" scheme="https://feng.lu/tags/Blockchain/"/>
     
-      <category term="Fullnode" scheme="http://feng.lu/tags/Fullnode/"/>
+      <category term="Fullnode" scheme="https://feng.lu/tags/Fullnode/"/>
     
   </entry>
   
   <entry>
     <title>Infrastructure-as-Code and CI/CD in the real world, with VSTS and Azure (Part 1)</title>
-    <link href="http://feng.lu/2017/11/05/Infrastructure-as-code-in-the-real-world/"/>
-    <id>http://feng.lu/2017/11/05/Infrastructure-as-code-in-the-real-world/</id>
+    <link href="https://feng.lu/2017/11/05/Infrastructure-as-code-in-the-real-world/"/>
+    <id>https://feng.lu/2017/11/05/Infrastructure-as-code-in-the-real-world/</id>
     <published>2017-11-05T10:13:36.000Z</published>
     <updated>2020-03-24T08:22:24.816Z</updated>
     
@@ -457,30 +457,30 @@
     </summary>
     
     
-      <category term="Azure" scheme="http://feng.lu/tags/Azure/"/>
+      <category term="Azure" scheme="https://feng.lu/tags/Azure/"/>
     
-      <category term="DevOps" scheme="http://feng.lu/tags/DevOps/"/>
+      <category term="DevOps" scheme="https://feng.lu/tags/DevOps/"/>
     
-      <category term="VSTS" scheme="http://feng.lu/tags/VSTS/"/>
+      <category term="VSTS" scheme="https://feng.lu/tags/VSTS/"/>
     
-      <category term="Azure Template" scheme="http://feng.lu/tags/Azure-Template/"/>
+      <category term="Azure Template" scheme="https://feng.lu/tags/Azure-Template/"/>
     
-      <category term="Infrastructure as Code" scheme="http://feng.lu/tags/Infrastructure-as-Code/"/>
+      <category term="Infrastructure as Code" scheme="https://feng.lu/tags/Infrastructure-as-Code/"/>
     
-      <category term="Continuous Integration" scheme="http://feng.lu/tags/Continuous-Integration/"/>
+      <category term="Continuous Integration" scheme="https://feng.lu/tags/Continuous-Integration/"/>
     
-      <category term="Continuous Deployment" scheme="http://feng.lu/tags/Continuous-Deployment/"/>
+      <category term="Continuous Deployment" scheme="https://feng.lu/tags/Continuous-Deployment/"/>
     
-      <category term="Release Management" scheme="http://feng.lu/tags/Release-Management/"/>
+      <category term="Release Management" scheme="https://feng.lu/tags/Release-Management/"/>
     
-      <category term="Build" scheme="http://feng.lu/tags/Build/"/>
+      <category term="Build" scheme="https://feng.lu/tags/Build/"/>
     
   </entry>
   
   <entry>
     <title>OAuth in Azure AD B2C with Nodejs</title>
-    <link href="http://feng.lu/2017/06/28/OAuth-in-Azure-AD-B2C-with-Nodejs/"/>
-    <id>http://feng.lu/2017/06/28/OAuth-in-Azure-AD-B2C-with-Nodejs/</id>
+    <link href="https://feng.lu/2017/06/28/OAuth-in-Azure-AD-B2C-with-Nodejs/"/>
+    <id>https://feng.lu/2017/06/28/OAuth-in-Azure-AD-B2C-with-Nodejs/</id>
     <published>2017-06-28T12:54:24.000Z</published>
     <updated>2020-04-03T16:04:15.486Z</updated>
     
@@ -495,26 +495,26 @@
     </summary>
     
     
-      <category term="Azure" scheme="http://feng.lu/tags/Azure/"/>
+      <category term="Azure" scheme="https://feng.lu/tags/Azure/"/>
     
-      <category term="OAuth" scheme="http://feng.lu/tags/OAuth/"/>
+      <category term="OAuth" scheme="https://feng.lu/tags/OAuth/"/>
     
-      <category term="OpenID" scheme="http://feng.lu/tags/OpenID/"/>
+      <category term="OpenID" scheme="https://feng.lu/tags/OpenID/"/>
     
-      <category term="Azure AD B2C" scheme="http://feng.lu/tags/Azure-AD-B2C/"/>
+      <category term="Azure AD B2C" scheme="https://feng.lu/tags/Azure-AD-B2C/"/>
     
-      <category term="Nodejs" scheme="http://feng.lu/tags/Nodejs/"/>
+      <category term="Nodejs" scheme="https://feng.lu/tags/Nodejs/"/>
     
-      <category term="Authentication" scheme="http://feng.lu/tags/Authentication/"/>
+      <category term="Authentication" scheme="https://feng.lu/tags/Authentication/"/>
     
-      <category term="Authorization" scheme="http://feng.lu/tags/Authorization/"/>
+      <category term="Authorization" scheme="https://feng.lu/tags/Authorization/"/>
     
   </entry>
   
   <entry>
     <title>Using python to organize pictures</title>
-    <link href="http://feng.lu/2017/05/17/Using-python-to-organize-pictures/"/>
-    <id>http://feng.lu/2017/05/17/Using-python-to-organize-pictures/</id>
+    <link href="https://feng.lu/2017/05/17/Using-python-to-organize-pictures/"/>
+    <id>https://feng.lu/2017/05/17/Using-python-to-organize-pictures/</id>
     <published>2017-05-17T17:46:05.000Z</published>
     <updated>2020-03-24T08:22:24.989Z</updated>
     
@@ -540,16 +540,16 @@
     </summary>
     
     
-      <category term="Python" scheme="http://feng.lu/tags/Python/"/>
+      <category term="Python" scheme="https://feng.lu/tags/Python/"/>
     
-      <category term="Scripting" scheme="http://feng.lu/tags/Scripting/"/>
+      <category term="Scripting" scheme="https://feng.lu/tags/Scripting/"/>
     
   </entry>
   
   <entry>
     <title>Tracking subdomains with Google Tag Manager</title>
-    <link href="http://feng.lu/2017/04/16/Tracking-subdomains-with-GTM/"/>
-    <id>http://feng.lu/2017/04/16/Tracking-subdomains-with-GTM/</id>
+    <link href="https://feng.lu/2017/04/16/Tracking-subdomains-with-GTM/"/>
+    <id>https://feng.lu/2017/04/16/Tracking-subdomains-with-GTM/</id>
     <published>2017-04-16T19:10:06.000Z</published>
     <updated>2020-03-24T08:22:24.984Z</updated>
     
@@ -569,16 +569,16 @@
     </summary>
     
     
-      <category term="Google Tag Manager" scheme="http://feng.lu/tags/Google-Tag-Manager/"/>
+      <category term="Google Tag Manager" scheme="https://feng.lu/tags/Google-Tag-Manager/"/>
     
-      <category term="Google Analytics" scheme="http://feng.lu/tags/Google-Analytics/"/>
+      <category term="Google Analytics" scheme="https://feng.lu/tags/Google-Analytics/"/>
     
   </entry>
   
   <entry>
     <title>Setup VIM plugin</title>
-    <link href="http://feng.lu/2017/04/09/Setup-VIM-plugin/"/>
-    <id>http://feng.lu/2017/04/09/Setup-VIM-plugin/</id>
+    <link href="https://feng.lu/2017/04/09/Setup-VIM-plugin/"/>
+    <id>https://feng.lu/2017/04/09/Setup-VIM-plugin/</id>
     <published>2017-04-09T09:53:53.000Z</published>
     <updated>2020-03-24T08:22:24.981Z</updated>
     
@@ -592,16 +592,16 @@
     </summary>
     
     
-      <category term="Vim" scheme="http://feng.lu/tags/Vim/"/>
+      <category term="Vim" scheme="https://feng.lu/tags/Vim/"/>
     
-      <category term="Plugin" scheme="http://feng.lu/tags/Plugin/"/>
+      <category term="Plugin" scheme="https://feng.lu/tags/Plugin/"/>
     
   </entry>
   
   <entry>
     <title>Jump-start ASP.Net Core with Docker</title>
-    <link href="http://feng.lu/2017/03/31/Jump-start-ASP-Net-Core-with-Docker/"/>
-    <id>http://feng.lu/2017/03/31/Jump-start-ASP-Net-Core-with-Docker/</id>
+    <link href="https://feng.lu/2017/03/31/Jump-start-ASP-Net-Core-with-Docker/"/>
+    <id>https://feng.lu/2017/03/31/Jump-start-ASP-Net-Core-with-Docker/</id>
     <published>2017-03-31T18:15:27.000Z</published>
     <updated>2020-03-24T08:22:24.854Z</updated>
     
@@ -619,16 +619,16 @@
     </summary>
     
     
-      <category term="Docker" scheme="http://feng.lu/tags/Docker/"/>
+      <category term="Docker" scheme="https://feng.lu/tags/Docker/"/>
     
-      <category term="ASP.Net Core" scheme="http://feng.lu/tags/ASP-Net-Core/"/>
+      <category term="ASP.Net Core" scheme="https://feng.lu/tags/ASP-Net-Core/"/>
     
   </entry>
   
   <entry>
     <title>Review and manage your web site disk space in Azure</title>
-    <link href="http://feng.lu/2017/02/23/Review-and-manage-your-web-site-space-in-Azure/"/>
-    <id>http://feng.lu/2017/02/23/Review-and-manage-your-web-site-space-in-Azure/</id>
+    <link href="https://feng.lu/2017/02/23/Review-and-manage-your-web-site-space-in-Azure/"/>
+    <id>https://feng.lu/2017/02/23/Review-and-manage-your-web-site-space-in-Azure/</id>
     <published>2017-02-23T19:07:31.000Z</published>
     <updated>2020-03-24T08:22:24.955Z</updated>
     
@@ -643,20 +643,20 @@
     </summary>
     
     
-      <category term="Azure" scheme="http://feng.lu/tags/Azure/"/>
+      <category term="Azure" scheme="https://feng.lu/tags/Azure/"/>
     
-      <category term="Monitoring" scheme="http://feng.lu/tags/Monitoring/"/>
+      <category term="Monitoring" scheme="https://feng.lu/tags/Monitoring/"/>
     
-      <category term="DevOps" scheme="http://feng.lu/tags/DevOps/"/>
+      <category term="DevOps" scheme="https://feng.lu/tags/DevOps/"/>
     
-      <category term="KUDU" scheme="http://feng.lu/tags/KUDU/"/>
+      <category term="KUDU" scheme="https://feng.lu/tags/KUDU/"/>
     
   </entry>
   
   <entry>
     <title>Announcing new version of DNV GL Rules Chatbot</title>
-    <link href="http://feng.lu/2017/01/07/Announcing-new-version-of-DNV-GL-Rules-Chatbot/"/>
-    <id>http://feng.lu/2017/01/07/Announcing-new-version-of-DNV-GL-Rules-Chatbot/</id>
+    <link href="https://feng.lu/2017/01/07/Announcing-new-version-of-DNV-GL-Rules-Chatbot/"/>
+    <id>https://feng.lu/2017/01/07/Announcing-new-version-of-DNV-GL-Rules-Chatbot/</id>
     <published>2017-01-07T18:40:31.000Z</published>
     <updated>2020-03-24T08:22:24.595Z</updated>
     
@@ -677,24 +677,24 @@
     </summary>
     
     
-      <category term="Chatbot" scheme="http://feng.lu/tags/Chatbot/"/>
+      <category term="Chatbot" scheme="https://feng.lu/tags/Chatbot/"/>
     
-      <category term="Artificial Intelligence" scheme="http://feng.lu/tags/Artificial-Intelligence/"/>
+      <category term="Artificial Intelligence" scheme="https://feng.lu/tags/Artificial-Intelligence/"/>
     
-      <category term="Machine Learning" scheme="http://feng.lu/tags/Machine-Learning/"/>
+      <category term="Machine Learning" scheme="https://feng.lu/tags/Machine-Learning/"/>
     
-      <category term="Microsoft language understanding intelligent service" scheme="http://feng.lu/tags/Microsoft-language-understanding-intelligent-service/"/>
+      <category term="Microsoft language understanding intelligent service" scheme="https://feng.lu/tags/Microsoft-language-understanding-intelligent-service/"/>
     
-      <category term="Prototype" scheme="http://feng.lu/tags/Prototype/"/>
+      <category term="Prototype" scheme="https://feng.lu/tags/Prototype/"/>
     
-      <category term="SharePoint PnP" scheme="http://feng.lu/tags/SharePoint-PnP/"/>
+      <category term="SharePoint PnP" scheme="https://feng.lu/tags/SharePoint-PnP/"/>
     
   </entry>
   
   <entry>
     <title>No agent pool found with identifier 0 error when setup build agent in VSTS</title>
-    <link href="http://feng.lu/2016/11/19/No-agent-pool-found-with-identifier-0-error-when-setup-build-agent-in-VSTS/"/>
-    <id>http://feng.lu/2016/11/19/No-agent-pool-found-with-identifier-0-error-when-setup-build-agent-in-VSTS/</id>
+    <link href="https://feng.lu/2016/11/19/No-agent-pool-found-with-identifier-0-error-when-setup-build-agent-in-VSTS/"/>
+    <id>https://feng.lu/2016/11/19/No-agent-pool-found-with-identifier-0-error-when-setup-build-agent-in-VSTS/</id>
     <published>2016-11-19T14:39:32.000Z</published>
     <updated>2020-03-24T08:22:24.916Z</updated>
     
@@ -712,11 +712,11 @@ Failed to add the agent.  Try again or ctrl-c to quit
     </summary>
     
     
-      <category term="Troubleshooting" scheme="http://feng.lu/tags/Troubleshooting/"/>
+      <category term="Troubleshooting" scheme="https://feng.lu/tags/Troubleshooting/"/>
     
-      <category term="VSTS" scheme="http://feng.lu/tags/VSTS/"/>
+      <category term="VSTS" scheme="https://feng.lu/tags/VSTS/"/>
     
-      <category term="Build" scheme="http://feng.lu/tags/Build/"/>
+      <category term="Build" scheme="https://feng.lu/tags/Build/"/>
     
   </entry>
   
