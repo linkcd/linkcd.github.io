@@ -157,11 +157,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                28
+                30
                 <span>posts</span>
             </div>
             <div class="article-info-block">
-                74
+                85
                 <span>tags</span>
             </div>
         </div>
@@ -198,6 +198,284 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
             
             <section id="main">
+    <article id="post-Using-new-domain-feng-lu" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/08/27/Using-new-domain-feng-lu/">Using new domain feng.lu</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/08/27/Using-new-domain-feng-lu/">
+            <time datetime="2018-08-27T19:13:52.000Z" itemprop="datePublished">2018-08-27</time>
+        </a>
+    </div>
+
+
+                        
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Blog/">Blog</a>, <a class="tag-link" href="/tags/DNS/">DNS</a>, <a class="tag-link" href="/tags/Domain/">Domain</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>Shortly after I have renewed my blog domain <strong>fenglu.me</strong>, it just crossed my mind that “hey, is it possible to register a top-level domain with my family name <strong>.lu</strong>? So I can literally have my name for my site: <strong>feng.lu</strong>! That will be cool!”</p>
+<img src="/2018/08/27/Using-new-domain-feng-lu/Header.jpeg" title="picture credit: www.dreamhost.com">
+<p>(picture copyright: <a href="http://www.dreamhost.com" target="_blank" rel="noopener">www.dreamhost.com</a>)</p>
+<p>And, (after googling), yes! It is possible! <strong>.lu</strong> is the Internet country code top-level domain for Luxembourg. OK… (continue googling) “Can I register a .lu domain without been a Luxembourgers?” “No problem!” Great!</p>
+<p>Long story short, after some quick research on vendors and paid 24 Euro, I got the brand new feng.lu domain! :)</p>
+<p>The remaining is pretty straightforward:</p>
+<ul>
+<li>In feng.lu domain provider, set up an apex domain and www subdomain for my real blog host Github page, according to <a href="https://help.github.com/articles/using-a-custom-domain-with-github-pages/" target="_blank" rel="noopener">their document</a>.</li>
+<li>In github page settings, update the custom domain (equals to update the CNAME file).</li>
+<li>Update blog source code (hexo) with the new domain </li>
+<li><strong>Important!</strong>: Since I would like to keep all existing links from the old domain <a href="http://fenglu.me" target="_blank" rel="noopener">fenglu.me</a> continue working, I also setup the domain forwarding. <a href="https://www.namecheap.com/support/knowledgebase/article.aspx/10043/2237/url-redirect-with-parameters" target="_blank" rel="noopener">Document</a>. Remember to use “Redirect to a specific page/folder/subfolder”.</li>
+<li>Update Google Analytics, GTM, etc</li>
+<li>Done!   </li>
+</ul>
+<p>Happy blogging!</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="https://feng.lu/2018/08/27/Using-new-domain-feng-lu/" data-id="ckfdys1c3000s2cipue9xce2i" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="https://feng.lu/2018/08/27/Using-new-domain-feng-lu/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://feng.lu/2018/08/27/Using-new-domain-feng-lu/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-Data-integrity-and-data-lineage-by-using-IOTA" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2018/04/16/Data-integrity-and-data-lineage-by-using-IOTA/">Data Integrity and Lineage by using IOTA</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2018/04/16/Data-integrity-and-data-lineage-by-using-IOTA/">
+            <time datetime="2018-04-16T09:22:13.000Z" itemprop="datePublished">2018-04-16</time>
+        </a>
+    </div>
+
+
+                        
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/DLT/">DLT</a>, <a class="tag-link" href="/tags/Data-Integrity/">Data Integrity</a>, <a class="tag-link" href="/tags/Data-Lineage/">Data Lineage</a>, <a class="tag-link" href="/tags/Distributed-Ledger-Technology/">Distributed Ledger Technology</a>, <a class="tag-link" href="/tags/IOTA/">IOTA</a>, <a class="tag-link" href="/tags/IoT/">IoT</a>, <a class="tag-link" href="/tags/Tangle/">Tangle</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            <p><h3 id="Edit-log"><a href="#Edit-log" class="headerlink" title="Edit log:"></a>Edit log:</h3><p>2018.09.25<br>This article is now expanded to an article series, where we have more detailed discussion and open-source code, <a href="http://feng.lu/2018/09/25/Data-Integrity-and-Lineage-by-using-DLT-Part-1/">check them out!</a>  </p>
+<p>2018.08.26 - Updated the data schema:</p>
+<ol>
+<li>Have an unified format that covers both lightweight format and standard format, but more flexible and self-explained.</li>
+<li>Specified mandatory fields and optional field in the format. For example, Timestamp is now an optional field.</li>
+</ol>
+<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>If we say “Data is the new oil”, then <a href="https://en.wikipedia.org/wiki/Data_lineage" target="_blank" rel="noopener">data lineage</a> is an issue that we must to solve. Various data sets are generated (most likely by sensors), transferred, processed, aggregated and flowed from upstream to downstream. </p>
+<p>The goal of data lineage is to track data over its entire lifecycle, to gain a better understanding of what happens to data as it moves through the course of its life. It increases trust and acceptance of result of data process. It also helps to trace errors back to the root cause, and comply with laws and regulations.</p>
+<img src="/2018/04/16/Data-integrity-and-data-lineage-by-using-IOTA/Data%20lineage%20visualization.png" title="Example of data lineage visualization, for Report 1, 2 and 3">
+<p>You can easily compare this with the traditional supply chain of raw materials in manufacturing industry and/or logistic industry. However, compares to the traditional industries, data lineage are facing new challenges.</p></p>
+            <p class="article-more-link">
+                <a href="/2018/04/16/Data-integrity-and-data-lineage-by-using-IOTA/#more">Read More</a>
+            </p>
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="https://feng.lu/2018/04/16/Data-integrity-and-data-lineage-by-using-IOTA/" data-id="ckfdys1bm000a2cip3dz5i7l5" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="https://feng.lu/2018/04/16/Data-integrity-and-data-lineage-by-using-IOTA/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://feng.lu/2018/04/16/Data-integrity-and-data-lineage-by-using-IOTA/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-Running-IOTA-Full-Node" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -256,7 +534,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </div>
 
-    <a data-url="https://feng.lu/2018/02/19/Running-IOTA-Full-Node/" data-id="ckeic4qm6000m2wipsuqcqemn" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://feng.lu/2018/02/19/Running-IOTA-Full-Node/" data-id="ckfdys1c1000p2cip9xwtfr9l" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -388,7 +666,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </div>
 
-    <a data-url="https://feng.lu/2017/11/05/Infrastructure-as-code-in-the-real-world/" data-id="ckeic4qm0000g2wipzlp7svbz" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://feng.lu/2017/11/05/Infrastructure-as-code-in-the-real-world/" data-id="ckfdys1bx000j2cipn68xfurq" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -518,7 +796,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </div>
 
-    <a data-url="https://feng.lu/2017/06/28/OAuth-in-Azure-AD-B2C-with-Nodejs/" data-id="ckeic4qm4000k2wipkobz5k14" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://feng.lu/2017/06/28/OAuth-in-Azure-AD-B2C-with-Nodejs/" data-id="ckfdys1c0000o2ciptqf1nrol" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -659,7 +937,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </div>
 
-    <a data-url="https://feng.lu/2017/05/17/Using-python-to-organize-pictures/" data-id="ckeic4qmb000q2wipkqcs6ha6" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://feng.lu/2017/05/17/Using-python-to-organize-pictures/" data-id="ckfdys1c4000t2cipethr3g1l" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -794,7 +1072,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </div>
 
-    <a data-url="https://feng.lu/2017/04/16/Tracking-subdomains-with-GTM/" data-id="ckeic4qm8000o2wips0e44vh4" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://feng.lu/2017/04/16/Tracking-subdomains-with-GTM/" data-id="ckfdys1c3000r2cipzitvusr8" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -923,7 +1201,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </div>
 
-    <a data-url="https://feng.lu/2017/04/09/Setup-VIM-plugin/" data-id="ckeic4qm7000n2wipx4tmmnrg" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://feng.lu/2017/04/09/Setup-VIM-plugin/" data-id="ckfdys1c2000q2ciphlqn4sri" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1056,7 +1334,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </div>
 
-    <a data-url="https://feng.lu/2017/03/31/Jump-start-ASP-Net-Core-with-Docker/" data-id="ckeic4qm1000h2wipkmxj5l0i" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://feng.lu/2017/03/31/Jump-start-ASP-Net-Core-with-Docker/" data-id="ckfdys1by000k2ciptslaj024" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1186,7 +1464,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </div>
 
-    <a data-url="https://feng.lu/2017/02/23/Review-and-manage-your-web-site-space-in-Azure/" data-id="ckeic4qm5000l2wipihvfo60r" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://feng.lu/2017/02/23/Review-and-manage-your-web-site-space-in-Azure/" data-id="ckfdys1c0000n2cipeahkupoq" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1264,275 +1542,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
-    <article id="post-Announcing-new-version-of-DNV-GL-Rules-Chatbot" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2017/01/07/Announcing-new-version-of-DNV-GL-Rules-Chatbot/">Announcing new version of DNV GL Rules Chatbot</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2017/01/07/Announcing-new-version-of-DNV-GL-Rules-Chatbot/">
-            <time datetime="2017-01-07T18:40:31.000Z" itemprop="datePublished">2017-01-07</time>
-        </a>
-    </div>
-
-
-                        
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Artificial-Intelligence/">Artificial Intelligence</a>, <a class="tag-link" href="/tags/Chatbot/">Chatbot</a>, <a class="tag-link" href="/tags/Machine-Learning/">Machine Learning</a>, <a class="tag-link" href="/tags/Microsoft-language-understanding-intelligent-service/">Microsoft language understanding intelligent service</a>, <a class="tag-link" href="/tags/Prototype/">Prototype</a>, <a class="tag-link" href="/tags/SharePoint-PnP/">SharePoint PnP</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            <p><p>Happy new year! </p>
-<p>I am happy to announce the new version of Rules Chatbot is ready now. The key new features are below:</p>
-<ul>
-<li>Support full text search (based on SharePoint Search)</li>
-<li>Indexing DNV GL classification rules documents with enhanced metadata</li>
-<li>Customized ranking  </li>
-<li>Upgraded to Bot Framework 3.0</li>
-</ul>
-<p><strong>URL</strong>:<br><a href="https://dnvgl-rules-bot.azurewebsites.net" target="_blank" rel="noopener">https://dnvgl-rules-bot.azurewebsites.net</a><br></p>
-            <p class="article-more-link">
-                <a href="/2017/01/07/Announcing-new-version-of-DNV-GL-Rules-Chatbot/#more">Read More</a>
-            </p>
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="https://feng.lu/2017/01/07/Announcing-new-version-of-DNV-GL-Rules-Chatbot/" data-id="ckeic4qlk00022wipmitje0oe" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="https://feng.lu/2017/01/07/Announcing-new-version-of-DNV-GL-Rules-Chatbot/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://feng.lu/2017/01/07/Announcing-new-version-of-DNV-GL-Rules-Chatbot/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-No-agent-pool-found-with-identifier-0-error-when-setup-build-agent-in-VSTS" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2016/11/19/No-agent-pool-found-with-identifier-0-error-when-setup-build-agent-in-VSTS/">No agent pool found with identifier 0 error when setup build agent in VSTS</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/11/19/No-agent-pool-found-with-identifier-0-error-when-setup-build-agent-in-VSTS/">
-            <time datetime="2016-11-19T14:39:32.000Z" itemprop="datePublished">2016-11-19</time>
-        </a>
-    </div>
-
-
-                        
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Build/">Build</a>, <a class="tag-link" href="/tags/Troubleshooting/">Troubleshooting</a>, <a class="tag-link" href="/tags/VSTS/">VSTS</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            <p><h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h1><p>We cannot register a private build agent on VSTS by using a service account. This service account has created Personal Access Token with expiration for 1 year and authorization for all scopes.</p>
-<p>Whenever we run the config.cmd, then connecting to the server, type the Agent Pool and Agent Name, configuration command throws error.</p>
-<pre><code>No agent pool found with identifier 0.
-Failed to add the agent.  Try again or ctrl-c to quit
-</code></pre><img src="/2016/11/19/No-agent-pool-found-with-identifier-0-error-when-setup-build-agent-in-VSTS/Error%20No%20agent%20pool%20found%20with%20identifier%200.jpg" title="Error: No agent pool found with identifier 0">
-<p>However, with the same build server and with another developer’s account, it works fine and the build agent is up and running.</p></p>
-            <p class="article-more-link">
-                <a href="/2016/11/19/No-agent-pool-found-with-identifier-0-error-when-setup-build-agent-in-VSTS/#more">Read More</a>
-            </p>
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="https://feng.lu/2016/11/19/No-agent-pool-found-with-identifier-0-error-when-setup-build-agent-in-VSTS/" data-id="ckeic4qm3000i2wipiur95aol" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="https://feng.lu/2016/11/19/No-agent-pool-found-with-identifier-0-error-when-setup-build-agent-in-VSTS/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://feng.lu/2016/11/19/No-agent-pool-found-with-identifier-0-error-when-setup-build-agent-in-VSTS/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
     <nav id="page-nav">
         <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
@@ -1545,6 +1554,24 @@ Failed to add the agent.  Try again or ctrl-c to quit
         <h3 class="widget-title">recent</h3>
         <div class="widget">
             <ul id="recent-post" class="no-thumbnail">
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2020/09/22/How-to-build-an-IoT-connected-car-Part-2-Data-Analytics-in-the-Cloud/" class="title">How to build an IoT connected car - Part 2: Data Analytics in the Cloud</a></p>
+                            <p class="item-date"><time datetime="2020-09-22T08:00:13.000Z" itemprop="datePublished">2020-09-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2020/09/15/How-to-build-an-IoT-connected-car-Part-1-On-the-Edge/" class="title">How to build an IoT connected car - Part 1: On the Edge</a></p>
+                            <p class="item-date"><time datetime="2020-09-15T08:38:12.000Z" itemprop="datePublished">2020-09-15</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -1573,24 +1600,6 @@ Failed to add the agent.  Try again or ctrl-c to quit
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2019/10/05/Jump-start-Kubernetes-with-Docker-Desktop-on-Windows-10/" class="title">Jump-start Kubernetes and Istio with Docker Desktop on Windows 10</a></p>
-                            <p class="item-date"><time datetime="2019-10-05T17:57:31.000Z" itemprop="datePublished">2019-10-05</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2019/02/06/Customize-social-sharing-on-Linkedin-via-API/" class="title">Customize social sharing on Linkedin via API</a></p>
-                            <p class="item-date"><time datetime="2019-02-06T19:34:51.000Z" itemprop="datePublished">2019-02-06</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -1602,7 +1611,7 @@ Failed to add the agent.  Try again or ctrl-c to quit
     <div class="widget-wrap">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">3</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">3</span></li></ul>
         </div>
     </div>
 
@@ -1611,7 +1620,7 @@ Failed to add the agent.  Try again or ctrl-c to quit
     <div class="widget-wrap">
         <h3 class="widget-title">tag cloud</h3>
         <div class="widget tagcloud">
-            <a href="/tags/ADFS/" style="font-size: 10px;">ADFS</a> <a href="/tags/API/" style="font-size: 10px;">API</a> <a href="/tags/ASP-Net-Core/" style="font-size: 10px;">ASP.Net Core</a> <a href="/tags/Application-Insights/" style="font-size: 14px;">Application Insights</a> <a href="/tags/Artificial-Intelligence/" style="font-size: 12px;">Artificial Intelligence</a> <a href="/tags/Authentication/" style="font-size: 10px;">Authentication</a> <a href="/tags/Authorization/" style="font-size: 10px;">Authorization</a> <a href="/tags/Azure/" style="font-size: 20px;">Azure</a> <a href="/tags/Azure-AD-B2C/" style="font-size: 10px;">Azure AD B2C</a> <a href="/tags/Azure-Template/" style="font-size: 10px;">Azure Template</a> <a href="/tags/Blockchain/" style="font-size: 10px;">Blockchain</a> <a href="/tags/Blog/" style="font-size: 14px;">Blog</a> <a href="/tags/Build/" style="font-size: 12px;">Build</a> <a href="/tags/Chatbot/" style="font-size: 12px;">Chatbot</a> <a href="/tags/Continuous-Deployment/" style="font-size: 10px;">Continuous Deployment</a> <a href="/tags/Continuous-Integration/" style="font-size: 10px;">Continuous Integration</a> <a href="/tags/DLT/" style="font-size: 18px;">DLT</a> <a href="/tags/DNS/" style="font-size: 10px;">DNS</a> <a href="/tags/Data-Analytics/" style="font-size: 10px;">Data Analytics</a> <a href="/tags/Data-Integrity/" style="font-size: 16px;">Data Integrity</a> <a href="/tags/Data-Lineage/" style="font-size: 16px;">Data Lineage</a> <a href="/tags/Decryption/" style="font-size: 10px;">Decryption</a> <a href="/tags/DevOps/" style="font-size: 16px;">DevOps</a> <a href="/tags/Distributed-Ledger-Technology/" style="font-size: 18px;">Distributed Ledger Technology</a> <a href="/tags/Docker/" style="font-size: 12px;">Docker</a> <a href="/tags/Domain/" style="font-size: 10px;">Domain</a> <a href="/tags/Encoding/" style="font-size: 10px;">Encoding</a> <a href="/tags/Fiddler/" style="font-size: 10px;">Fiddler</a> <a href="/tags/Fullnode/" style="font-size: 10px;">Fullnode</a> <a href="/tags/Git/" style="font-size: 14px;">Git</a> <a href="/tags/Github/" style="font-size: 12px;">Github</a> <a href="/tags/Google-Analytics/" style="font-size: 10px;">Google Analytics</a> <a href="/tags/Google-Tag-Manager/" style="font-size: 10px;">Google Tag Manager</a> <a href="/tags/HTTPS/" style="font-size: 10px;">HTTPS</a> <a href="/tags/Hamster/" style="font-size: 10px;">Hamster</a> <a href="/tags/Hexo/" style="font-size: 12px;">Hexo</a> <a href="/tags/Home-Assistant/" style="font-size: 10px;">Home Assistant</a> <a href="/tags/IOTA/" style="font-size: 18px;">IOTA</a> <a href="/tags/Infrastructure-as-Code/" style="font-size: 10px;">Infrastructure as Code</a> <a href="/tags/IoT/" style="font-size: 18px;">IoT</a> <a href="/tags/Istio/" style="font-size: 10px;">Istio</a> <a href="/tags/Json/" style="font-size: 10px;">Json</a> <a href="/tags/Jump-start/" style="font-size: 10px;">Jump-start</a> <a href="/tags/Jupyter-Notebook/" style="font-size: 10px;">Jupyter Notebook</a> <a href="/tags/KUDU/" style="font-size: 10px;">KUDU</a> <a href="/tags/Kiali/" style="font-size: 10px;">Kiali</a> <a href="/tags/Kubernetes/" style="font-size: 10px;">Kubernetes</a> <a href="/tags/Linkedin/" style="font-size: 10px;">Linkedin</a> <a href="/tags/Load-Testing/" style="font-size: 10px;">Load Testing</a> <a href="/tags/Machine-Learning/" style="font-size: 12px;">Machine Learning</a> <a href="/tags/Microsoft-language-understanding-intelligent-service/" style="font-size: 12px;">Microsoft language understanding intelligent service</a> <a href="/tags/Monitoring/" style="font-size: 14px;">Monitoring</a> <a href="/tags/Native-App/" style="font-size: 10px;">Native App</a> <a href="/tags/Nodejs/" style="font-size: 10px;">Nodejs</a> <a href="/tags/OAuth/" style="font-size: 12px;">OAuth</a> <a href="/tags/OpenID/" style="font-size: 10px;">OpenID</a> <a href="/tags/Plugin/" style="font-size: 10px;">Plugin</a> <a href="/tags/Postman/" style="font-size: 10px;">Postman</a> <a href="/tags/PowerBI/" style="font-size: 12px;">PowerBI</a> <a href="/tags/Powershell/" style="font-size: 10px;">Powershell</a> <a href="/tags/Prototype/" style="font-size: 12px;">Prototype</a> <a href="/tags/Python/" style="font-size: 12px;">Python</a> <a href="/tags/Release-Management/" style="font-size: 10px;">Release Management</a> <a href="/tags/Release-management/" style="font-size: 10px;">Release management</a> <a href="/tags/Scripting/" style="font-size: 10px;">Scripting</a> <a href="/tags/Service-mesh/" style="font-size: 10px;">Service mesh</a> <a href="/tags/SharePoint-PnP/" style="font-size: 10px;">SharePoint PnP</a> <a href="/tags/Social-Sharing/" style="font-size: 10px;">Social Sharing</a> <a href="/tags/Tangle/" style="font-size: 16px;">Tangle</a> <a href="/tags/Troubleshooting/" style="font-size: 12px;">Troubleshooting</a> <a href="/tags/VSTS/" style="font-size: 14px;">VSTS</a> <a href="/tags/Vim/" style="font-size: 10px;">Vim</a> <a href="/tags/Web-Testing/" style="font-size: 10px;">Web Testing</a> <a href="/tags/Zigbee/" style="font-size: 10px;">Zigbee</a>
+            <a href="/tags/ADFS/" style="font-size: 10px;">ADFS</a> <a href="/tags/API/" style="font-size: 10px;">API</a> <a href="/tags/ASP-Net-Core/" style="font-size: 10px;">ASP.Net Core</a> <a href="/tags/Application-Insights/" style="font-size: 14px;">Application Insights</a> <a href="/tags/Artificial-Intelligence/" style="font-size: 12px;">Artificial Intelligence</a> <a href="/tags/Authentication/" style="font-size: 10px;">Authentication</a> <a href="/tags/Authorization/" style="font-size: 10px;">Authorization</a> <a href="/tags/Azure/" style="font-size: 20px;">Azure</a> <a href="/tags/Azure-AD-B2C/" style="font-size: 10px;">Azure AD B2C</a> <a href="/tags/Azure-Data-Explorer-ADX/" style="font-size: 10px;">Azure Data Explorer (ADX)</a> <a href="/tags/Azure-IoT-Edge/" style="font-size: 10px;">Azure IoT Edge</a> <a href="/tags/Azure-IoT-Hub/" style="font-size: 10px;">Azure IoT Hub</a> <a href="/tags/Azure-Template/" style="font-size: 10px;">Azure Template</a> <a href="/tags/Blockchain/" style="font-size: 10px;">Blockchain</a> <a href="/tags/Blog/" style="font-size: 14px;">Blog</a> <a href="/tags/Build/" style="font-size: 12px;">Build</a> <a href="/tags/Car/" style="font-size: 12px;">Car</a> <a href="/tags/Chatbot/" style="font-size: 12px;">Chatbot</a> <a href="/tags/Continuous-Deployment/" style="font-size: 10px;">Continuous Deployment</a> <a href="/tags/Continuous-Integration/" style="font-size: 10px;">Continuous Integration</a> <a href="/tags/DLT/" style="font-size: 18px;">DLT</a> <a href="/tags/DNS/" style="font-size: 10px;">DNS</a> <a href="/tags/Data-Analytics/" style="font-size: 14px;">Data Analytics</a> <a href="/tags/Data-Integrity/" style="font-size: 16px;">Data Integrity</a> <a href="/tags/Data-Lineage/" style="font-size: 16px;">Data Lineage</a> <a href="/tags/Databricks/" style="font-size: 10px;">Databricks</a> <a href="/tags/Decryption/" style="font-size: 10px;">Decryption</a> <a href="/tags/DevOps/" style="font-size: 16px;">DevOps</a> <a href="/tags/Distributed-Ledger-Technology/" style="font-size: 18px;">Distributed Ledger Technology</a> <a href="/tags/Docker/" style="font-size: 12px;">Docker</a> <a href="/tags/Domain/" style="font-size: 10px;">Domain</a> <a href="/tags/Encoding/" style="font-size: 10px;">Encoding</a> <a href="/tags/Fiddler/" style="font-size: 10px;">Fiddler</a> <a href="/tags/Fullnode/" style="font-size: 10px;">Fullnode</a> <a href="/tags/GPS/" style="font-size: 10px;">GPS</a> <a href="/tags/Git/" style="font-size: 14px;">Git</a> <a href="/tags/Github/" style="font-size: 12px;">Github</a> <a href="/tags/Google-Analytics/" style="font-size: 10px;">Google Analytics</a> <a href="/tags/Google-Tag-Manager/" style="font-size: 10px;">Google Tag Manager</a> <a href="/tags/Grafana/" style="font-size: 10px;">Grafana</a> <a href="/tags/HTTPS/" style="font-size: 10px;">HTTPS</a> <a href="/tags/Hamster/" style="font-size: 10px;">Hamster</a> <a href="/tags/Hexo/" style="font-size: 12px;">Hexo</a> <a href="/tags/Home-Assistant/" style="font-size: 10px;">Home Assistant</a> <a href="/tags/IOTA/" style="font-size: 18px;">IOTA</a> <a href="/tags/Infrastructure-as-Code/" style="font-size: 10px;">Infrastructure as Code</a> <a href="/tags/IoT/" style="font-size: 20px;">IoT</a> <a href="/tags/Istio/" style="font-size: 10px;">Istio</a> <a href="/tags/Json/" style="font-size: 10px;">Json</a> <a href="/tags/Jump-start/" style="font-size: 10px;">Jump-start</a> <a href="/tags/Jupyter-Notebook/" style="font-size: 12px;">Jupyter Notebook</a> <a href="/tags/KUDU/" style="font-size: 10px;">KUDU</a> <a href="/tags/Kiali/" style="font-size: 10px;">Kiali</a> <a href="/tags/Kubernetes/" style="font-size: 10px;">Kubernetes</a> <a href="/tags/Linkedin/" style="font-size: 10px;">Linkedin</a> <a href="/tags/Load-Testing/" style="font-size: 10px;">Load Testing</a> <a href="/tags/Machine-Learning/" style="font-size: 12px;">Machine Learning</a> <a href="/tags/Microsoft-language-understanding-intelligent-service/" style="font-size: 12px;">Microsoft language understanding intelligent service</a> <a href="/tags/Monitoring/" style="font-size: 14px;">Monitoring</a> <a href="/tags/Native-App/" style="font-size: 10px;">Native App</a> <a href="/tags/Nodejs/" style="font-size: 10px;">Nodejs</a> <a href="/tags/OAuth/" style="font-size: 12px;">OAuth</a> <a href="/tags/OBD2/" style="font-size: 10px;">OBD2</a> <a href="/tags/OpenID/" style="font-size: 10px;">OpenID</a> <a href="/tags/Plugin/" style="font-size: 10px;">Plugin</a> <a href="/tags/Postman/" style="font-size: 10px;">Postman</a> <a href="/tags/PowerBI/" style="font-size: 14px;">PowerBI</a> <a href="/tags/Powershell/" style="font-size: 10px;">Powershell</a> <a href="/tags/Prototype/" style="font-size: 12px;">Prototype</a> <a href="/tags/Python/" style="font-size: 14px;">Python</a> <a href="/tags/Raspberry-Pi/" style="font-size: 10px;">Raspberry Pi</a> <a href="/tags/Release-Management/" style="font-size: 10px;">Release Management</a> <a href="/tags/Release-management/" style="font-size: 10px;">Release management</a> <a href="/tags/Scripting/" style="font-size: 10px;">Scripting</a> <a href="/tags/Service-mesh/" style="font-size: 10px;">Service mesh</a> <a href="/tags/SharePoint-PnP/" style="font-size: 10px;">SharePoint PnP</a> <a href="/tags/Social-Sharing/" style="font-size: 10px;">Social Sharing</a> <a href="/tags/Tangle/" style="font-size: 16px;">Tangle</a> <a href="/tags/Time-Series-Insight-TSI/" style="font-size: 10px;">Time Series Insight (TSI)</a> <a href="/tags/Troubleshooting/" style="font-size: 12px;">Troubleshooting</a> <a href="/tags/VSTS/" style="font-size: 14px;">VSTS</a> <a href="/tags/Vim/" style="font-size: 10px;">Vim</a> <a href="/tags/Visualization/" style="font-size: 10px;">Visualization</a> <a href="/tags/Web-Testing/" style="font-size: 10px;">Web Testing</a> <a href="/tags/Zigbee/" style="font-size: 10px;">Zigbee</a>
         </div>
     </div>
 

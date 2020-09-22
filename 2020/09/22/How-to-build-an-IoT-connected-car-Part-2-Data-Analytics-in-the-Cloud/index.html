@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T85N4CJ');</script>
+<!-- End Google Tag Manager -->
+
+	
+    <meta charset="utf-8">
+    
+    <title>How to build an IoT connected car - Part 2: Data Analytics in the Cloud | feng.blog();</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="In Part 1, we have talked about the hardware/software running on the edge (the car) for collecting data. Now we have the data, and how to gain some insights by doing data analytics? I have been using">
+<meta name="keywords" content="Azure,PowerBI,IoT,Data Analytics,Car,Python,Jupyter Notebook,Visualization,Databricks,Time Series Insight (TSI),Azure Data Explorer (ADX),Grafana">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to build an IoT connected car - Part 2: Data Analytics in the Cloud">
+<meta property="og:url" content="https://feng.lu/2020/09/22/How-to-build-an-IoT-connected-car-Part-2-Data-Analytics-in-the-Cloud/index.html">
+<meta property="og:site_name" content="feng.blog();">
+<meta property="og:description" content="In Part 1, we have talked about the hardware/software running on the edge (the car) for collecting data. Now we have the data, and how to gain some insights by doing data analytics? I have been using">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://feng.lu/2020/09/22/How-to-build-an-IoT-connected-car-Part-2-Data-Analytics-in-the-Cloud/Thumbnail.png">
+<meta property="og:image" content="https://feng.lu/2020/09/22/How-to-build-an-IoT-connected-car-Part-2-Data-Analytics-in-the-Cloud/TSI%20analytics.png">
+<meta property="og:image" content="https://feng.lu/2020/09/22/How-to-build-an-IoT-connected-car-Part-2-Data-Analytics-in-the-Cloud/TSI%20models.png">
+<meta property="og:image" content="https://feng.lu/2020/09/22/How-to-build-an-IoT-connected-car-Part-2-Data-Analytics-in-the-Cloud/TSI%20models%20in%20demo.png">
+<meta property="og:image" content="https://feng.lu/2020/09/22/How-to-build-an-IoT-connected-car-Part-2-Data-Analytics-in-the-Cloud/speed%20vs%20rpm.png">
+<meta property="og:image" content="https://feng.lu/2020/09/22/How-to-build-an-IoT-connected-car-Part-2-Data-Analytics-in-the-Cloud/fuel%20consumption.jpg">
+<meta property="og:image" content="https://feng.lu/2020/09/22/How-to-build-an-IoT-connected-car-Part-2-Data-Analytics-in-the-Cloud/duplicate%20columns.png">
+<meta property="og:image" content="https://feng.lu/2020/09/22/How-to-build-an-IoT-connected-car-Part-2-Data-Analytics-in-the-Cloud/adx%20average%20gps%20speed.png">
+<meta property="og:image" content="https://feng.lu/2020/09/22/How-to-build-an-IoT-connected-car-Part-2-Data-Analytics-in-the-Cloud/ADX%20join%202%20tables.png">
+<meta property="og:image" content="https://feng.lu/2020/09/22/How-to-build-an-IoT-connected-car-Part-2-Data-Analytics-in-the-Cloud/adx%20two%20segments%20linear%20regression%20on%20engine%20load.png">
+<meta property="og:image" content="https://feng.lu/2020/09/22/How-to-build-an-IoT-connected-car-Part-2-Data-Analytics-in-the-Cloud/ADX%20for%20PowerBI.png">
+<meta property="og:image" content="https://feng.lu/2020/09/22/How-to-build-an-IoT-connected-car-Part-2-Data-Analytics-in-the-Cloud/PowerBI%20map.png">
+<meta property="og:image" content="https://feng.lu/2020/09/22/How-to-build-an-IoT-connected-car-Part-2-Data-Analytics-in-the-Cloud/PowerBI%20map%20zoom%20in.jpg">
+<meta property="og:image" content="https://feng.lu/2020/09/22/How-to-build-an-IoT-connected-car-Part-2-Data-Analytics-in-the-Cloud/PowerBI%20replay%20a%20trip.gif">
+<meta property="og:image" content="https://feng.lu/2020/09/22/How-to-build-an-IoT-connected-car-Part-2-Data-Analytics-in-the-Cloud/grafana%20dashboard.jpg">
+<meta property="og:updated_time" content="2020-09-22T12:47:17.058Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="How to build an IoT connected car - Part 2: Data Analytics in the Cloud">
+<meta name="twitter:description" content="In Part 1, we have talked about the hardware/software running on the edge (the car) for collecting data. Now we have the data, and how to gain some insights by doing data analytics? I have been using">
+<meta name="twitter:image" content="https://feng.lu/2020/09/22/How-to-build-an-IoT-connected-car-Part-2-Data-Analytics-in-the-Cloud/Thumbnail.png">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="feng.blog();" type="application/atom+xml">
+    
+
+    
+        <link rel="icon" href="/images/favicon.png">
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+</html>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T85N4CJ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">feng.blog();</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">Home</a>
+                
+                    <a class="main-nav-link" href="/archives">Archives</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/images/avatar.jpg" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">Home</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">Archives</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/images/avatar.jpg" />
+            <h2 id="name">Feng Lu</h2>
+            <h3 id="title">Developer, Architect and Technical Evangelist</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>Oslo Area, Norway</span>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                30
+                <span>posts</span>
+            </div>
+            <div class="article-info-block">
+                85
+                <span>tags</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="https://www.linkedin.com/in/linkcd" target="_blank" title="linkedin" class=tooltip>
+                            <i class="fa fa-linkedin"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="https://github.com/linkcd" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/atom.xml" target="_blank" title="rss" class=tooltip>
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-How-to-build-an-IoT-connected-car-Part-2-Data-Analytics-in-the-Cloud" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            How to build an IoT connected car - Part 2: Data Analytics in the Cloud
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2020/09/22/How-to-build-an-IoT-connected-car-Part-2-Data-Analytics-in-the-Cloud/">
+            <time datetime="2020-09-22T08:00:13.000Z" itemprop="datePublished">2020-09-22</time>
+        </a>
+    </div>
+
+
+                        
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Azure/">Azure</a>, <a class="tag-link" href="/tags/Azure-Data-Explorer-ADX/">Azure Data Explorer (ADX)</a>, <a class="tag-link" href="/tags/Car/">Car</a>, <a class="tag-link" href="/tags/Data-Analytics/">Data Analytics</a>, <a class="tag-link" href="/tags/Databricks/">Databricks</a>, <a class="tag-link" href="/tags/Grafana/">Grafana</a>, <a class="tag-link" href="/tags/IoT/">IoT</a>, <a class="tag-link" href="/tags/Jupyter-Notebook/">Jupyter Notebook</a>, <a class="tag-link" href="/tags/PowerBI/">PowerBI</a>, <a class="tag-link" href="/tags/Python/">Python</a>, <a class="tag-link" href="/tags/Time-Series-Insight-TSI/">Time Series Insight (TSI)</a>, <a class="tag-link" href="/tags/Visualization/">Visualization</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>In <a href="/2020/09/15/How-to-build-an-IoT-connected-car-Part-1-On-the-Edge/" title="Part 1">Part 1</a>, we have talked about the hardware/software running on the edge (the car) for collecting data.</p>
+<p>Now we have the data, and how to gain some insights by doing data analytics? I have been using the following products, and would like to share my quick thoughts</p>
+<ul>
+<li>Azure Time Series Insight (TSI)</li>
+<li>Azure Databricks</li>
+<li>Azure Data Explorer (ADX)</li>
+<li>PowerBI</li>
+<li>Grafana</li>
+</ul>
+<img src="/2020/09/22/How-to-build-an-IoT-connected-car-Part-2-Data-Analytics-in-the-Cloud/Thumbnail.png" title="Thumbnail"> 
+<a id="more"></a>
+<p><em>Please note that I tested these products back to Feb/March of 2019 and all the feedback were from that time point. I am sure all products were significate upgraded and improved since then, so you might wanna check them again with the lastest features.</em>  </p>
+<h2 id="1-Azure-Time-Series-Insight-TSI"><a href="#1-Azure-Time-Series-Insight-TSI" class="headerlink" title="1. Azure Time Series Insight (TSI)"></a>1. Azure Time Series Insight (TSI)</h2><p><a href="https://azure.microsoft.com/en-us/services/time-series-insights/" target="_blank" rel="noopener">Azure Time Series Insight (TSI)</a> is an IoT analytics platform monitor, analyze, and visualize your industrial IoT data at scale. With native integration with Azure IoTHub or EventHub, it is easy to visualize and explore the IoT data such as from our connected car.</p>
+<h3 id="1-1-Simple-data-exploring"><a href="#1-1-Simple-data-exploring" class="headerlink" title="1.1 Simple data exploring"></a>1.1 Simple data exploring</h3><p>You can easily explore data by putting time series data into one screen:<br><img src="/2020/09/22/How-to-build-an-IoT-connected-car-Part-2-Data-Analytics-in-the-Cloud/TSI%20analytics.png" title="TSI analytics"><br>(click to enlarge)<br>For example, you can identify the relationship between engine RPM and speed, and the increasing temperature of engine coolant. </p>
+<h3 id="1-2-Metadata-Model-management"><a href="#1-2-Metadata-Model-management" class="headerlink" title="1.2 Metadata/Model management"></a>1.2 Metadata/Model management</h3><p>As TSI is built for handling IoT data, it has built-in functionality for managing metadata/models of IoT data stream. This is a unique feature that only TSI offers, compares to other general-purpose analytics products that I tried. </p>
+<p>In another word, in order to use TSI, you will have to setup the <a href="https://docs.microsoft.com/en-us/azure/time-series-insights/concepts-model-overview" target="_blank" rel="noopener">following models</a>:</p>
+<ul>
+<li>Time Series Model instances</li>
+<li>Time Series Model hierarchies</li>
+<li>Time Series Model types<img src="/2020/09/22/How-to-build-an-IoT-connected-car-Part-2-Data-Analytics-in-the-Cloud/TSI%20models.png" title="TSI models">
+(source: Microsoft)</li>
+</ul>
+<p>For our case, we can setup the models for representing the<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">Assets - ABC Taxi Company Carpool</span><br><span class="line">    ├── Car 1: Feng Toyota Auris</span><br><span class="line">    │   ├── GPS</span><br><span class="line">    │   │   └── FengsDevice_GPS</span><br><span class="line">    │   │       ├── GPS Speed</span><br><span class="line">    │   │       ├── Altitude</span><br><span class="line">    │   │       └── ...</span><br><span class="line">    │   └── OBD</span><br><span class="line">    │       └── FengsDevice_OBD</span><br><span class="line">    │           ├── RPM</span><br><span class="line">    │           ├── SPEED</span><br><span class="line">    │           ├── MAF</span><br><span class="line">    │           ├── ENGINE_LOAD</span><br><span class="line">    │           └── ...</span><br><span class="line">    │ </span><br><span class="line">    ├── Car 2: Thomas Two Engines Monster Truck</span><br><span class="line">    │   ├── GPS</span><br><span class="line">    │   │   └── TomsDevice_GPS</span><br><span class="line">    │   │       ├── GPS Speed</span><br><span class="line">    │   │       ├── Altitude</span><br><span class="line">    │   │       └── ...</span><br><span class="line">    │   └── OBD</span><br><span class="line">    │       ├── TomsDevice_OBD_Engine_1</span><br><span class="line">    │       │   ├── RPM</span><br><span class="line">    │       │   ├── SPEED</span><br><span class="line">    │       │   ├── MAF</span><br><span class="line">    │       │   ├── ENGINE_LOAD</span><br><span class="line">    │       │   └── ...</span><br><span class="line">    │       └── TomsDevice_OBD_Engine_2</span><br><span class="line">    │           ├── RPM</span><br><span class="line">    │           ├── SPEED</span><br><span class="line">    │           ├── MAF</span><br><span class="line">    │           ├── ENGINE_LOAD</span><br><span class="line">    │           └── ...</span><br><span class="line">    │ </span><br><span class="line">    └── Car 3: ...</span><br><span class="line">        └── ...</span><br></pre></td></tr></table></figure></p>
+<p>For our case, these model definitions can be found at <a href="https://github.com/linkcd/IoTCar/tree/master/modules/OBDModule/TSI%20config" target="_blank" rel="noopener">here</a>.</p>
+<img src="/2020/09/22/How-to-build-an-IoT-connected-car-Part-2-Data-Analytics-in-the-Cloud/TSI%20models%20in%20demo.png" title="TSI models in demo">
+<h3 id="1-3-Summary-of-TSI-experience"><a href="#1-3-Summary-of-TSI-experience" class="headerlink" title="1.3 Summary of TSI experience"></a>1.3 Summary of TSI experience</h3><p><strong>Pro:</strong></p>
+<ul>
+<li>Very nice user interface with animation, smoothly zoom in/out</li>
+<li>Built-in support of data module/metadata</li>
+<li>Supporting IoT data in scale (although I only tested with a small dataset)</li>
+<li>Data can be exported to parquet files, which is optimized for time-series data </li>
+</ul>
+<p><strong>Con:</strong></p>
+<ul>
+<li>Limited analytic possibility, cannot run customized query in UI</li>
+<li>Does not support map</li>
+<li>Data model contextualization is done only via TSI API, not in parquet file (which is raw data) </li>
+<li>Exported parquet file is somewhat messy (see more details in DataBricks section)</li>
+</ul>
+<h2 id="2-Azure-Databricks"><a href="#2-Azure-Databricks" class="headerlink" title="2. Azure Databricks"></a>2. Azure Databricks</h2><p>It was nice to visualize the time series data in TSI, but I would like to play more with the dataset, such as calculating the fuel consumption vs. speed for example. I would like to use python and jupyter notebook. Therefore I continue the work with <a href="https://azure.microsoft.com/en-us/services/databricks/" target="_blank" rel="noopener">Azure Databrick</a>.</p>
+<h3 id="2-1-Simple-plot-of-Speed-vs-RPM"><a href="#2-1-Simple-plot-of-Speed-vs-RPM" class="headerlink" title="2.1 Simple plot of Speed vs RPM"></a>2.1 Simple plot of Speed vs RPM</h3><img src="/2020/09/22/How-to-build-an-IoT-connected-car-Part-2-Data-Analytics-in-the-Cloud/speed%20vs%20rpm.png" title="Speed vs RPM">
+<h3 id="2-2-Calculate-the-fuel-consumption-and-eco-driving-zone"><a href="#2-2-Calculate-the-fuel-consumption-and-eco-driving-zone" class="headerlink" title="2.2 Calculate the fuel consumption and eco-driving zone"></a>2.2 Calculate the fuel consumption and eco-driving zone</h3><p>By using MFA and speed, it is possible to calculate the fuel consumption, as explained in <a href="https://www.windmill.co.uk/fuel.html" target="_blank" rel="noopener">https://www.windmill.co.uk/fuel.html</a> and <a href="https://www.wikihow.com/Convert-MPG-to-Liters-per-100km" target="_blank" rel="noopener">https://www.wikihow.com/Convert-MPG-to-Liters-per-100km</a>.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Adding MPG column</span></span><br><span class="line"><span class="comment"># MPG=Speed(Km/h)*7.718/MAF</span></span><br><span class="line">dfwithMPG = df.withColumn(<span class="string">"MPG"</span>,df.series_SPEED_double/df.series_MAF_double*<span class="number">7.718</span>).select(<span class="string">"timestamp"</span>, <span class="string">"series_SPEED_double"</span>, <span class="string">"series_RPM_double"</span>, <span class="string">"MPG"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Then convert from MPG to L/100km, adding Consumption column, using US galoons</span></span><br><span class="line">l/<span class="number">100</span>km = <span class="number">282.48</span>/MPG (imperial gallons) <span class="keyword">or</span>  l/<span class="number">100</span>km = <span class="number">235.21</span>/MPG (US gallons)</span><br><span class="line">dfwithConsumption = dfwithMPG.withColumn(<span class="string">"Consumption"</span>,<span class="number">235.21</span>/dfwithMPG.MPG).select(<span class="string">"timestamp"</span>, <span class="string">"series_SPEED_double"</span>, <span class="string">"series_RPM_double"</span>, <span class="string">"MPG"</span>, <span class="string">"Consumption"</span>)</span><br></pre></td></tr></table></figure></p>
+<img src="/2020/09/22/How-to-build-an-IoT-connected-car-Part-2-Data-Analytics-in-the-Cloud/fuel%20consumption.jpg" title="Fuel Consumption">
+<p>(Picture: Oversimplified calculation of eco-driving zone)</p>
+<h3 id="2-3-Issue-of-TSI-generated-parquet-files"><a href="#2-3-Issue-of-TSI-generated-parquet-files" class="headerlink" title="2.3 Issue of TSI generated parquet files"></a>2.3 Issue of TSI generated parquet files</h3><p>If we directly use the TSI parquet files as input for the databricks, we will encounter an error message <strong>“Found duplicate column(s) in data schema: “series_speed_double”</strong>.</p>
+<p>This is because both GPS and OBD modules are reporting speed, but with different case <strong>“Speed”</strong> and <strong>“SPEED”</strong>.</p>
+<img src="/2020/09/22/How-to-build-an-IoT-connected-car-Part-2-Data-Analytics-in-the-Cloud/duplicate%20columns.png" title="Duplicate columns for speed">
+<p>TSI is fine with it, as the asset model/metadata helps, but in Databrick there is no data contextualization - all data fields are flattened out, therefore it is quite often encountering this type of issue.</p>
+<p>As a workaround, we can set spark.sql.caseSensitive as true<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sqlContext.sql(<span class="string">"set spark.sql.caseSensitive=true"</span>)</span><br><span class="line">df = sqlContext.read.parquet(file_path).select(<span class="string">"column1"</span>, <span class="string">"column2"</span> )</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-4-Summary-of-Databricks-experience"><a href="#2-4-Summary-of-Databricks-experience" class="headerlink" title="2.4 Summary of Databricks experience"></a>2.4 Summary of Databricks experience</h3><p><strong>Pro:</strong></p>
+<ul>
+<li>The standard tool/eco-system for data analytics, can do almost anything</li>
+<li>Rich and powerful libraries</li>
+</ul>
+<p><strong>Con:</strong></p>
+<ul>
+<li>Not for ordinary business users who do not work with python/programming</li>
+<li>Some visualization such as map and animation requires extra work</li>
+<li>Tried PowerBI to databricks (spark), did not manage to make it work at that time (beta version) </li>
+<li>No builtin data contextualization support, take the input as it is, which is an issue with TSI parquet files </li>
+</ul>
+<h2 id="3-Azure-Data-Explorer-ADX"><a href="#3-Azure-Data-Explorer-ADX" class="headerlink" title="3. Azure Data Explorer (ADX)"></a>3. Azure Data Explorer (ADX)</h2><p>After tried the a-bit-too-simple TSI and a-bit-too-hardcore Databrick, I was looking for a better-balanced product between them. Therefore I started exploring <a href="https://azure.microsoft.com/en-us/services/data-explorer/" target="_blank" rel="noopener">Azure Data Explorer (ADX)</a>.</p>
+<h3 id="3-1-Setup-database-and-ingestion-mapping"><a href="#3-1-Setup-database-and-ingestion-mapping" class="headerlink" title="3.1 Setup database and ingestion mapping"></a>3.1 Setup database and ingestion mapping</h3><p>Long story short, I created an ADX cluster and a database for IoT Car data, created 2 tables:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.create table OBDTable (timestamp: datetime, deviceId: string, speed: real, rpm: real, run_time: real, absolute_load: real, short_fuel_trim_1: real, long_fuel_trim_1: real, timing_advance: real, intake_pressure: real, intake_temp: real, throttle_pos: real, relative_throttle_pos: real, oil_temp: real, maf: real, coolant_temp: real, engine_load: real) </span><br><span class="line"></span><br><span class="line">.create table GPSTable (timestamp: datetime, deviceId: string, gps_speed: real, altitude: real, longitude: string, latitude: string)</span><br></pre></td></tr></table></figure></p>
+<p>And create mappings as below:<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">"Name": GPSMapping,</span><br><span class="line">"Kind": Json,</span><br><span class="line">"Mapping": [&#123;"column":"timestamp","path":"$.timestamp","datatype":"datetime","transform":"None"&#125;,&#123;"column":"deviceId","path":"$.deviceId","datatype":"string","transform":"None"&#125;,&#123;"column":"gps_speed","path":"$.series[0].gps_speed","datatype":"double","transform":"None"&#125;,&#123;"column":"altitude","path":"$.series[0].altitude","datatype":"double","transform":"None"&#125;,&#123;"column":"longitude","path":"$.series[0].longitude","datatype":"string","transform":"None"&#125;,&#123;"column":"latitude","path":"$.series[0].latitude","datatype":"string","transform":"None"&#125;],</span><br><span class="line">"LastUpdatedOn": 2019-02-27T19:25:47.889932Z,</span><br><span class="line">"Database": iotcardb,</span><br><span class="line">"Table": GPSTable,</span><br><span class="line"></span><br><span class="line">"Name": OBDMapping,</span><br><span class="line">"Kind": Json,</span><br><span class="line">"Mapping": [&#123;"column":"timestamp","path":"$.timestamp","datatype":"datetime","transform":"None"&#125;,&#123;"column":"deviceId","path":"$.deviceId","datatype":"string","transform":"None"&#125;,&#123;"column":"speed","path":"$.series[0].SPEED","datatype":"double","transform":"None"&#125;,&#123;"column":"rpm","path":"$.series[0].RPM","datatype":"double","transform":"None"&#125;,&#123;"column":"run_time","path":"$.series[0].RUN_TIME","datatype":"double","transform":"None"&#125;,&#123;"column":"absolute_load","path":"$.series[0].ABSOLUTE_LOAD","datatype":"double","transform":"None"&#125;,&#123;"column":"short_fuel_trim_1","path":"$.series[0].SHORT_FUEL_TRIM_1","datatype":"double","transform":"None"&#125;,&#123;"column":"long_fuel_trim_1","path":"$.series[0].LONG_FUEL_TRIM_1","datatype":"double","transform":"None"&#125;,&#123;"column":"timing_advance","path":"$.series[0].TIMING_ADVANCE","datatype":"double","transform":"None"&#125;,&#123;"column":"intake_pressure","path":"$.series[0].INTAKE_PRESSURE","datatype":"double","transform":"None"&#125;,&#123;"column":"intake_temp","path":"$.series[0].INTAKE_TEMP","datatype":"double","transform":"None"&#125;,&#123;"column":"throttle_pos","path":"$.series[0].THROTTLE_POS","datatype":"double","transform":"None"&#125;,&#123;"column":"relative_throttle_pos","path":"$.series[0].RELATIVE_THROTTLE_POS","datatype":"double","transform":"None"&#125;,&#123;"column":"oil_temp","path":"$.series[0].OIL_TEMP","datatype":"double","transform":"None"&#125;,&#123;"column":"maf","path":"$.series[0].MAF","datatype":"double","transform":"None"&#125;,&#123;"column":"coolant_temp","path":"$.series[0].COOLANT_TEMP","datatype":"double","transform":"None"&#125;,&#123;"column":"engine_load","path":"$.series[0].ENGINE_LOAD","datatype":"double","transform":"None"&#125;],</span><br><span class="line">"LastUpdatedOn": 2019-02-27T19:17:24.3220181Z,</span><br><span class="line">"Database": iotcardb,</span><br><span class="line">"Table": OBDTable,</span><br></pre></td></tr></table></figure></p>
+<h3 id="3-2-Data-analytics-by-using-kusto-query-language"><a href="#3-2-Data-analytics-by-using-kusto-query-language" class="headerlink" title="3.2 Data analytics by using kusto query language"></a>3.2 Data analytics by using kusto query language</h3><p>Now we are ready to query by using powerful <a href="https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/" target="_blank" rel="noopener">kusto query language</a>, especially the <a href="https://docs.microsoft.com/en-us/azure/data-explorer/time-series-analysis" target="_blank" rel="noopener">timeseries related analytics</a>.</p>
+<h4 id="3-2-1-Average-GPS-speed-aggregated-by-every-20-seconds"><a href="#3-2-1-Average-GPS-speed-aggregated-by-every-20-seconds" class="headerlink" title="3.2.1 Average GPS speed aggregated by every 20 seconds"></a>3.2.1 Average GPS speed aggregated by every 20 seconds</h4><p>Simple data aggregation<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//avg gps speed every 20s</span><br><span class="line"><span class="built_in">let</span> min_t = datetime(2019-03-06 12:30:00); //UTC</span><br><span class="line"><span class="built_in">let</span> max_t = datetime(2019-03-06 13:00:00); //UTC</span><br><span class="line">GPSTable</span><br><span class="line">| <span class="built_in">where</span> timestamp between (min_t .. max_t)</span><br><span class="line">| summarize avg(gps_speed) by bin(timestamp, 20s)</span><br><span class="line">| render timechart</span><br></pre></td></tr></table></figure></p>
+<img src="/2020/09/22/How-to-build-an-IoT-connected-car-Part-2-Data-Analytics-in-the-Cloud/adx%20average%20gps%20speed.png" title="ADX average GPS speed">
+<h4 id="3-2-2-Join-2-tables-Show-obd-speed-gps-speed-and-avg-MAF"><a href="#3-2-2-Join-2-tables-Show-obd-speed-gps-speed-and-avg-MAF" class="headerlink" title="3.2.2 Join 2 tables, Show obd speed, gps speed and avg MAF"></a>3.2.2 Join 2 tables, Show obd speed, gps speed and avg MAF</h4><p>Inner join two tables and apply aggregation<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//join 2 tables, show obd speed, gps speed and avg maf </span><br><span class="line"><span class="built_in">let</span> min_t = datetime(2019-03-06 12:30:00); //UTC</span><br><span class="line"><span class="built_in">let</span> max_t = datetime(2019-03-06 13:00:00); //UTC</span><br><span class="line">GPSTable</span><br><span class="line">| <span class="built_in">where</span> timestamp between (min_t .. max_t)</span><br><span class="line">| summarize avg(gps_speed) by bin(timestamp, 20s)</span><br><span class="line">| join kind=inner</span><br><span class="line">(OBDTable </span><br><span class="line">| <span class="built_in">where</span> timestamp between (min_t .. max_t)</span><br><span class="line">| summarize avg(speed), avg(maf) by bin(timestamp, 20s))</span><br><span class="line">on timestamp </span><br><span class="line">| project timestamp, avg_gps_speed, avg_speed, avg_maf </span><br><span class="line">| render timechart</span><br></pre></td></tr></table></figure></p>
+<img src="/2020/09/22/How-to-build-an-IoT-connected-car-Part-2-Data-Analytics-in-the-Cloud/ADX%20join%202%20tables.png" title="ADX join 2 tables">
+<h4 id="3-2-3-Applies-two-segments-linear-regression-on-engine-load"><a href="#3-2-3-Applies-two-segments-linear-regression-on-engine-load" class="headerlink" title="3.2.3 Applies two segments linear regression on engine_load"></a>3.2.3 Applies two segments linear regression on engine_load</h4><p>Apply two segments linear regression on engine load, see the document <a href="https://docs.microsoft.com/en-us/azure/kusto/query/series-fit-2lines-dynamicfunction" target="_blank" rel="noopener">here</a>.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//Applies two segments linear regression on engine_load. </span><br><span class="line"><span class="built_in">let</span> min_t = datetime(2019-03-06 12:40:55); //UTC</span><br><span class="line"><span class="built_in">let</span> max_t = datetime(2019-03-06 12:57:20); //UTC</span><br><span class="line">OBDTable</span><br><span class="line">| <span class="built_in">where</span> coolant_temp &gt; 0</span><br><span class="line">| make-series engine_load_targetAvg = avg(engine_load) default = 0 on timestamp <span class="keyword">in</span> range(min_t, max_t, 5s)</span><br><span class="line">| extend LineFit=series_fit_line_dynamic(engine_load_targetAvg).line_fit, LineFit2=series_fit_2lines_dynamic(engine_load_targetAvg).line_fit</span><br><span class="line">| project timestamp, engine_load_targetAvg, LineFit, LineFit2 </span><br><span class="line">| render timechart</span><br></pre></td></tr></table></figure>
+<img src="/2020/09/22/How-to-build-an-IoT-connected-car-Part-2-Data-Analytics-in-the-Cloud/adx%20two%20segments%20linear%20regression%20on%20engine%20load.png" title="Applies two segments linear regression on engine_load">
+<h3 id="3-3-Summary-of-ADX-experience"><a href="#3-3-Summary-of-ADX-experience" class="headerlink" title="3.3 Summary of ADX experience"></a>3.3 Summary of ADX experience</h3><p>Pro:</p>
+<ul>
+<li>Easy and powerful <a href="https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/" target="_blank" rel="noopener">kusto query language</a>, good balance between capacity and user-friendly query.</li>
+<li>Powerful and proven data computing capacity (the same technology that powers Azure log) </li>
+<li>Contextualization in storage (table and columns)</li>
+<li>Works well with PowerBI (see PowerBI section)</li>
+</ul>
+<p>Con:</p>
+<ul>
+<li>Cannot replace the “real” big data products </li>
+<li>It has its own <a href="https://docs.microsoft.com/en-us/azure/kusto/concepts/querylimits" target="_blank" rel="noopener">query limits</a></li>
+<li>Missing some visualization such as map and animation </li>
+</ul>
+<h2 id="4-PowerBI"><a href="#4-PowerBI" class="headerlink" title="4. PowerBI"></a>4. PowerBI</h2><p>So far I have tried several products for analytics, but none of them have great built-in visualization features, especially on map support.</p>
+<p>PowerBI is a popular tool for data visualization, but it does not support big data analytics. However, by combining PowerBI and ADX, the job is easier.</p>
+<h3 id="4-1-Let-ADX-to-handle-the-computing-part"><a href="#4-1-Let-ADX-to-handle-the-computing-part" class="headerlink" title="4.1 Let ADX to handle the computing part"></a>4.1 Let ADX to handle the computing part</h3><p>Instead of doing the visualization in ADX, now we use a query to generate a dataset (two dimensional table)<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//for powerbi map, CANNOT have comments!</span><br><span class="line"></span><br><span class="line">let min_t = datetime(2019-03-06 12:40:55);</span><br><span class="line">let max_t = datetime(2019-03-06 12:57:20);</span><br><span class="line">GPSTable</span><br><span class="line">| where timestamp between (min_t .. max_t)</span><br><span class="line">| summarize any(longitude), any(latitude) by bin(timestamp, 20s)</span><br><span class="line">| join kind=inner</span><br><span class="line">(OBDTable </span><br><span class="line">| where timestamp between (min_t .. max_t)</span><br><span class="line">| summarize avg(speed), avg(maf), avg(rpm) by bin(timestamp, 20s))</span><br><span class="line">on timestamp </span><br><span class="line">| project timestamp, any_latitude, any_longitude, avg_speed, avg_maf, avg_rpm</span><br></pre></td></tr></table></figure></p>
+<img src="/2020/09/22/How-to-build-an-IoT-connected-car-Part-2-Data-Analytics-in-the-Cloud/ADX%20for%20PowerBI.png" title="ADX for PowerBI">
+<p>Then use “Query to PowerBI” on the dropdown list. </p>
+<p>NOTE: When I was testing this, there was an issue that the Kusto query can NOT have inline comments, otherwise these inline comments will be mixed into the generated powerBI query, which ruined the syntax. Keep all the comments out of the kusto query block.</p>
+<h3 id="4-2-In-PowerBI-create-good-looking-visualization-dashboard"><a href="#4-2-In-PowerBI-create-good-looking-visualization-dashboard" class="headerlink" title="4.2 In PowerBI, create good-looking visualization dashboard"></a>4.2 In PowerBI, create good-looking visualization dashboard</h3><p>By using the generated PowerBI query from above, I can easily create differnt visualization dashboard in PowerBI. For example the map:<br><img src="/2020/09/22/How-to-build-an-IoT-connected-car-Part-2-Data-Analytics-in-the-Cloud/PowerBI%20map.png" title="Map in PowerBI, with speed group"><br>It shows one of the trips on the map, as well as the speed: greener is faster, and reder means slower.</p>
+<img src="/2020/09/22/How-to-build-an-IoT-connected-car-Part-2-Data-Analytics-in-the-Cloud/PowerBI%20map%20zoom%20in.jpg" title="PowerBI map zoom in">
+<h3 id="4-3-Replay-a-trip"><a href="#4-3-Replay-a-trip" class="headerlink" title="4.3 Replay a trip"></a>4.3 Replay a trip</h3><p>Using PowerBI addon such as <a href="https://appsource.microsoft.com/en-us/product/office/WA104380981" target="_blank" rel="noopener">Play Axis (Dynamic Slicer)</a>, it is easy to replay a trip.</p>
+<img src="/2020/09/22/How-to-build-an-IoT-connected-car-Part-2-Data-Analytics-in-the-Cloud/PowerBI%20replay%20a%20trip.gif" title="PowerBI replay a trip">
+<p>Picture: Play a trip in PowerBI, with map and engine RPM.</p>
+<ul>
+<li>X-axis: time</li>
+<li>Y-axis: speed (from GPS)</li>
+<li>Size of the bubble: Engine RPM (from OBD) </li>
+</ul>
+<p>It clearly shows where was the traffic jam (drops of speed), and where had a good traffic condition (peak of speed and RPM).</p>
+<h3 id="4-4-Summary-of-PowerBI-experience"><a href="#4-4-Summary-of-PowerBI-experience" class="headerlink" title="4.4 Summary of PowerBI experience"></a>4.4 Summary of PowerBI experience</h3><p><strong>Pro:</strong></p>
+<ul>
+<li>Easy to use</li>
+<li>Rich visualization (e.g. map)</li>
+<li>Easy to share (e.g. PowerBI Online)</li>
+</ul>
+<p><strong>Con:</strong></p>
+<ul>
+<li>Not for big data computing, but good for visualization</li>
+<li>Need a “big data computing” back end (in our case it is ADX)</li>
+</ul>
+<h2 id="5-Grafana"><a href="#5-Grafana" class="headerlink" title="5. Grafana"></a>5. Grafana</h2><p>PowerBI is a good visualization tool, but it is not easy to directly create/update kusto query in PowerBI. Most likely you will have to run and test the query in ADX, then export to PowerBI. We hope to overcome this issue with Grafana.</p>
+<p><a href="https://grafana.com/" target="_blank" rel="noopener">Grafana</a> is an open source tool mainly used for monitoring and data visualization.  With the <a href="https://grafana.com/grafana/plugins/grafana-azure-data-explorer-datasource" target="_blank" rel="noopener">Azure Data Explorer Datasource For Grafana</a> plugin, we can integrate the ADX and Kusto power with fancy and powerful Grafana visualization. </p>
+<h3 id="5-1-Run-Grafana-as-docker-with-preinstalled-ADX-data-source-plugin"><a href="#5-1-Run-Grafana-as-docker-with-preinstalled-ADX-data-source-plugin" class="headerlink" title="5.1 Run Grafana as docker, with preinstalled ADX data source plugin"></a>5.1 Run Grafana as docker, with preinstalled ADX data source plugin</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 3000:3000 -e <span class="string">"GF_INSTALL_PLUGINS=grafana-azure-data-explorer-datasource"</span> grafana/grafana:latest</span><br></pre></td></tr></table></figure>
+<p>Then follow the <a href="https://grafana.com/grafana/plugins/grafana-azure-data-explorer-datasource" target="_blank" rel="noopener">plugin documenation</a> to config access.</p>
+<p>Now you can directly create Kusto-enabled dashboard, including map.<br><img src="/2020/09/22/How-to-build-an-IoT-connected-car-Part-2-Data-Analytics-in-the-Cloud/grafana%20dashboard.jpg" title="Grafana dashboard"></p>
+<h3 id="5-2-Summary-of-Grafana-experience"><a href="#5-2-Summary-of-Grafana-experience" class="headerlink" title="5.2  Summary of Grafana experience"></a>5.2  Summary of Grafana experience</h3><p><strong>Pro:</strong></p>
+<ul>
+<li>Very rich and powerful visualization</li>
+<li>Self-service Kusto enabled queries and build dashboard</li>
+<li>Built-in access control and notification support</li>
+<li>Big support by the community</li>
+</ul>
+<p><strong>Con:</strong></p>
+<ul>
+<li>(cannot find one…for now)</li>
+</ul>
+<h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><p>Now we have tried several products, and my favorite setup is ADX (as backend data storage and query) and Grafana (as front end self-service visualization). I believe it meet the most common needs of ordinary users. But of course other products have different focus areas and can/should be used for different scenarios. </p>
+<p>After all, the old saying is always correct: “It depends.”</p>
+<p>Thanks for the reading.</p>
+<p>(Read <a href="/2020/09/15/How-to-build-an-IoT-connected-car-Part-1-On-the-Edge/" title="Part 1">Part 1</a> of this article series)</p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="https://feng.lu/2020/09/22/How-to-build-an-IoT-connected-car-Part-2-Data-Analytics-in-the-Cloud/" data-id="ckfdys1bu000f2cipw5feg2ce" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="https://feng.lu/2020/09/22/How-to-build-an-IoT-connected-car-Part-2-Data-Analytics-in-the-Cloud/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://feng.lu/2020/09/22/How-to-build-an-IoT-connected-car-Part-2-Data-Analytics-in-the-Cloud/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2020/09/15/How-to-build-an-IoT-connected-car-Part-1-On-the-Edge/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">How to build an IoT connected car - Part 1: On the Edge</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+</section>
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">recent</h3>
+        <div class="widget">
+            <ul id="recent-post" class="no-thumbnail">
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2020/09/22/How-to-build-an-IoT-connected-car-Part-2-Data-Analytics-in-the-Cloud/" class="title">How to build an IoT connected car - Part 2: Data Analytics in the Cloud</a></p>
+                            <p class="item-date"><time datetime="2020-09-22T08:00:13.000Z" itemprop="datePublished">2020-09-22</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2020/09/15/How-to-build-an-IoT-connected-car-Part-1-On-the-Edge/" class="title">How to build an IoT connected car - Part 1: On the Edge</a></p>
+                            <p class="item-date"><time datetime="2020-09-15T08:38:12.000Z" itemprop="datePublished">2020-09-15</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2020/08/05/How-to-measure-your-Hamster-s-running-with-IoT/" class="title">How to measure your Hamster&#39;s running with wireless IoT</a></p>
+                            <p class="item-date"><time datetime="2020-08-05T17:30:43.000Z" itemprop="datePublished">2020-08-05</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2020/06/20/Encoding-issue-when-calling-API-via-powershell/" class="title">Encoding issue when calling API via powershell</a></p>
+                            <p class="item-date"><time datetime="2020-06-20T11:40:00.000Z" itemprop="datePublished">2020-06-20</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2020/04/03/How-to-Decrypt-Native-Apps-HTTPS-Traffic-and-Debug-for-In-app-Browser/" class="title">How to Decrypt Native App&#39;s HTTPS Traffic (and Debug for In-app Browser)</a></p>
+                            <p class="item-date"><time datetime="2020-04-03T18:10:18.000Z" itemprop="datePublished">2020-04-03</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/ADFS/" style="font-size: 10px;">ADFS</a> <a href="/tags/API/" style="font-size: 10px;">API</a> <a href="/tags/ASP-Net-Core/" style="font-size: 10px;">ASP.Net Core</a> <a href="/tags/Application-Insights/" style="font-size: 14px;">Application Insights</a> <a href="/tags/Artificial-Intelligence/" style="font-size: 12px;">Artificial Intelligence</a> <a href="/tags/Authentication/" style="font-size: 10px;">Authentication</a> <a href="/tags/Authorization/" style="font-size: 10px;">Authorization</a> <a href="/tags/Azure/" style="font-size: 20px;">Azure</a> <a href="/tags/Azure-AD-B2C/" style="font-size: 10px;">Azure AD B2C</a> <a href="/tags/Azure-Data-Explorer-ADX/" style="font-size: 10px;">Azure Data Explorer (ADX)</a> <a href="/tags/Azure-IoT-Edge/" style="font-size: 10px;">Azure IoT Edge</a> <a href="/tags/Azure-IoT-Hub/" style="font-size: 10px;">Azure IoT Hub</a> <a href="/tags/Azure-Template/" style="font-size: 10px;">Azure Template</a> <a href="/tags/Blockchain/" style="font-size: 10px;">Blockchain</a> <a href="/tags/Blog/" style="font-size: 14px;">Blog</a> <a href="/tags/Build/" style="font-size: 12px;">Build</a> <a href="/tags/Car/" style="font-size: 12px;">Car</a> <a href="/tags/Chatbot/" style="font-size: 12px;">Chatbot</a> <a href="/tags/Continuous-Deployment/" style="font-size: 10px;">Continuous Deployment</a> <a href="/tags/Continuous-Integration/" style="font-size: 10px;">Continuous Integration</a> <a href="/tags/DLT/" style="font-size: 18px;">DLT</a> <a href="/tags/DNS/" style="font-size: 10px;">DNS</a> <a href="/tags/Data-Analytics/" style="font-size: 14px;">Data Analytics</a> <a href="/tags/Data-Integrity/" style="font-size: 16px;">Data Integrity</a> <a href="/tags/Data-Lineage/" style="font-size: 16px;">Data Lineage</a> <a href="/tags/Databricks/" style="font-size: 10px;">Databricks</a> <a href="/tags/Decryption/" style="font-size: 10px;">Decryption</a> <a href="/tags/DevOps/" style="font-size: 16px;">DevOps</a> <a href="/tags/Distributed-Ledger-Technology/" style="font-size: 18px;">Distributed Ledger Technology</a> <a href="/tags/Docker/" style="font-size: 12px;">Docker</a> <a href="/tags/Domain/" style="font-size: 10px;">Domain</a> <a href="/tags/Encoding/" style="font-size: 10px;">Encoding</a> <a href="/tags/Fiddler/" style="font-size: 10px;">Fiddler</a> <a href="/tags/Fullnode/" style="font-size: 10px;">Fullnode</a> <a href="/tags/GPS/" style="font-size: 10px;">GPS</a> <a href="/tags/Git/" style="font-size: 14px;">Git</a> <a href="/tags/Github/" style="font-size: 12px;">Github</a> <a href="/tags/Google-Analytics/" style="font-size: 10px;">Google Analytics</a> <a href="/tags/Google-Tag-Manager/" style="font-size: 10px;">Google Tag Manager</a> <a href="/tags/Grafana/" style="font-size: 10px;">Grafana</a> <a href="/tags/HTTPS/" style="font-size: 10px;">HTTPS</a> <a href="/tags/Hamster/" style="font-size: 10px;">Hamster</a> <a href="/tags/Hexo/" style="font-size: 12px;">Hexo</a> <a href="/tags/Home-Assistant/" style="font-size: 10px;">Home Assistant</a> <a href="/tags/IOTA/" style="font-size: 18px;">IOTA</a> <a href="/tags/Infrastructure-as-Code/" style="font-size: 10px;">Infrastructure as Code</a> <a href="/tags/IoT/" style="font-size: 20px;">IoT</a> <a href="/tags/Istio/" style="font-size: 10px;">Istio</a> <a href="/tags/Json/" style="font-size: 10px;">Json</a> <a href="/tags/Jump-start/" style="font-size: 10px;">Jump-start</a> <a href="/tags/Jupyter-Notebook/" style="font-size: 12px;">Jupyter Notebook</a> <a href="/tags/KUDU/" style="font-size: 10px;">KUDU</a> <a href="/tags/Kiali/" style="font-size: 10px;">Kiali</a> <a href="/tags/Kubernetes/" style="font-size: 10px;">Kubernetes</a> <a href="/tags/Linkedin/" style="font-size: 10px;">Linkedin</a> <a href="/tags/Load-Testing/" style="font-size: 10px;">Load Testing</a> <a href="/tags/Machine-Learning/" style="font-size: 12px;">Machine Learning</a> <a href="/tags/Microsoft-language-understanding-intelligent-service/" style="font-size: 12px;">Microsoft language understanding intelligent service</a> <a href="/tags/Monitoring/" style="font-size: 14px;">Monitoring</a> <a href="/tags/Native-App/" style="font-size: 10px;">Native App</a> <a href="/tags/Nodejs/" style="font-size: 10px;">Nodejs</a> <a href="/tags/OAuth/" style="font-size: 12px;">OAuth</a> <a href="/tags/OBD2/" style="font-size: 10px;">OBD2</a> <a href="/tags/OpenID/" style="font-size: 10px;">OpenID</a> <a href="/tags/Plugin/" style="font-size: 10px;">Plugin</a> <a href="/tags/Postman/" style="font-size: 10px;">Postman</a> <a href="/tags/PowerBI/" style="font-size: 14px;">PowerBI</a> <a href="/tags/Powershell/" style="font-size: 10px;">Powershell</a> <a href="/tags/Prototype/" style="font-size: 12px;">Prototype</a> <a href="/tags/Python/" style="font-size: 14px;">Python</a> <a href="/tags/Raspberry-Pi/" style="font-size: 10px;">Raspberry Pi</a> <a href="/tags/Release-Management/" style="font-size: 10px;">Release Management</a> <a href="/tags/Release-management/" style="font-size: 10px;">Release management</a> <a href="/tags/Scripting/" style="font-size: 10px;">Scripting</a> <a href="/tags/Service-mesh/" style="font-size: 10px;">Service mesh</a> <a href="/tags/SharePoint-PnP/" style="font-size: 10px;">SharePoint PnP</a> <a href="/tags/Social-Sharing/" style="font-size: 10px;">Social Sharing</a> <a href="/tags/Tangle/" style="font-size: 16px;">Tangle</a> <a href="/tags/Time-Series-Insight-TSI/" style="font-size: 10px;">Time Series Insight (TSI)</a> <a href="/tags/Troubleshooting/" style="font-size: 12px;">Troubleshooting</a> <a href="/tags/VSTS/" style="font-size: 14px;">VSTS</a> <a href="/tags/Vim/" style="font-size: 10px;">Vim</a> <a href="/tags/Visualization/" style="font-size: 10px;">Visualization</a> <a href="/tags/Web-Testing/" style="font-size: 10px;">Web Testing</a> <a href="/tags/Zigbee/" style="font-size: 10px;">Zigbee</a>
+        </div>
+    </div>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2020 Feng Lu<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_config = function () {
+        
+            this.page.url = 'https://feng.lu/2020/09/22/How-to-build-an-IoT-connected-car-Part-2-Data-Analytics-in-the-Cloud/';
+        
+        this.page.identifier = 'How-to-build-an-IoT-connected-car-Part-2-Data-Analytics-in-the-Cloud';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'linkcd' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
