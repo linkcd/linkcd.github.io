@@ -15,13 +15,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     
     <title>Okta and AWS Control Tower - a happy path demo | feng.blog();</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="This is a happy path demo of setting up Okta as the Idp for AWS Control Tower (via AWS SSO).Goal: To utilize users and groups in Okta to manage AWS control tower.">
+    <meta name="description" content="This is a happy path demo of setting up Okta as the Idp for AWS Control Tower (via AWS SSO).Goal: To utilize users and groups in Okta to manage AWS control tower.  1. Create a brand new Control Tower">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Okta and AWS Control Tower - a happy path demo">
 <meta property="og:url" content="https://feng.lu/2021/11/17/Okta-and-AWS-Control-Tower-a-happy-path-demo/index.html">
 <meta property="og:site_name" content="feng.blog();">
-<meta property="og:description" content="This is a happy path demo of setting up Okta as the Idp for AWS Control Tower (via AWS SSO).Goal: To utilize users and groups in Okta to manage AWS control tower.">
+<meta property="og:description" content="This is a happy path demo of setting up Okta as the Idp for AWS Control Tower (via AWS SSO).Goal: To utilize users and groups in Okta to manage AWS control tower.  1. Create a brand new Control Tower">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://feng.lu/2021/11/17/Okta-and-AWS-Control-Tower-a-happy-path-demo/title.jpg">
 <meta property="og:image" content="https://feng.lu/2021/11/17/Okta-and-AWS-Control-Tower-a-happy-path-demo/default%20SSO%20user%20groups.jpg">
 <meta property="og:image" content="https://feng.lu/2021/11/17/Okta-and-AWS-Control-Tower-a-happy-path-demo/default%20master%20user1.jpg">
 <meta property="og:image" content="https://feng.lu/2021/11/17/Okta-and-AWS-Control-Tower-a-happy-path-demo/default%20master%20user2.jpg">
@@ -44,7 +45,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta property="og:image" content="https://feng.lu/2021/11/17/Okta-and-AWS-Control-Tower-a-happy-path-demo/okta%20groups%20available%20now.jpg">
 <meta property="og:image" content="https://feng.lu/2021/11/17/Okta-and-AWS-Control-Tower-a-happy-path-demo/grant%20permission%20to%20groups.jpg">
 <meta property="article:published_time" content="2021-11-17T19:17:08.000Z">
-<meta property="article:modified_time" content="2021-11-17T20:21:44.677Z">
+<meta property="article:modified_time" content="2021-11-17T20:30:27.961Z">
 <meta property="article:author" content="Feng Lu">
 <meta property="article:tag" content="Okta">
 <meta property="article:tag" content="AWS Control Tower">
@@ -52,7 +53,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta property="article:tag" content="SSO">
 <meta property="article:tag" content="AWS">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://feng.lu/2021/11/17/Okta-and-AWS-Control-Tower-a-happy-path-demo/default%20SSO%20user%20groups.jpg">
+<meta name="twitter:image" content="https://feng.lu/2021/11/17/Okta-and-AWS-Control-Tower-a-happy-path-demo/title.jpg">
     
 
     
@@ -282,13 +283,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="article-entry" itemprop="articleBody">
         
             
-            <p>This is a <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Happy_path">happy path</a> demo of setting up Okta as the Idp for AWS Control Tower (via AWS SSO).<br><strong>Goal</strong>: To utilize users and groups in Okta to manage AWS control tower.</p>
-<span id="more"></span>
+            <p>This is a <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Happy_path">happy path</a> demo of setting up <a target="_blank" rel="noopener" href="https://www.okta.com/">Okta</a> as the Idp for <a target="_blank" rel="noopener" href="https://aws.amazon.com/controltower/">AWS Control Tower</a> (via <a target="_blank" rel="noopener" href="https://aws.amazon.com/single-sign-on/">AWS SSO</a>).<br><strong>Goal</strong>: To utilize users and groups in Okta to manage AWS control tower.</p>
+<img src="/2021/11/17/Okta-and-AWS-Control-Tower-a-happy-path-demo/title.jpg" class="" title>
 <h1 id="1-Create-a-brand-new-Control-Tower-instance"><a href="#1-Create-a-brand-new-Control-Tower-instance" class="headerlink" title="1. Create a brand new Control Tower instance"></a>1. Create a brand new Control Tower instance</h1><p>In this demo, we create the AWS Control Tower instance in a brand new AWS account. During this process, control tower creates several services/components, such as AWS Organizations, AWS SSO, default organizations unit (OU) “Security” and 2 AWS accounts “Log Archive” and “Audit”. </p>
 <p>In the AWS SSO, some default SSO user groups are created for managing Control Tower:<br><img src="/2021/11/17/Okta-and-AWS-Control-Tower-a-happy-path-demo/default%20SSO%20user%20groups.jpg" class="" title="default SSO user groups"></p>
 <p>The default admin user for organization management account is “AWS Control Tower Admin”.<br><img src="/2021/11/17/Okta-and-AWS-Control-Tower-a-happy-path-demo/default%20master%20user1.jpg" class="" title="default master user1"></p>
 <p>Detailed user info<br><img src="/2021/11/17/Okta-and-AWS-Control-Tower-a-happy-path-demo/default%20master%20user2.jpg" class="" title="default master user2"></p>
 <p>And it belongs to 2 groups: <strong>AWSAccountFactory</strong> and <strong>AWSControlTowerAdmins</strong><br><img src="/2021/11/17/Okta-and-AWS-Control-Tower-a-happy-path-demo/default%20master%20user3.jpg" class="" title="default master user3"></p>
+<span id="more"></span>
 <h1 id="2-Setup-Okta-and-use-it-as-the-idp-of-AWS-SSO"><a href="#2-Setup-Okta-and-use-it-as-the-idp-of-AWS-SSO" class="headerlink" title="2. Setup Okta and use it as the idp of AWS SSO"></a>2. Setup Okta and use it as the idp of AWS SSO</h1><h2 id="2-1-Create-an-environment-of-Okta"><a href="#2-1-Create-an-environment-of-Okta" class="headerlink" title="2.1 Create an environment of Okta]"></a>2.1 Create an environment of Okta]</h2><p>For this demo, we are using a <a target="_blank" rel="noopener" href="https://developer.okta.com/signup/">free developer plan of Okta</a>.</p>
 <h2 id="2-2-Setup-Okta-as-the-idp-of-AWS-SSO"><a href="#2-2-Setup-Okta-as-the-idp-of-AWS-SSO" class="headerlink" title="2.2 Setup Okta as the idp of AWS SSO"></a>2.2 Setup Okta as the idp of AWS SSO</h2><p>Follow the steps in the following document, to use Okta as the idp of AWS SSO.<br><strong>Note that you need to check steps from <em>both</em> documentation to make sure the integration and user provisioning works.</strong></p>
 <h3 id="2-2-1-Basic-hand-shake-import-metadata-file-from-Okta-to-AWS-SSO"><a href="#2-2-1-Basic-hand-shake-import-metadata-file-from-Okta-to-AWS-SSO" class="headerlink" title="2.2.1 Basic hand-shake, import metadata file from Okta to AWS SSO"></a>2.2.1 Basic hand-shake, import metadata file from Okta to AWS SSO</h3><p><strong>Steps</strong>: <a target="_blank" rel="noopener" href="https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-for-AWS-Single-Sign-on.html">How to Configure SAML 2.0 for AWS Single Sign-on</a><br><img src="/2021/11/17/Okta-and-AWS-Control-Tower-a-happy-path-demo/config%20saml2%20for%20aws%20sso.jpg" class="" title="config saml2 for aws sso"></p>
@@ -327,7 +329,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </div>
 
-    <a data-url="https://feng.lu/2021/11/17/Okta-and-AWS-Control-Tower-a-happy-path-demo/" data-id="ckw3wrt7p0000rxuda16m0iuv" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://feng.lu/2021/11/17/Okta-and-AWS-Control-Tower-a-happy-path-demo/" data-id="ckw3zc4f7000lsxud1xuo1c1y" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding

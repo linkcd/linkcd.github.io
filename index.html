@@ -251,7 +251,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         
         <div class="article-entry" itemprop="articleBody">
         
-            <p><p>This is a <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Happy_path">happy path</a> demo of setting up Okta as the Idp for AWS Control Tower (via AWS SSO).<br><strong>Goal</strong>: To utilize users and groups in Okta to manage AWS control tower.</p></p>
+            <p><p>This is a <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Happy_path">happy path</a> demo of setting up <a target="_blank" rel="noopener" href="https://www.okta.com/">Okta</a> as the Idp for <a target="_blank" rel="noopener" href="https://aws.amazon.com/controltower/">AWS Control Tower</a> (via <a target="_blank" rel="noopener" href="https://aws.amazon.com/single-sign-on/">AWS SSO</a>).<br><strong>Goal</strong>: To utilize users and groups in Okta to manage AWS control tower.</p>
+<img src="/2021/11/17/Okta-and-AWS-Control-Tower-a-happy-path-demo/title.jpg" class="" title>
+<h1 id="1-Create-a-brand-new-Control-Tower-instance"><a href="#1-Create-a-brand-new-Control-Tower-instance" class="headerlink" title="1. Create a brand new Control Tower instance"></a>1. Create a brand new Control Tower instance</h1><p>In this demo, we create the AWS Control Tower instance in a brand new AWS account. During this process, control tower creates several services/components, such as AWS Organizations, AWS SSO, default organizations unit (OU) “Security” and 2 AWS accounts “Log Archive” and “Audit”. </p>
+<p>In the AWS SSO, some default SSO user groups are created for managing Control Tower:<br><img src="/2021/11/17/Okta-and-AWS-Control-Tower-a-happy-path-demo/default%20SSO%20user%20groups.jpg" class="" title="default SSO user groups"></p>
+<p>The default admin user for organization management account is “AWS Control Tower Admin”.<br><img src="/2021/11/17/Okta-and-AWS-Control-Tower-a-happy-path-demo/default%20master%20user1.jpg" class="" title="default master user1"></p>
+<p>Detailed user info<br><img src="/2021/11/17/Okta-and-AWS-Control-Tower-a-happy-path-demo/default%20master%20user2.jpg" class="" title="default master user2"></p>
+<p>And it belongs to 2 groups: <strong>AWSAccountFactory</strong> and <strong>AWSControlTowerAdmins</strong><br><img src="/2021/11/17/Okta-and-AWS-Control-Tower-a-happy-path-demo/default%20master%20user3.jpg" class="" title="default master user3"></p></p>
             <p class="article-more-link">
                 <a href="/2021/11/17/Okta-and-AWS-Control-Tower-a-happy-path-demo/#more">Read More</a>
             </p>
@@ -264,7 +270,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </div>
 
-    <a data-url="https://feng.lu/2021/11/17/Okta-and-AWS-Control-Tower-a-happy-path-demo/" data-id="ckw3wrt7p0000rxuda16m0iuv" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://feng.lu/2021/11/17/Okta-and-AWS-Control-Tower-a-happy-path-demo/" data-id="ckw3zc4f7000lsxud1xuo1c1y" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -401,7 +407,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </div>
 
-    <a data-url="https://feng.lu/2020/09/22/How-to-build-an-IoT-connected-car-Part-2-Data-Analytics-in-the-Cloud/" data-id="ckw3wksn6000w5fud3dfm50r6" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://feng.lu/2020/09/22/How-to-build-an-IoT-connected-car-Part-2-Data-Analytics-in-the-Cloud/" data-id="ckw3zc4fo000xsxud5f4v7hde" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -530,7 +536,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </div>
 
-    <a data-url="https://feng.lu/2020/09/15/How-to-build-an-IoT-connected-car-Part-1-On-the-Edge/" data-id="ckw3wksmk000c5fud561hcl2h" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://feng.lu/2020/09/15/How-to-build-an-IoT-connected-car-Part-1-On-the-Edge/" data-id="ckw3zc4f2000csxuda1m68nhw" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -662,7 +668,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </div>
 
-    <a data-url="https://feng.lu/2020/08/05/How-to-measure-your-Hamster-s-running-with-IoT/" data-id="ckw3wksml000e5fudedyx9wkj" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://feng.lu/2020/08/05/How-to-measure-your-Hamster-s-running-with-IoT/" data-id="ckw3zc4f3000esxud3dfs0fwj" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -801,7 +807,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </div>
 
-    <a data-url="https://feng.lu/2020/06/20/Encoding-issue-when-calling-API-via-powershell/" data-id="ckw3wksmi000a5fudepcc5fs7" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://feng.lu/2020/06/20/Encoding-issue-when-calling-API-via-powershell/" data-id="ckw3zc4f1000asxudhxgz80f8" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -937,7 +943,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </div>
 
-    <a data-url="https://feng.lu/2020/04/03/How-to-Decrypt-Native-Apps-HTTPS-Traffic-and-Debug-for-In-app-Browser/" data-id="ckw3wksmj000b5fud1bnm7erg" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://feng.lu/2020/04/03/How-to-Decrypt-Native-Apps-HTTPS-Traffic-and-Debug-for-In-app-Browser/" data-id="ckw3zc4f2000bsxud8h1i4fvf" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1073,7 +1079,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </div>
 
-    <a data-url="https://feng.lu/2019/10/05/Jump-start-Kubernetes-with-Docker-Desktop-on-Windows-10/" data-id="ckw3wksn7000y5fud2sbq40fu" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://feng.lu/2019/10/05/Jump-start-Kubernetes-with-Docker-Desktop-on-Windows-10/" data-id="ckw3zc4fp000zsxud101ha7e0" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1210,7 +1216,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </div>
 
-    <a data-url="https://feng.lu/2019/02/06/Customize-social-sharing-on-Linkedin-via-API/" data-id="ckw3wksmg00065fud2expa9rt" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://feng.lu/2019/02/06/Customize-social-sharing-on-Linkedin-via-API/" data-id="ckw3zc4ez0006sxud67ywcsj7" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1363,7 +1369,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </div>
 
-    <a data-url="https://feng.lu/2019/01/03/Data-Integrity-and-Lineage-by-using-DLT-Part-3/" data-id="ckw3wksmh00085fud2okf4ns6" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://feng.lu/2019/01/03/Data-Integrity-and-Lineage-by-using-DLT-Part-3/" data-id="ckw3zc4f00008sxud8fbbfoj1" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1499,7 +1505,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </div>
 
-    <a data-url="https://feng.lu/2018/10/03/Data-Integrity-and-Lineage-by-using-DLT-Part-2/" data-id="ckw3wksn5000v5fud8wctbkh4" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://feng.lu/2018/10/03/Data-Integrity-and-Lineage-by-using-DLT-Part-2/" data-id="ckw3zc4fn000wsxud31qgg51x" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
