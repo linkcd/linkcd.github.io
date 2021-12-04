@@ -173,11 +173,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                31
+                32
                 <span>posts</span>
             </div>
             <div class="article-info-block">
-                90
+                95
                 <span>tags</span>
             </div>
         </div>
@@ -214,6 +214,138 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
             
             <section id="main">
+    <article id="post-Jump-start-ASP-Net-Core-with-Docker" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/03/31/Jump-start-ASP-Net-Core-with-Docker/">Jump-start ASP.Net Core with Docker</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/03/31/Jump-start-ASP-Net-Core-with-Docker/">
+            <time datetime="2017-03-31T18:15:27.000Z" itemprop="datePublished">2017-03-31</time>
+        </a>
+    </div>
+
+
+                        
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/ASP-Net-Core/" rel="tag">ASP.Net Core</a>, <a class="tag-link-link" href="/tags/Docker/" rel="tag">Docker</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            <p><h1 id="Environment-Setup"><a href="#Environment-Setup" class="headerlink" title="Environment Setup"></a>Environment Setup</h1><p>I have a typical developers environment: Windows 10 Enterprise X64 (Version <em>1511</em>, OS build <em>10586.839</em>). Installed DotNet Core <em>1.0.1</em> and VS Code. In VS Code there are two extension installed.<br><img src="/2017/03/31/Jump-start-ASP-Net-Core-with-Docker/VS%20Code%20extensions.png" class="" title="VS Code extensions"></p>
+<h2 id="Enable-Hyper-V"><a href="#Enable-Hyper-V" class="headerlink" title="Enable Hyper-V"></a>Enable Hyper-V</h2><p>VirtualBox is no longer needed! Simply enable the Hyper-V on on Windows 10 by running powershell commands (as Administrator)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All</span><br><span class="line">DISM /Online /Enable-Feature /All /FeatureName:Microsoft-Hyper-V</span><br></pre></td></tr></table></figure><br>You might need to change the BIOS setting. Read more at <a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v">here</a>.</p>
+<p><strong>Note</strong>:<br>The <a target="_blank" rel="noopener" href="https://docs.docker.com/docker-for-windows/troubleshoot/#virtualization-must-be-enabled">document from Docker</a> also mentioned that the virtualization must be enabled, and said you can verify it in the Task Manager. However, I can not find “Virtualization” label in my Task Manager. But the following steps work fine anyway. </p>
+<h2 id="Install-Docker"><a href="#Install-Docker" class="headerlink" title="Install Docker"></a>Install Docker</h2><p>Head to <a target="_blank" rel="noopener" href="https://www.docker.com/">Docker official site</a>, download and install Docker for Windows. The version I installed was <em>17.03.1-ce, build c6d412e Community Edition</em>, via Edge channel. </p>
+<p>Lets verify it.<br><img src="/2017/03/31/Jump-start-ASP-Net-Core-with-Docker/Verify%20docker.png" class="" title="Verify Docker"></p></p>
+            <p class="article-more-link">
+                <a href="/2017/03/31/Jump-start-ASP-Net-Core-with-Docker/#more">Read More</a>
+            </p>
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="https://feng.lu/2017/03/31/Jump-start-ASP-Net-Core-with-Docker/" data-id="ckwrvl64b000jxlud8s6efx90" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="https://feng.lu/2017/03/31/Jump-start-ASP-Net-Core-with-Docker/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://feng.lu/2017/03/31/Jump-start-ASP-Net-Core-with-Docker/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-Review-and-manage-your-web-site-space-in-Azure" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -266,7 +398,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </div>
 
-    <a data-url="https://feng.lu/2017/02/23/Review-and-manage-your-web-site-space-in-Azure/" data-id="ckw3zc4f7000msxudc8ssho3m" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://feng.lu/2017/02/23/Review-and-manage-your-web-site-space-in-Azure/" data-id="ckwrvl64d000nxludeo1d3pb2" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -402,7 +534,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </div>
 
-    <a data-url="https://feng.lu/2017/01/07/Announcing-new-version-of-DNV-GL-Rules-Chatbot/" data-id="ckw3zc4ex0003sxud2fzoa3m3" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://feng.lu/2017/01/07/Announcing-new-version-of-DNV-GL-Rules-Chatbot/" data-id="ckwrvl6430003xludhax375bq" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -535,7 +667,7 @@ Failed to add the agent.  Try again or ctrl-c to quit
 
 </div>
 
-    <a data-url="https://feng.lu/2016/11/19/No-agent-pool-found-with-identifier-0-error-when-setup-build-agent-in-VSTS/" data-id="ckw3zc4f6000jsxudfg5n4p9q" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://feng.lu/2016/11/19/No-agent-pool-found-with-identifier-0-error-when-setup-build-agent-in-VSTS/" data-id="ckwrvl64b000kxlud0wrhay57" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -670,7 +802,7 @@ Failed to add the agent.  Try again or ctrl-c to quit
 
 </div>
 
-    <a data-url="https://feng.lu/2016/11/06/Work-with-custom-event-in-Application-Insights/" data-id="ckw3zc4ff000tsxudfc4zhrer" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://feng.lu/2016/11/06/Work-with-custom-event-in-Application-Insights/" data-id="ckwrvl64g000uxlud64bnfcp3" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -804,7 +936,7 @@ Failed to add the agent.  Try again or ctrl-c to quit
 
 </div>
 
-    <a data-url="https://feng.lu/2016/10/29/Web-testing-and-load-testing-against-an-ADFS-federated-application/" data-id="ckw3zc4f9000ssxud3bukbvnf" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://feng.lu/2016/10/29/Web-testing-and-load-testing-against-an-ADFS-federated-application/" data-id="ckwrvl64f000txludbx953vxf" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -937,7 +1069,7 @@ Failed to add the agent.  Try again or ctrl-c to quit
 
 </div>
 
-    <a data-url="https://feng.lu/2016/10/15/Application-Insights-Export-and-PowerBI/" data-id="ckw3zc4ey0004sxudhriocnzh" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://feng.lu/2016/10/15/Application-Insights-Export-and-PowerBI/" data-id="ckwrvl6440004xludd1m7fa0o" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1067,7 +1199,7 @@ Failed to add the agent.  Try again or ctrl-c to quit
 
 </div>
 
-    <a data-url="https://feng.lu/2016/09/25/A-chatbot-prototype-DNV-GL-rules-and-standard-chatbot/" data-id="ckw3zc4ew0002sxud082u5j1z" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://feng.lu/2016/09/25/A-chatbot-prototype-DNV-GL-rules-and-standard-chatbot/" data-id="ckwrvl6420002xlud5y15bu41" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1200,7 +1332,7 @@ Failed to add the agent.  Try again or ctrl-c to quit
 
 </div>
 
-    <a data-url="https://feng.lu/2016/09/08/How-to-connect-VSTS-project-and-Azure-subscription/" data-id="ckw3zc4f3000dsxud35zphbov" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://feng.lu/2016/09/08/How-to-connect-VSTS-project-and-Azure-subscription/" data-id="ckwrvl649000exlud5yuofmdq" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1329,7 +1461,7 @@ Failed to add the agent.  Try again or ctrl-c to quit
 
 </div>
 
-    <a data-url="https://feng.lu/2016/08/27/Change-Git-color/" data-id="ckw3zc4ey0005sxud3fwjgo86" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://feng.lu/2016/08/27/Change-Git-color/" data-id="ckwrvl6450006xludbbg9ey82" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1407,149 +1539,6 @@ Failed to add the agent.  Try again or ctrl-c to quit
 
 
 
-    <article id="post-How-to-setup-a-hexo-based-blog-Part-2" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2016/08/12/How-to-setup-a-hexo-based-blog-Part-2/">How to setup a hexo-based blog: Part 2</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/08/12/How-to-setup-a-hexo-based-blog-Part-2/">
-            <time datetime="2016-08-12T18:01:06.000Z" itemprop="datePublished">2016-08-12</time>
-        </a>
-    </div>
-
-
-                        
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/Blog/" rel="tag">Blog</a>, <a class="tag-link-link" href="/tags/Git/" rel="tag">Git</a>, <a class="tag-link-link" href="/tags/Github/" rel="tag">Github</a>, <a class="tag-link-link" href="/tags/Hexo/" rel="tag">Hexo</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            <p><p>Previously we have setup and published the hexo-based blog. The article source code and the hexo configuration files are under git version control.  </p>
-<h1 id="Config-theme-the-wrong-way"><a href="#Config-theme-the-wrong-way" class="headerlink" title="Config theme, the wrong way"></a>Config theme, the wrong way</h1><p>As most hexo tutorials, the next step is to change the default theme. There are <a target="_blank" rel="noopener" href="https://hexo.io/themes/">lots of themes</a> that you can choose from. However, most of the theme simply ask you to clone itself under the themes folder. </p>
-<p>In this case, we will use the popular theme <a target="_blank" rel="noopener" href="https://github.com/iissnan/hexo-theme-next">NexT</a>. Its document specified follow below steps:</p>
-<ul>
-<li>Install<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure></li>
-<li>Update the _config.yml to use this theme<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: next</span><br></pre></td></tr></table></figure></li>
-<li>Pull the theme update when it is needed <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> theme/next</span><br><span class="line">git pull</span><br></pre></td></tr></table></figure>
-<h2 id="The-problem"><a href="#The-problem" class="headerlink" title="The problem"></a>The problem</h2>For most of themes (including NexT), we will have to modify the theme’s _config.yml file which is under the theme folder, in order to:</li>
-<li>change the configuration on the theme level, such change theme style</li>
-<li>update personal information</li>
-<li>setup Google Analytic key</li>
-<li>integrate with 3rd party commenting plugin</li>
-<li>future customize the theme the way you want</li>
-</ul>
-<p>Naturally, you would like to have above modifications also under version control, so you check them in and push to Git.  </p>
-<p>Now, if you head to Github source code page, you will find an interesting grayed-out folder named “Next”<br><img src="/2016/08/12/How-to-setup-a-hexo-based-blog-Part-2/grayedout-folder-in-github-without-ref.png" class="" title="Grayed-out folder in github"><br>You also lost the possibility to browse the theme source code there.</p></p>
-            <p class="article-more-link">
-                <a href="/2016/08/12/How-to-setup-a-hexo-based-blog-Part-2/#more">Read More</a>
-            </p>
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="https://feng.lu/2016/08/12/How-to-setup-a-hexo-based-blog-Part-2/" data-id="ckw3zc4f4000gsxudbepycde9" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="https://feng.lu/2016/08/12/How-to-setup-a-hexo-based-blog-Part-2/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://feng.lu/2016/08/12/How-to-setup-a-hexo-based-blog-Part-2/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
     <nav id="page-nav">
         <a class="extend prev" rel="prev" href="/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next &amp;raquo;</a>
     </nav>
@@ -1562,6 +1551,15 @@ Failed to add the agent.  Try again or ctrl-c to quit
         <h3 class="widget-title">recent</h3>
         <div class="widget">
             <ul id="recent-post" class="no-thumbnail">
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2021/12/04/Building-a-Very-Slow-Movie-Player/" class="title">Building a Very Slow Movie Player</a></p>
+                            <p class="item-date"><time datetime="2021-12-04T13:23:19.000Z" itemprop="datePublished">2021-12-04</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -1599,15 +1597,6 @@ Failed to add the agent.  Try again or ctrl-c to quit
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2020/06/20/Encoding-issue-when-calling-API-via-powershell/" class="title">Encoding issue when calling API via powershell</a></p>
-                            <p class="item-date"><time datetime="2020-06-20T11:40:00.000Z" itemprop="datePublished">2020-06-20</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -1619,7 +1608,7 @@ Failed to add the agent.  Try again or ctrl-c to quit
     <div class="widget-wrap">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">3</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">3</span></li></ul>
         </div>
     </div>
 
@@ -1628,7 +1617,7 @@ Failed to add the agent.  Try again or ctrl-c to quit
     <div class="widget-wrap">
         <h3 class="widget-title">tag cloud</h3>
         <div class="widget tagcloud">
-            <a href="/tags/ADFS/" style="font-size: 10px;">ADFS</a> <a href="/tags/API/" style="font-size: 10px;">API</a> <a href="/tags/ASP-Net-Core/" style="font-size: 10px;">ASP.Net Core</a> <a href="/tags/AWS/" style="font-size: 10px;">AWS</a> <a href="/tags/AWS-Control-Tower/" style="font-size: 10px;">AWS Control Tower</a> <a href="/tags/AWS-SSO/" style="font-size: 10px;">AWS SSO</a> <a href="/tags/Application-Insights/" style="font-size: 14px;">Application Insights</a> <a href="/tags/Artificial-Intelligence/" style="font-size: 12px;">Artificial Intelligence</a> <a href="/tags/Authentication/" style="font-size: 10px;">Authentication</a> <a href="/tags/Authorization/" style="font-size: 10px;">Authorization</a> <a href="/tags/Azure/" style="font-size: 20px;">Azure</a> <a href="/tags/Azure-AD-B2C/" style="font-size: 10px;">Azure AD B2C</a> <a href="/tags/Azure-Data-Explorer-ADX/" style="font-size: 10px;">Azure Data Explorer (ADX)</a> <a href="/tags/Azure-IoT-Edge/" style="font-size: 10px;">Azure IoT Edge</a> <a href="/tags/Azure-IoT-Hub/" style="font-size: 10px;">Azure IoT Hub</a> <a href="/tags/Azure-Template/" style="font-size: 10px;">Azure Template</a> <a href="/tags/Blockchain/" style="font-size: 10px;">Blockchain</a> <a href="/tags/Blog/" style="font-size: 14px;">Blog</a> <a href="/tags/Build/" style="font-size: 12px;">Build</a> <a href="/tags/Car/" style="font-size: 12px;">Car</a> <a href="/tags/Chatbot/" style="font-size: 12px;">Chatbot</a> <a href="/tags/Continuous-Deployment/" style="font-size: 10px;">Continuous Deployment</a> <a href="/tags/Continuous-Integration/" style="font-size: 10px;">Continuous Integration</a> <a href="/tags/DLT/" style="font-size: 18px;">DLT</a> <a href="/tags/DNS/" style="font-size: 10px;">DNS</a> <a href="/tags/Data-Analytics/" style="font-size: 14px;">Data Analytics</a> <a href="/tags/Data-Integrity/" style="font-size: 16px;">Data Integrity</a> <a href="/tags/Data-Lineage/" style="font-size: 16px;">Data Lineage</a> <a href="/tags/Databricks/" style="font-size: 10px;">Databricks</a> <a href="/tags/Decryption/" style="font-size: 10px;">Decryption</a> <a href="/tags/DevOps/" style="font-size: 16px;">DevOps</a> <a href="/tags/Distributed-Ledger-Technology/" style="font-size: 18px;">Distributed Ledger Technology</a> <a href="/tags/Docker/" style="font-size: 12px;">Docker</a> <a href="/tags/Domain/" style="font-size: 10px;">Domain</a> <a href="/tags/Encoding/" style="font-size: 10px;">Encoding</a> <a href="/tags/Fiddler/" style="font-size: 10px;">Fiddler</a> <a href="/tags/Fullnode/" style="font-size: 10px;">Fullnode</a> <a href="/tags/GPS/" style="font-size: 10px;">GPS</a> <a href="/tags/Git/" style="font-size: 14px;">Git</a> <a href="/tags/Github/" style="font-size: 12px;">Github</a> <a href="/tags/Google-Analytics/" style="font-size: 10px;">Google Analytics</a> <a href="/tags/Google-Tag-Manager/" style="font-size: 10px;">Google Tag Manager</a> <a href="/tags/Grafana/" style="font-size: 10px;">Grafana</a> <a href="/tags/HTTPS/" style="font-size: 10px;">HTTPS</a> <a href="/tags/Hamster/" style="font-size: 10px;">Hamster</a> <a href="/tags/Hexo/" style="font-size: 12px;">Hexo</a> <a href="/tags/Home-Assistant/" style="font-size: 10px;">Home Assistant</a> <a href="/tags/IOTA/" style="font-size: 18px;">IOTA</a> <a href="/tags/Infrastructure-as-Code/" style="font-size: 10px;">Infrastructure as Code</a> <a href="/tags/IoT/" style="font-size: 20px;">IoT</a> <a href="/tags/Istio/" style="font-size: 10px;">Istio</a> <a href="/tags/Json/" style="font-size: 10px;">Json</a> <a href="/tags/Jump-start/" style="font-size: 10px;">Jump-start</a> <a href="/tags/Jupyter-Notebook/" style="font-size: 12px;">Jupyter Notebook</a> <a href="/tags/KUDU/" style="font-size: 10px;">KUDU</a> <a href="/tags/Kiali/" style="font-size: 10px;">Kiali</a> <a href="/tags/Kubernetes/" style="font-size: 10px;">Kubernetes</a> <a href="/tags/Linkedin/" style="font-size: 10px;">Linkedin</a> <a href="/tags/Load-Testing/" style="font-size: 10px;">Load Testing</a> <a href="/tags/Machine-Learning/" style="font-size: 12px;">Machine Learning</a> <a href="/tags/Microsoft-language-understanding-intelligent-service/" style="font-size: 12px;">Microsoft language understanding intelligent service</a> <a href="/tags/Monitoring/" style="font-size: 14px;">Monitoring</a> <a href="/tags/Native-App/" style="font-size: 10px;">Native App</a> <a href="/tags/Nodejs/" style="font-size: 10px;">Nodejs</a> <a href="/tags/OAuth/" style="font-size: 12px;">OAuth</a> <a href="/tags/OBD2/" style="font-size: 10px;">OBD2</a> <a href="/tags/Okta/" style="font-size: 10px;">Okta</a> <a href="/tags/OpenID/" style="font-size: 10px;">OpenID</a> <a href="/tags/Plugin/" style="font-size: 10px;">Plugin</a> <a href="/tags/Postman/" style="font-size: 10px;">Postman</a> <a href="/tags/PowerBI/" style="font-size: 14px;">PowerBI</a> <a href="/tags/Powershell/" style="font-size: 10px;">Powershell</a> <a href="/tags/Prototype/" style="font-size: 12px;">Prototype</a> <a href="/tags/Python/" style="font-size: 14px;">Python</a> <a href="/tags/Raspberry-Pi/" style="font-size: 10px;">Raspberry Pi</a> <a href="/tags/Release-Management/" style="font-size: 10px;">Release Management</a> <a href="/tags/Release-management/" style="font-size: 10px;">Release management</a> <a href="/tags/SSO/" style="font-size: 10px;">SSO</a> <a href="/tags/Scripting/" style="font-size: 10px;">Scripting</a> <a href="/tags/Service-mesh/" style="font-size: 10px;">Service mesh</a> <a href="/tags/SharePoint-PnP/" style="font-size: 10px;">SharePoint PnP</a> <a href="/tags/Social-Sharing/" style="font-size: 10px;">Social Sharing</a> <a href="/tags/Tangle/" style="font-size: 16px;">Tangle</a> <a href="/tags/Time-Series-Insight-TSI/" style="font-size: 10px;">Time Series Insight (TSI)</a> <a href="/tags/Troubleshooting/" style="font-size: 12px;">Troubleshooting</a> <a href="/tags/VSTS/" style="font-size: 14px;">VSTS</a> <a href="/tags/Vim/" style="font-size: 10px;">Vim</a> <a href="/tags/Visualization/" style="font-size: 10px;">Visualization</a> <a href="/tags/Web-Testing/" style="font-size: 10px;">Web Testing</a> <a href="/tags/Zigbee/" style="font-size: 10px;">Zigbee</a>
+            <a href="/tags/ADFS/" style="font-size: 10px;">ADFS</a> <a href="/tags/API/" style="font-size: 10px;">API</a> <a href="/tags/ASP-Net-Core/" style="font-size: 10px;">ASP.Net Core</a> <a href="/tags/AWS/" style="font-size: 10px;">AWS</a> <a href="/tags/AWS-Control-Tower/" style="font-size: 10px;">AWS Control Tower</a> <a href="/tags/AWS-SSO/" style="font-size: 10px;">AWS SSO</a> <a href="/tags/Amazon-Lookout-for-Vision/" style="font-size: 10px;">Amazon Lookout for Vision</a> <a href="/tags/Application-Insights/" style="font-size: 14px;">Application Insights</a> <a href="/tags/Artificial-Intelligence/" style="font-size: 12px;">Artificial Intelligence</a> <a href="/tags/Authentication/" style="font-size: 10px;">Authentication</a> <a href="/tags/Authorization/" style="font-size: 10px;">Authorization</a> <a href="/tags/Azure/" style="font-size: 20px;">Azure</a> <a href="/tags/Azure-AD-B2C/" style="font-size: 10px;">Azure AD B2C</a> <a href="/tags/Azure-Data-Explorer-ADX/" style="font-size: 10px;">Azure Data Explorer (ADX)</a> <a href="/tags/Azure-IoT-Edge/" style="font-size: 10px;">Azure IoT Edge</a> <a href="/tags/Azure-IoT-Hub/" style="font-size: 10px;">Azure IoT Hub</a> <a href="/tags/Azure-Template/" style="font-size: 10px;">Azure Template</a> <a href="/tags/Blockchain/" style="font-size: 10px;">Blockchain</a> <a href="/tags/Blog/" style="font-size: 14px;">Blog</a> <a href="/tags/Build/" style="font-size: 12px;">Build</a> <a href="/tags/Car/" style="font-size: 12px;">Car</a> <a href="/tags/Chatbot/" style="font-size: 12px;">Chatbot</a> <a href="/tags/Continuous-Deployment/" style="font-size: 10px;">Continuous Deployment</a> <a href="/tags/Continuous-Integration/" style="font-size: 10px;">Continuous Integration</a> <a href="/tags/DIY/" style="font-size: 10px;">DIY</a> <a href="/tags/DLT/" style="font-size: 18px;">DLT</a> <a href="/tags/DNS/" style="font-size: 10px;">DNS</a> <a href="/tags/Data-Analytics/" style="font-size: 14px;">Data Analytics</a> <a href="/tags/Data-Integrity/" style="font-size: 16px;">Data Integrity</a> <a href="/tags/Data-Lineage/" style="font-size: 16px;">Data Lineage</a> <a href="/tags/Databricks/" style="font-size: 10px;">Databricks</a> <a href="/tags/Decryption/" style="font-size: 10px;">Decryption</a> <a href="/tags/DevOps/" style="font-size: 16px;">DevOps</a> <a href="/tags/Distributed-Ledger-Technology/" style="font-size: 18px;">Distributed Ledger Technology</a> <a href="/tags/Docker/" style="font-size: 12px;">Docker</a> <a href="/tags/Domain/" style="font-size: 10px;">Domain</a> <a href="/tags/Encoding/" style="font-size: 10px;">Encoding</a> <a href="/tags/Fiddler/" style="font-size: 10px;">Fiddler</a> <a href="/tags/Fullnode/" style="font-size: 10px;">Fullnode</a> <a href="/tags/GPS/" style="font-size: 10px;">GPS</a> <a href="/tags/Git/" style="font-size: 14px;">Git</a> <a href="/tags/Github/" style="font-size: 12px;">Github</a> <a href="/tags/Google-Analytics/" style="font-size: 10px;">Google Analytics</a> <a href="/tags/Google-Tag-Manager/" style="font-size: 10px;">Google Tag Manager</a> <a href="/tags/Grafana/" style="font-size: 10px;">Grafana</a> <a href="/tags/HTTPS/" style="font-size: 10px;">HTTPS</a> <a href="/tags/Hamster/" style="font-size: 10px;">Hamster</a> <a href="/tags/Hexo/" style="font-size: 12px;">Hexo</a> <a href="/tags/Home-Assistant/" style="font-size: 10px;">Home Assistant</a> <a href="/tags/IOTA/" style="font-size: 18px;">IOTA</a> <a href="/tags/Infrastructure-as-Code/" style="font-size: 10px;">Infrastructure as Code</a> <a href="/tags/IoT/" style="font-size: 20px;">IoT</a> <a href="/tags/Istio/" style="font-size: 10px;">Istio</a> <a href="/tags/Json/" style="font-size: 10px;">Json</a> <a href="/tags/Jump-start/" style="font-size: 10px;">Jump-start</a> <a href="/tags/Jupyter-Notebook/" style="font-size: 12px;">Jupyter Notebook</a> <a href="/tags/KUDU/" style="font-size: 10px;">KUDU</a> <a href="/tags/Kiali/" style="font-size: 10px;">Kiali</a> <a href="/tags/Kubernetes/" style="font-size: 10px;">Kubernetes</a> <a href="/tags/Linkedin/" style="font-size: 10px;">Linkedin</a> <a href="/tags/Load-Testing/" style="font-size: 10px;">Load Testing</a> <a href="/tags/Machine-Learning/" style="font-size: 12px;">Machine Learning</a> <a href="/tags/Microsoft-language-understanding-intelligent-service/" style="font-size: 12px;">Microsoft language understanding intelligent service</a> <a href="/tags/Monitoring/" style="font-size: 14px;">Monitoring</a> <a href="/tags/Movie/" style="font-size: 10px;">Movie</a> <a href="/tags/Native-App/" style="font-size: 10px;">Native App</a> <a href="/tags/Nodejs/" style="font-size: 10px;">Nodejs</a> <a href="/tags/OAuth/" style="font-size: 12px;">OAuth</a> <a href="/tags/OBD2/" style="font-size: 10px;">OBD2</a> <a href="/tags/Okta/" style="font-size: 10px;">Okta</a> <a href="/tags/OpenID/" style="font-size: 10px;">OpenID</a> <a href="/tags/Plugin/" style="font-size: 10px;">Plugin</a> <a href="/tags/Postman/" style="font-size: 10px;">Postman</a> <a href="/tags/PowerBI/" style="font-size: 14px;">PowerBI</a> <a href="/tags/Powershell/" style="font-size: 10px;">Powershell</a> <a href="/tags/Prototype/" style="font-size: 12px;">Prototype</a> <a href="/tags/Python/" style="font-size: 14px;">Python</a> <a href="/tags/Raspberry-Pi/" style="font-size: 12px;">Raspberry Pi</a> <a href="/tags/Release-Management/" style="font-size: 10px;">Release Management</a> <a href="/tags/Release-management/" style="font-size: 10px;">Release management</a> <a href="/tags/SSO/" style="font-size: 10px;">SSO</a> <a href="/tags/SVMP/" style="font-size: 10px;">SVMP</a> <a href="/tags/Scripting/" style="font-size: 10px;">Scripting</a> <a href="/tags/Service-mesh/" style="font-size: 10px;">Service mesh</a> <a href="/tags/SharePoint-PnP/" style="font-size: 10px;">SharePoint PnP</a> <a href="/tags/Social-Sharing/" style="font-size: 10px;">Social Sharing</a> <a href="/tags/Tangle/" style="font-size: 16px;">Tangle</a> <a href="/tags/Time-Series-Insight-TSI/" style="font-size: 10px;">Time Series Insight (TSI)</a> <a href="/tags/Troubleshooting/" style="font-size: 12px;">Troubleshooting</a> <a href="/tags/VSTS/" style="font-size: 14px;">VSTS</a> <a href="/tags/Vim/" style="font-size: 10px;">Vim</a> <a href="/tags/Visualization/" style="font-size: 10px;">Visualization</a> <a href="/tags/Web-Testing/" style="font-size: 10px;">Web Testing</a> <a href="/tags/Zigbee/" style="font-size: 10px;">Zigbee</a> <a href="/tags/e-paper/" style="font-size: 10px;">e-paper</a>
         </div>
     </div>
 
