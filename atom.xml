@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://feng.lu/"/>
-  <updated>2021-12-29T10:26:02.662Z</updated>
+  <updated>2022-02-02T13:47:14.111Z</updated>
   <id>https://feng.lu/</id>
   
   <author>
@@ -15,6 +15,43 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>AWS Step Functions with ECS Anywhere on NanoPi Sample</title>
+    <link href="https://feng.lu/2022/02/02/AWS-Step-Function-with-ECS-Anywhere-on-NanoPi-Sample/"/>
+    <id>https://feng.lu/2022/02/02/AWS-Step-Function-with-ECS-Anywhere-on-NanoPi-Sample/</id>
+    <published>2022-02-02T13:31:24.000Z</published>
+    <updated>2022-02-02T13:47:14.111Z</updated>
+    
+    <content type="html"><![CDATA[<p>This is a demo solution that is using <a href="https://aws.amazon.com/step-functions/">AWS Step Functions</a> and <a href="https://aws.amazon.com/ecs/Anywhere/">ECS Anywhere</a> to complete a simple data processing task by using cloud orchestration (Step Functions) and local computing resources (a NanoPi). </p><h2 id="Data-flow"><a href="#Data-flow" class="headerlink" title="Data flow"></a>Data flow</h2><ol><li>User upload a file to a s3 bucket</li><li>S3 triggers step functions via cloudtrail and event bridge</li><li>Event bridge triggers a step function state machine</li><li>State machine triggers a ECS Anywhere task to download the file from s3 to local (to do some processing), if file name matches condition</li></ol><h2 id="Architecture"><a href="#Architecture" class="headerlink" title="Architecture"></a>Architecture</h2><img src="/2022/02/02/AWS-Step-Function-with-ECS-Anywhere-on-NanoPi-Sample/architecture.png" class="" title="architecture"><h2 id="NanoPi-that-runs-ECS-Anywhere"><a href="#NanoPi-that-runs-ECS-Anywhere" class="headerlink" title="NanoPi that runs ECS Anywhere"></a>NanoPi that runs ECS Anywhere</h2><img src="/2022/02/02/AWS-Step-Function-with-ECS-Anywhere-on-NanoPi-Sample/nanopi.jpg" class="" title="nano pi"><p><a href="https://wiki.friendlyarm.com/wiki/index.php/NanoPi_NEO2">NanoPi Neo2</a> with LED hat in my home office, running AWS ECS Anywhere.</p><span id="more"></span><h2 id="Source-code"><a href="#Source-code" class="headerlink" title="Source code"></a>Source code</h2><p>All source code can be found at <a href="https://github.com/linkcd/step-function-with-ecs-Anywhere-example">https://github.com/linkcd/step-function-with-ecs-Anywhere-example</a></p><h2 id="1-Build-a-docker-image-as-the-ECS-Anywhere-task"><a href="#1-Build-a-docker-image-as-the-ECS-Anywhere-task" class="headerlink" title="1. Build a docker image as the ECS Anywhere task"></a>1. Build a docker image as the ECS Anywhere task</h2><p>As in this demo, the ecs Anywhere is running on a Nanopi, it should be build on the Pi as it is ARM architecture<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># In nano pi ssh</span></span><br><span class="line"><span class="built_in">cd</span> ./container-for-ecs-task</span><br><span class="line">docker build -t linkcd/s3downloader:arm .</span><br><span class="line">docker login</span><br><span class="line">docker push linkcd/s3downloader:arm </span><br></pre></td></tr></table></figure><br>Then push to public repository so ECS cluster can download (public docker hub or private ECR)</p><h2 id="2-Setup-ECS-Anywhere-and-tasks"><a href="#2-Setup-ECS-Anywhere-and-tasks" class="headerlink" title="2. Setup ECS Anywhere and tasks"></a>2. Setup ECS Anywhere and tasks</h2><ul><li>Setup ECS Anywhere cluster on Nanopi</li><li>Create an ECS execution role that has permission to download file from s3</li><li>Create an ECS task (see <a href="https://github.com/linkcd/step-function-with-ecs-Anywhere-example/blob/master/ecs-task-definition.json">ecs-task-definition.json</a>) that refers to linkcd/s3downloader:arm image</li></ul><h2 id="3-Create-a-step-function-state-machine"><a href="#3-Create-a-step-function-state-machine" class="headerlink" title="3. Create a step function state machine"></a>3. Create a step function state machine</h2><ul><li>Create a state machine (see <a href="https://github.com/linkcd/step-function-with-ecs-Anywhere-example/blob/master/state-machine-definition.json">state-machine-definition.json</a>)</li><li>As we need to wait for ecs task finish, step function requires permission as in <a href="https://docs.aws.amazon.com/step-functions/latest/dg/ecs-iam.html">here</a></li><li>Follow <a href="https://docs.aws.amazon.com/step-functions/latest/dg/tutorial-cloudwatch-events-s3.html">the steps</a> for setting up s3 triggers step functions via cloudtrail and event bridge</li></ul><h3 id="3-1-ECS-task-details"><a href="#3-1-ECS-task-details" class="headerlink" title="3.1 ECS task details:"></a>3.1 ECS task details:</h3><h4 id="1-Start"><a href="#1-Start" class="headerlink" title="(1). Start:"></a>(1). Start:</h4><p>The s3 upload event is captured by cloudtrail, which triggers and pass the event data to step function. </p><h4 id="2-Extract-S3-event"><a href="#2-Extract-S3-event" class="headerlink" title="(2). Extract S3 event"></a>(2). Extract S3 event</h4><p>This PASS step extract the needed info (bucket name and file key). Output is<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;bucketName&quot;</span>: <span class="string">&quot;the_bucket_name_from_event&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;fileKey&quot;</span>: <span class="string">&quot;the_file_key_from_event&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><h4 id="3-Choice"><a href="#3-Choice" class="headerlink" title="(3). Choice"></a>(3). Choice</h4><p>The CHOICE step check the file key and trigger the ECS task ONLY IF the file key matches “demo*.txt”</p><h4 id="4-ECS-RunTask"><a href="#4-ECS-RunTask" class="headerlink" title="(4). ECS RunTask"></a>(4). ECS RunTask</h4><p>This ECS RunTask update the input paramater (adding s3:// prefix to bucket name), then pass the parameters to ecs Anywhere task via environment variables.</p><h4 id="5-End"><a href="#5-End" class="headerlink" title="(5). End"></a>(5). End</h4><p>Once the ecs Anywhere task is finished, the downloaded file can be found in the ecs Anywhere local file system (in this case, the file is in /data)</p><h2 id="4-Side-notes"><a href="#4-Side-notes" class="headerlink" title="4. Side notes"></a>4. Side notes</h2><p>In ECS RunTask in Step Functions, override command cannot pass multiple parameters. In our case we would like to use aws cli docker for simple aws cli s3 download. However if we override the command to “s3 cp x y” in ECS RunTask step in State Machine, these 4 parts will NOT be passed as individual 4 parameters but ONE parameter that contains all. AWS cli cannot accept that. </p><p>Incorrect value that passed via override command<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;Args&quot;</span>: [</span><br><span class="line">    <span class="string">&quot;s3 cp x y&quot;</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure><br>Correct call if we directly use aws cli docker from terminal<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;Args&quot;</span>: [</span><br><span class="line">    <span class="string">&quot;s3&quot;</span>,</span><br><span class="line">    <span class="string">&quot;cp&quot;</span>,</span><br><span class="line">    <span class="string">&quot;x&quot;</span>,</span><br><span class="line">    <span class="string">&quot;y&quot;</span>,</span><br><span class="line">]</span><br></pre></td></tr></table></figure><br>Therefore we use environment variables to make sure we can pass parameters to ecs container task separately (it means we have to use <a href="https://github.com/linkcd/step-function-with-ecs-Anywhere-example/blob/master/container-for-ecs-task/Dockerfile">our own container</a>)</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;This is a demo solution that is using &lt;a href=&quot;https://aws.amazon.com/step-functions/&quot;&gt;AWS Step Functions&lt;/a&gt; and &lt;a href=&quot;https://aws.amazon.com/ecs/Anywhere/&quot;&gt;ECS Anywhere&lt;/a&gt; to complete a simple data processing task by using cloud orchestration (Step Functions) and local computing resources (a NanoPi). &lt;/p&gt;
+&lt;h2 id=&quot;Data-flow&quot;&gt;&lt;a href=&quot;#Data-flow&quot; class=&quot;headerlink&quot; title=&quot;Data flow&quot;&gt;&lt;/a&gt;Data flow&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;User upload a file to a s3 bucket&lt;/li&gt;
+&lt;li&gt;S3 triggers step functions via cloudtrail and event bridge&lt;/li&gt;
+&lt;li&gt;Event bridge triggers a step function state machine&lt;/li&gt;
+&lt;li&gt;State machine triggers a ECS Anywhere task to download the file from s3 to local (to do some processing), if file name matches condition&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;Architecture&quot;&gt;&lt;a href=&quot;#Architecture&quot; class=&quot;headerlink&quot; title=&quot;Architecture&quot;&gt;&lt;/a&gt;Architecture&lt;/h2&gt;&lt;img src=&quot;/2022/02/02/AWS-Step-Function-with-ECS-Anywhere-on-NanoPi-Sample/architecture.png&quot; class=&quot;&quot; title=&quot;architecture&quot;&gt;
+&lt;h2 id=&quot;NanoPi-that-runs-ECS-Anywhere&quot;&gt;&lt;a href=&quot;#NanoPi-that-runs-ECS-Anywhere&quot; class=&quot;headerlink&quot; title=&quot;NanoPi that runs ECS Anywhere&quot;&gt;&lt;/a&gt;NanoPi that runs ECS Anywhere&lt;/h2&gt;&lt;img src=&quot;/2022/02/02/AWS-Step-Function-with-ECS-Anywhere-on-NanoPi-Sample/nanopi.jpg&quot; class=&quot;&quot; title=&quot;nano pi&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://wiki.friendlyarm.com/wiki/index.php/NanoPi_NEO2&quot;&gt;NanoPi Neo2&lt;/a&gt; with LED hat in my home office, running AWS ECS Anywhere.&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="AWS" scheme="https://feng.lu/tags/AWS/"/>
+    
+      <category term="Step Functions" scheme="https://feng.lu/tags/Step-Functions/"/>
+    
+      <category term="ECS Anywhere" scheme="https://feng.lu/tags/ECS-Anywhere/"/>
+    
+      <category term="Nano Pi" scheme="https://feng.lu/tags/Nano-Pi/"/>
+    
+      <category term="IoT" scheme="https://feng.lu/tags/IoT/"/>
+    
+  </entry>
   
   <entry>
     <title>Using SSM to access EC2 instances</title>
@@ -37,6 +74,10 @@
     
       <category term="AWS" scheme="https://feng.lu/tags/AWS/"/>
     
+      <category term="AWS Systems Manager" scheme="https://feng.lu/tags/AWS-Systems-Manager/"/>
+    
+      <category term="SSM" scheme="https://feng.lu/tags/SSM/"/>
+    
       <category term="EC2" scheme="https://feng.lu/tags/EC2/"/>
     
       <category term="IAM" scheme="https://feng.lu/tags/IAM/"/>
@@ -44,10 +85,6 @@
       <category term="VPC" scheme="https://feng.lu/tags/VPC/"/>
     
       <category term="VPC Endpoint" scheme="https://feng.lu/tags/VPC-Endpoint/"/>
-    
-      <category term="AWS Systems Manager" scheme="https://feng.lu/tags/AWS-Systems-Manager/"/>
-    
-      <category term="SSM" scheme="https://feng.lu/tags/SSM/"/>
     
       <category term="SSH" scheme="https://feng.lu/tags/SSH/"/>
     
@@ -94,7 +131,7 @@
     <link href="https://feng.lu/2021/11/17/Okta-and-AWS-Control-Tower-a-happy-path-demo/"/>
     <id>https://feng.lu/2021/11/17/Okta-and-AWS-Control-Tower-a-happy-path-demo/</id>
     <published>2021-11-17T19:17:08.000Z</published>
-    <updated>2021-11-17T20:30:27.961Z</updated>
+    <updated>2021-12-17T10:15:02.082Z</updated>
     
     <content type="html"><![CDATA[<p>This is a <a href="https://en.wikipedia.org/wiki/Happy_path">happy path</a> demo of setting up <a href="https://www.okta.com/">Okta</a> as the Idp for <a href="https://aws.amazon.com/controltower/">AWS Control Tower</a> (via <a href="https://aws.amazon.com/single-sign-on/">AWS SSO</a>).<br><strong>Goal</strong>: To utilize users and groups in Okta to manage AWS control tower.</p><img src="/2021/11/17/Okta-and-AWS-Control-Tower-a-happy-path-demo/title.jpg" class="" title><h1 id="1-Create-a-brand-new-Control-Tower-instance"><a href="#1-Create-a-brand-new-Control-Tower-instance" class="headerlink" title="1. Create a brand new Control Tower instance"></a>1. Create a brand new Control Tower instance</h1><p>In this demo, we create the AWS Control Tower instance in a brand new AWS account. During this process, control tower creates several services/components, such as AWS Organizations, AWS SSO, default organizations unit (OU) “Security” and 2 AWS accounts “Log Archive” and “Audit”. </p><p>In the AWS SSO, some default SSO user groups are created for managing Control Tower:<br><img src="/2021/11/17/Okta-and-AWS-Control-Tower-a-happy-path-demo/default%20SSO%20user%20groups.jpg" class="" title="default SSO user groups"></p><p>The default admin user for organization management account is “AWS Control Tower Admin”.<br><img src="/2021/11/17/Okta-and-AWS-Control-Tower-a-happy-path-demo/default%20master%20user1.jpg" class="" title="default master user1"></p><p>Detailed user info<br><img src="/2021/11/17/Okta-and-AWS-Control-Tower-a-happy-path-demo/default%20master%20user2.jpg" class="" title="default master user2"></p><p>And it belongs to 2 groups: <strong>AWSAccountFactory</strong> and <strong>AWSControlTowerAdmins</strong><br><img src="/2021/11/17/Okta-and-AWS-Control-Tower-a-happy-path-demo/default%20master%20user3.jpg" class="" title="default master user3"></p><span id="more"></span><h1 id="2-Setup-Okta-and-use-it-as-the-idp-of-AWS-SSO"><a href="#2-Setup-Okta-and-use-it-as-the-idp-of-AWS-SSO" class="headerlink" title="2. Setup Okta and use it as the idp of AWS SSO"></a>2. Setup Okta and use it as the idp of AWS SSO</h1><h2 id="2-1-Create-an-environment-of-Okta"><a href="#2-1-Create-an-environment-of-Okta" class="headerlink" title="2.1 Create an environment of Okta]"></a>2.1 Create an environment of Okta]</h2><p>For this demo, we are using a <a href="https://developer.okta.com/signup/">free developer plan of Okta</a>.</p><h2 id="2-2-Setup-Okta-as-the-idp-of-AWS-SSO"><a href="#2-2-Setup-Okta-as-the-idp-of-AWS-SSO" class="headerlink" title="2.2 Setup Okta as the idp of AWS SSO"></a>2.2 Setup Okta as the idp of AWS SSO</h2><p>Follow the steps in the following document, to use Okta as the idp of AWS SSO.<br><strong>Note that you need to check steps from <em>both</em> documentation to make sure the integration and user provisioning works.</strong></p><h3 id="2-2-1-Basic-hand-shake-import-metadata-file-from-Okta-to-AWS-SSO"><a href="#2-2-1-Basic-hand-shake-import-metadata-file-from-Okta-to-AWS-SSO" class="headerlink" title="2.2.1 Basic hand-shake, import metadata file from Okta to AWS SSO"></a>2.2.1 Basic hand-shake, import metadata file from Okta to AWS SSO</h3><p><strong>Steps</strong>: <a href="https://saml-doc.okta.com/SAML_Docs/How-to-Configure-SAML-2.0-for-AWS-Single-Sign-on.html">How to Configure SAML 2.0 for AWS Single Sign-on</a><br><img src="/2021/11/17/Okta-and-AWS-Control-Tower-a-happy-path-demo/config%20saml2%20for%20aws%20sso.jpg" class="" title="config saml2 for aws sso"></p><h3 id="2-2-2-Config-provisioning-and-other-settings-in-AWS-SSO"><a href="#2-2-2-Config-provisioning-and-other-settings-in-AWS-SSO" class="headerlink" title="2.2.2 Config provisioning and other settings in AWS SSO"></a>2.2.2 Config provisioning and other settings in AWS SSO</h3><p><strong>Steps</strong>: <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/okta-idp.html">Configure provisioning for Okta in AWS SSO</a><br><img src="/2021/11/17/Okta-and-AWS-Control-Tower-a-happy-path-demo/Config%20provisioning%20and%20other%20settings%20in%20AWS%20SSO.jpg" class="" title="Config provisioning and other settings in AWS SSO"></p><h2 id="2-3-The-basic-setup-is-ready-but-not-for-users-and-groups-yet"><a href="#2-3-The-basic-setup-is-ready-but-not-for-users-and-groups-yet" class="headerlink" title="2.3 The basic setup is ready, but not for users and groups yet"></a>2.3 The basic setup is ready, but not for users and groups yet</h2><p>After the basic hand-shake between AWS SSO and Okta, the AWS SSO is now using Okta.<br><img src="/2021/11/17/Okta-and-AWS-Control-Tower-a-happy-path-demo/AWS%20SSO%20is%20now%20using%20Okta.jpg" class="" title="AWS SSO is now using Okta"></p><p>In Okta groups UI, you can see identical groups as in AWS SSO are created in Okta. The <strong>Everyone</strong> is a default Okta user group.<br><img src="/2021/11/17/Okta-and-AWS-Control-Tower-a-happy-path-demo/identical%20groups%20as%20in%20AWS%20SSO%20are%20created%20in%20Okta.jpg" class="" title="identical groups as in AWS SSO are created in Okta"></p><p><strong>Note</strong>: you <strong>cannot</strong> add/remove users to it, as it says “This group is managed automatically by Okta, so you cannot edit it or modify its membership.”<br><img src="/2021/11/17/Okta-and-AWS-Control-Tower-a-happy-path-demo/readonly%20user%20groups.jpg" class="" title="readonly user groups"></p><h1 id="3-Setup-Okta-users-and-groups-push-them-to-AWS-SSO"><a href="#3-Setup-Okta-users-and-groups-push-them-to-AWS-SSO" class="headerlink" title="3. Setup Okta users and groups, push them to AWS SSO"></a>3. Setup Okta users and groups, push them to AWS SSO</h1><h2 id="3-1-Create-user-and-groups-in-Okta"><a href="#3-1-Create-user-and-groups-in-Okta" class="headerlink" title="3.1 Create user and groups in Okta"></a>3.1 Create user and groups in Okta</h2><p>Lets create some test users:<br><img src="/2021/11/17/Okta-and-AWS-Control-Tower-a-happy-path-demo/test%20users.jpg" class="" title="test users"></p><p>We also create user groups in Okta</p><ul><li><strong>AWS-CT-Admin-Okta-Group</strong>, has 1 user: <strong>Feng</strong> </li><li><strong>AWS-CT-Developers-Okta-Group</strong> has 2 users: <strong>Alice</strong> and <strong>Bob</strong> <img src="/2021/11/17/Okta-and-AWS-Control-Tower-a-happy-path-demo/user%20groups%20in%20okta.jpg" class="" title="user groups in okta"></li></ul><p>However, they are not appearing in AWS SSO user list. There is still no Okta user nor Okta group.<br><img src="/2021/11/17/Okta-and-AWS-Control-Tower-a-happy-path-demo/no%20okta%20users%20yet.jpg" class="" title="no okta users yet"></p><p>In order to user the users from Okta, these users need to be assigned to <strong>AWS SSO Application</strong> in Okta.</p><h2 id="3-2-Assign-users-and-or-groups-in-Okta"><a href="#3-2-Assign-users-and-or-groups-in-Okta" class="headerlink" title="3.2 Assign users and/or groups in Okta"></a>3.2 Assign users and/or groups in Okta</h2><p>Go to Okta -&gt; Application -&gt; AWS SSO, in <strong>Assignments</strong> tab, you can either assign individual users or user groups. In this screenshot, all users are assigned to AWS SSO via Group (see the <strong>Type</strong> column).<br><img src="/2021/11/17/Okta-and-AWS-Control-Tower-a-happy-path-demo/assign%20okta%20users%20to%20sso%20app.jpg" class="" title="assign okta users to sso app"></p><p>Soon, you can see these 3 users appear in AWS SSO interface.<br><img src="/2021/11/17/Okta-and-AWS-Control-Tower-a-happy-path-demo/okta%20users%20now%20in%20sso.jpg" class="" title="okta users now in sso"></p><p>The detailed info. Note that it was created and updated by <strong>SCIM</strong>.<br><img src="/2021/11/17/Okta-and-AWS-Control-Tower-a-happy-path-demo/okta%20user%20detailed%20info.jpg" class="" title="okta user detailed info"></p><p>Now you can assign them into AWS account, so the user can login to AWS console via login to Okta.<br><img src="/2021/11/17/Okta-and-AWS-Control-Tower-a-happy-path-demo/grant%20permission%20to%20okta%20user.jpg" class="" title="grant permission to okta user"></p><h2 id="3-3-Push-groups-from-Okta-to-AWS-SSO"><a href="#3-3-Push-groups-from-Okta-to-AWS-SSO" class="headerlink" title="3.3 Push groups from Okta to AWS SSO"></a>3.3 Push groups from Okta to AWS SSO</h2><p>Now we can grant permission for individual Okta users. But how about Okta group? These new okta groups are not available in AWS SSO yet. And the groups with identical names from AWS SSO is not helping, as we cannot add users into it.<br><img src="/2021/11/17/Okta-and-AWS-Control-Tower-a-happy-path-demo/missing%20okta%20group.jpg" class="" title="missing okta group"></p><p>To solve this, we need to push the Okta groups to AWS SSO by setting up the “<strong>Push Groups</strong>”.</p><p>Go Okta &gt; Application &gt; AWS SSO, in tab “<strong>Push Groups</strong>”, here you can push group by name, or setup roles for batch pushing.</p><p>In this demo, we setup a rule named “Pust-AWS-Related-Groups” for pushing any group that starts with “<strong>AWS-</strong>”<br><img src="/2021/11/17/Okta-and-AWS-Control-Tower-a-happy-path-demo/push%20group%20rule.jpg" class="" title="push group rule"></p><p>Soon, these groups were pushed to AWS SSO:<br><img src="/2021/11/17/Okta-and-AWS-Control-Tower-a-happy-path-demo/group%20push%20logs.jpg" class="" title="group push logs"></p><img src="/2021/11/17/Okta-and-AWS-Control-Tower-a-happy-path-demo/okta%20groups%20available%20now.jpg" class="" title="okta groups available now"><p>Now you can also grant permission to groups, such as every Okta user in <strong>AWS-CT-Admin-Okta-Group</strong> now have permission as AWS control tower admin.<br><img src="/2021/11/17/Okta-and-AWS-Control-Tower-a-happy-path-demo/grant%20permission%20to%20groups.jpg" class="" title="grant permission to groups"></p><p>EoF.</p>]]></content>
     
@@ -111,6 +148,8 @@
     </summary>
     
     
+      <category term="AWS" scheme="https://feng.lu/tags/AWS/"/>
+    
       <category term="Okta" scheme="https://feng.lu/tags/Okta/"/>
     
       <category term="AWS Control Tower" scheme="https://feng.lu/tags/AWS-Control-Tower/"/>
@@ -118,8 +157,6 @@
       <category term="AWS SSO" scheme="https://feng.lu/tags/AWS-SSO/"/>
     
       <category term="SSO" scheme="https://feng.lu/tags/SSO/"/>
-    
-      <category term="AWS" scheme="https://feng.lu/tags/AWS/"/>
     
   </entry>
   
@@ -148,11 +185,11 @@
     </summary>
     
     
+      <category term="IoT" scheme="https://feng.lu/tags/IoT/"/>
+    
       <category term="Azure" scheme="https://feng.lu/tags/Azure/"/>
     
       <category term="PowerBI" scheme="https://feng.lu/tags/PowerBI/"/>
-    
-      <category term="IoT" scheme="https://feng.lu/tags/IoT/"/>
     
       <category term="Data Analytics" scheme="https://feng.lu/tags/Data-Analytics/"/>
     
@@ -191,9 +228,9 @@
     </summary>
     
     
-      <category term="Raspberry Pi" scheme="https://feng.lu/tags/Raspberry-Pi/"/>
-    
       <category term="IoT" scheme="https://feng.lu/tags/IoT/"/>
+    
+      <category term="Raspberry Pi" scheme="https://feng.lu/tags/Raspberry-Pi/"/>
     
       <category term="Data Analytics" scheme="https://feng.lu/tags/Data-Analytics/"/>
     
@@ -425,13 +462,13 @@
     </summary>
     
     
+      <category term="IoT" scheme="https://feng.lu/tags/IoT/"/>
+    
       <category term="IOTA" scheme="https://feng.lu/tags/IOTA/"/>
     
       <category term="Data Lineage" scheme="https://feng.lu/tags/Data-Lineage/"/>
     
       <category term="Data Integrity" scheme="https://feng.lu/tags/Data-Integrity/"/>
-    
-      <category term="IoT" scheme="https://feng.lu/tags/IoT/"/>
     
       <category term="DLT" scheme="https://feng.lu/tags/DLT/"/>
     
@@ -465,13 +502,13 @@
     </summary>
     
     
+      <category term="IoT" scheme="https://feng.lu/tags/IoT/"/>
+    
       <category term="IOTA" scheme="https://feng.lu/tags/IOTA/"/>
     
       <category term="Data Lineage" scheme="https://feng.lu/tags/Data-Lineage/"/>
     
       <category term="Data Integrity" scheme="https://feng.lu/tags/Data-Integrity/"/>
-    
-      <category term="IoT" scheme="https://feng.lu/tags/IoT/"/>
     
       <category term="DLT" scheme="https://feng.lu/tags/DLT/"/>
     
@@ -510,13 +547,13 @@
     </summary>
     
     
+      <category term="IoT" scheme="https://feng.lu/tags/IoT/"/>
+    
       <category term="IOTA" scheme="https://feng.lu/tags/IOTA/"/>
     
       <category term="Data Lineage" scheme="https://feng.lu/tags/Data-Lineage/"/>
     
       <category term="Data Integrity" scheme="https://feng.lu/tags/Data-Integrity/"/>
-    
-      <category term="IoT" scheme="https://feng.lu/tags/IoT/"/>
     
       <category term="DLT" scheme="https://feng.lu/tags/DLT/"/>
     
@@ -578,13 +615,13 @@
     </summary>
     
     
+      <category term="IoT" scheme="https://feng.lu/tags/IoT/"/>
+    
       <category term="IOTA" scheme="https://feng.lu/tags/IOTA/"/>
     
       <category term="Data Lineage" scheme="https://feng.lu/tags/Data-Lineage/"/>
     
       <category term="Data Integrity" scheme="https://feng.lu/tags/Data-Integrity/"/>
-    
-      <category term="IoT" scheme="https://feng.lu/tags/IoT/"/>
     
       <category term="DLT" scheme="https://feng.lu/tags/DLT/"/>
     
@@ -736,35 +773,6 @@
       <category term="Python" scheme="https://feng.lu/tags/Python/"/>
     
       <category term="Scripting" scheme="https://feng.lu/tags/Scripting/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Tracking subdomains with Google Tag Manager</title>
-    <link href="https://feng.lu/2017/04/16/Tracking-subdomains-with-GTM/"/>
-    <id>https://feng.lu/2017/04/16/Tracking-subdomains-with-GTM/</id>
-    <published>2017-04-16T19:10:06.000Z</published>
-    <updated>2021-11-17T19:10:29.744Z</updated>
-    
-    <content type="html"><![CDATA[<p>Recently I am investigating how to track user behaviors across our digital services. </p><p>We have web applications like:</p><ol><li>example.com (the company homepage)</li><li><strong>service-A</strong>.example.com (digital service A)</li><li><strong>service-B</strong>.example.com (digital service B)</li></ol><p>and we are using Google Tag Manager (and Google Analytics)</p><span id="more"></span><p>To be straight forward, what we need are:</p><ol><li>Use Universal Analytics</li><li>In tag settings of GTM, set <strong>cookieDomain</strong>‘s value to <strong>auto</strong></li><li>In Referral Exclusion List of GA, add <strong>example.com</strong></li><li>Done</li></ol><p>For trouble shooting, I recommend to install Google Analytics Debugger (A chrome extension). </p><p>To test it, you can </p><ol><li>go to example.com<br> Use GA debugger to find the GA clientId, e.g. 1753731437.1492367410, and<br> It has a cookie <strong>_ga</strong> with value “GA1.2.<strong>1753731437.1492367410</strong>“, and the domain is: “<strong>.example.com</strong>“</li><li>Click a link to navigate to <strong>service-A</strong>.example.com<br> The GA clientID on Service A should be the same, and<br> It has an identical _ga cookie: same value, same domain “.example.com”</li><li>Directly type URL <strong>service-B</strong>.example.com<br> Again, the same GA clientID and _ga cookie</li></ol><p>There some some great articles about this topic. The most useful posts that I found are from lunametrics (<a href="http://www.lunametrics.com/blog/2015/06/16/cross-domain-tracking-with-google-tag-manager/"><strong>cross-domain</strong> tracking</a> and <a href="http://www.lunametrics.com/blog/2016/08/11/subdomain-tracking-google-analytics/"><strong>sub-domain</strong> tracking with a great diagram</a>), and from Simo Ahava (<a href="https://www.simoahava.com/analytics/cross-domain-tracking-across-subdomains/">here</a> and <a href="https://www.simoahava.com/analytics/cookie-settings-and-subdomain-tracking-in-universal-analytics/">here</a>) with deep core code explanation. A post from <a href="https://www.e-nor.com/blog/google-analytics/cross-domain-and-roll-up-reporting">e-nor</a> is also useful. </p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Recently I am investigating how to track user behaviors across our digital services. &lt;/p&gt;
-&lt;p&gt;We have web applications like:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;example.com (the company homepage)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;service-A&lt;/strong&gt;.example.com (digital service A)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;service-B&lt;/strong&gt;.example.com (digital service B)&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;and we are using Google Tag Manager (and Google Analytics)&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Google Tag Manager" scheme="https://feng.lu/tags/Google-Tag-Manager/"/>
-    
-      <category term="Google Analytics" scheme="https://feng.lu/tags/Google-Analytics/"/>
     
   </entry>
   
