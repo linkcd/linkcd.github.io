@@ -173,7 +173,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                34
+                37
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -214,6 +214,409 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
             
             <section id="main">
+    <article id="post-Infrastructure-as-code-in-the-real-world" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/11/05/Infrastructure-as-code-in-the-real-world/">Infrastructure-as-Code and CI/CD in the real world, with VSTS and Azure (Part 1)</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/11/05/Infrastructure-as-code-in-the-real-world/">
+            <time datetime="2017-11-05T10:13:36.000Z" itemprop="datePublished">2017-11-05</time>
+        </a>
+    </div>
+
+
+                        
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Azure/" rel="tag">Azure</a>, <a class="tag-link-link" href="/tags/Azure-Template/" rel="tag">Azure Template</a>, <a class="tag-link-link" href="/tags/Build/" rel="tag">Build</a>, <a class="tag-link-link" href="/tags/Continuous-Deployment/" rel="tag">Continuous Deployment</a>, <a class="tag-link-link" href="/tags/Continuous-Integration/" rel="tag">Continuous Integration</a>, <a class="tag-link-link" href="/tags/DevOps/" rel="tag">DevOps</a>, <a class="tag-link-link" href="/tags/Infrastructure-as-Code/" rel="tag">Infrastructure as Code</a>, <a class="tag-link-link" href="/tags/Release-Management/" rel="tag">Release Management</a>, <a class="tag-link-link" href="/tags/VSTS/" rel="tag">VSTS</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            <p><p>Hello again! </p>
+<p>It has be been a while since my last post. It is because I was quite busy leading a team in a program for delivering <a target="_blank" rel="noopener" href="https://www.veracity.com">veracity.com</a>, the open industry data platform from DNV GL. It is a pretty exciting project - to build an open, independent data platform with bleeding edge technologies, to serve a large user base (100 000 registered users). You can read more about veracity at <a target="_blank" rel="noopener" href="https://www.dnvgl.com/data-platform/index.html">here</a> and <a target="_blank" rel="noopener" href="https://www.veracity.com/articles/why-we-build-veracity">here</a>.</p>
+<p>It actually is a long and interesting story behind veracity (and its predecessor), together with all challenges that we encountered in this journey. Hopefully I can share them with you in the future.</p>
+<p>Anyway, today I would like to talk about in the real world, how Infrastructure-as-Code looks like, together with Azure and VSTS.   </p>
+<img src="/2017/11/05/Infrastructure-as-code-in-the-real-world/infrastructure-as-code.png" class="" title="picture credit: future-processing.pl"></p>
+            <p class="article-more-link">
+                <a href="/2017/11/05/Infrastructure-as-code-in-the-real-world/#more">Read More</a>
+            </p>
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="https://feng.lu/2017/11/05/Infrastructure-as-code-in-the-real-world/" data-id="ckz5lujd0000jmsudevime4ly" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="https://feng.lu/2017/11/05/Infrastructure-as-code-in-the-real-world/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://feng.lu/2017/11/05/Infrastructure-as-code-in-the-real-world/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-OAuth-in-Azure-AD-B2C-with-Nodejs" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/06/28/OAuth-in-Azure-AD-B2C-with-Nodejs/">OAuth in Azure AD B2C with Nodejs</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/06/28/OAuth-in-Azure-AD-B2C-with-Nodejs/">
+            <time datetime="2017-06-28T12:54:24.000Z" itemprop="datePublished">2017-06-28</time>
+        </a>
+    </div>
+
+
+                        
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Authentication/" rel="tag">Authentication</a>, <a class="tag-link-link" href="/tags/Authorization/" rel="tag">Authorization</a>, <a class="tag-link-link" href="/tags/Azure/" rel="tag">Azure</a>, <a class="tag-link-link" href="/tags/Azure-AD-B2C/" rel="tag">Azure AD B2C</a>, <a class="tag-link-link" href="/tags/Nodejs/" rel="tag">Nodejs</a>, <a class="tag-link-link" href="/tags/OAuth/" rel="tag">OAuth</a>, <a class="tag-link-link" href="/tags/OpenID/" rel="tag">OpenID</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            <p><p>Recently we need to build a Nodejs single-page-application (SPA) solution that is using Azure AD B2C as the identity provider (idp). Since it is a single-page-application, we are going to use OAuth2 Implicit Flow.</p>
+<img src="/2017/06/28/OAuth-in-Azure-AD-B2C-with-Nodejs/what-is-oauth.jpg" class="" title="picture credit:stormpath.com">
+<p>This article demonstrates the basic steps for setting up both the server side (WebAPI)  as well as the client application.</p></p>
+            <p class="article-more-link">
+                <a href="/2017/06/28/OAuth-in-Azure-AD-B2C-with-Nodejs/#more">Read More</a>
+            </p>
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="https://feng.lu/2017/06/28/OAuth-in-Azure-AD-B2C-with-Nodejs/" data-id="ckz5lujd1000mmsud6fgwc8gd" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="https://feng.lu/2017/06/28/OAuth-in-Azure-AD-B2C-with-Nodejs/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://feng.lu/2017/06/28/OAuth-in-Azure-AD-B2C-with-Nodejs/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-Using-python-to-organize-pictures" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2017/05/17/Using-python-to-organize-pictures/">Using python to organize pictures</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2017/05/17/Using-python-to-organize-pictures/">
+            <time datetime="2017-05-17T17:46:05.000Z" itemprop="datePublished">2017-05-17</time>
+        </a>
+    </div>
+
+
+                        
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Python/" rel="tag">Python</a>, <a class="tag-link-link" href="/tags/Scripting/" rel="tag">Scripting</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            <p><h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p>Having several digital cameras is fun: you can have different photography experiences. </p>
+<p>However, organizing  pictures is far less interesting, especially if you do not have a consistent process (like naming convention) for archiving. After several years, I end up with hundred thousand pictures sitting in messy huge folders:</p>
+<ul>
+<li>Nikon_Pictures</li>
+<li>Backup_SDCard01</li>
+<li>100_0302</li>
+<li>DCIM_From_Old_Phone</li>
+<li>100CANON</li>
+<li>Backup-Photo</li>
+<li>etc…</li>
+</ul>
+<p>The most tricky part, is that I have so many duplicate pictures everywhere due to inconsistent archiving during years. It is so messy that I never dare to manually clean them up. </p>
+<img src="/2017/05/17/Using-python-to-organize-pictures/keep-calm-and-organize.png" class="" title="picture credit: news.heart.org">
+<p>Naturally, the knowledge of programming came to my rescue. This time, it is Python.</p></p>
+            <p class="article-more-link">
+                <a href="/2017/05/17/Using-python-to-organize-pictures/#more">Read More</a>
+            </p>
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="https://feng.lu/2017/05/17/Using-python-to-organize-pictures/" data-id="ckz5lujd5000umsudbqsq07c1" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="https://feng.lu/2017/05/17/Using-python-to-organize-pictures/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://feng.lu/2017/05/17/Using-python-to-organize-pictures/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-Tracking-subdomains-with-GTM" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -1144,403 +1547,6 @@ Failed to add the agent.  Try again or ctrl-c to quit
 
 
 
-    <article id="post-Web-testing-and-load-testing-against-an-ADFS-federated-application" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2016/10/29/Web-testing-and-load-testing-against-an-ADFS-federated-application/">Web/Load testing against an ADFS federated application</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/10/29/Web-testing-and-load-testing-against-an-ADFS-federated-application/">
-            <time datetime="2016-10-29T18:25:07.000Z" itemprop="datePublished">2016-10-29</time>
-        </a>
-    </div>
-
-
-                        
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/ADFS/" rel="tag">ADFS</a>, <a class="tag-link-link" href="/tags/Application-Insights/" rel="tag">Application Insights</a>, <a class="tag-link-link" href="/tags/Load-Testing/" rel="tag">Load Testing</a>, <a class="tag-link-link" href="/tags/Web-Testing/" rel="tag">Web Testing</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            <p><p>In Application Insights, you can create an <a target="_blank" rel="noopener" href="https://azure.microsoft.com/en-us/documentation/articles/app-insights-monitor-web-app-availability/">availability web testing</a> to monitor the availability of a web application. It supports 2 type of testing:</p>
-<ul>
-<li>URL ping test: a simple test that you can create in the Azure portal.</li>
-<li>Multi-step web test: which you create in Visual Studio Ultimate or Visual Studio Enterprise and upload to the portal.</li>
-</ul>
-<p>Normally it is easy to setup ping test and multiple step testing against a public site.</p>
-<p>However, in order to have a multiple step testing against an ADFS federated application, you will have to do some extra in order to take care of the authentication part.</p></p>
-            <p class="article-more-link">
-                <a href="/2016/10/29/Web-testing-and-load-testing-against-an-ADFS-federated-application/#more">Read More</a>
-            </p>
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="https://feng.lu/2016/10/29/Web-testing-and-load-testing-against-an-ADFS-federated-application/" data-id="ckz5lujd7000vmsudellb3ltp" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="https://feng.lu/2016/10/29/Web-testing-and-load-testing-against-an-ADFS-federated-application/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://feng.lu/2016/10/29/Web-testing-and-load-testing-against-an-ADFS-federated-application/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-Application-Insights-Export-and-PowerBI" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2016/10/15/Application-Insights-Export-and-PowerBI/">Application Insights Export and PowerBI</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/10/15/Application-Insights-Export-and-PowerBI/">
-            <time datetime="2016-10-15T12:36:25.000Z" itemprop="datePublished">2016-10-15</time>
-        </a>
-    </div>
-
-
-                        
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/Application-Insights/" rel="tag">Application Insights</a>, <a class="tag-link-link" href="/tags/Azure/" rel="tag">Azure</a>, <a class="tag-link-link" href="/tags/DevOps/" rel="tag">DevOps</a>, <a class="tag-link-link" href="/tags/Monitoring/" rel="tag">Monitoring</a>, <a class="tag-link-link" href="/tags/PowerBI/" rel="tag">PowerBI</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            <p><h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>Application Insight is a great tool for monitoring your application. However, there is a limitation regarding historical data: Regardless <a target="_blank" rel="noopener" href="https://azure.microsoft.com/en-us/pricing/details/application-insights/">the different plans</a>, you can only have: </p>
-<ul>
-<li>7 days raw data, includes access to all telemetry data points collected by application insights</li>
-<li>90 days aggregated data, includes access to telemetry data points aggregated at hourly/daily levels</li>
-</ul>
-<p>This article will demonstrate how to use the continuous data export to overcome this limitation, as well as use PowerBI for future web analytic.</p></p>
-            <p class="article-more-link">
-                <a href="/2016/10/15/Application-Insights-Export-and-PowerBI/#more">Read More</a>
-            </p>
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="https://feng.lu/2016/10/15/Application-Insights-Export-and-PowerBI/" data-id="ckz5lujct0005msud4hm98hag" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="https://feng.lu/2016/10/15/Application-Insights-Export-and-PowerBI/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://feng.lu/2016/10/15/Application-Insights-Export-and-PowerBI/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-A-chatbot-prototype-DNV-GL-rules-and-standard-chatbot" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2016/09/25/A-chatbot-prototype-DNV-GL-rules-and-standard-chatbot/">A chatbot prototype - DNV GL rules and standard chatbot</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2016/09/25/A-chatbot-prototype-DNV-GL-rules-and-standard-chatbot/">
-            <time datetime="2016-09-25T06:06:15.000Z" itemprop="datePublished">2016-09-25</time>
-        </a>
-    </div>
-
-
-                        
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/Artificial-Intelligence/" rel="tag">Artificial Intelligence</a>, <a class="tag-link-link" href="/tags/Chatbot/" rel="tag">Chatbot</a>, <a class="tag-link-link" href="/tags/Machine-Learning/" rel="tag">Machine Learning</a>, <a class="tag-link-link" href="/tags/Microsoft-language-understanding-intelligent-service/" rel="tag">Microsoft language understanding intelligent service</a>, <a class="tag-link-link" href="/tags/Prototype/" rel="tag">Prototype</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            <p><p><strong>(Edited 2017-01-07: The newer version of Chatbot is at <a href="/2017/01/07/Announcing-new-version-of-DNV-GL-Rules-Chatbot/">here</a>).</strong></p>
-<p>At the end of March 2016, Microsoft announced the <a target="_blank" rel="noopener" href="https://bots.botframework.com/">Bot Framework</a>, a platform that helps you to quickly build the high quality bots for your business. </p>
-<p>In April, after a long weekend happy hacking, I have built a chatbot prototype who can help you to find <a target="_blank" rel="noopener" href="https://rules.dnvgl.com/servicedocuments/dnvgl">DNV GL service document</a>.  </p></p>
-            <p class="article-more-link">
-                <a href="/2016/09/25/A-chatbot-prototype-DNV-GL-rules-and-standard-chatbot/#more">Read More</a>
-            </p>
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="https://feng.lu/2016/09/25/A-chatbot-prototype-DNV-GL-rules-and-standard-chatbot/" data-id="ckz5lujcr0002msud3m0xa0es" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="https://feng.lu/2016/09/25/A-chatbot-prototype-DNV-GL-rules-and-standard-chatbot/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://feng.lu/2016/09/25/A-chatbot-prototype-DNV-GL-rules-and-standard-chatbot/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
     <nav id="page-nav">
         <a class="extend prev" rel="prev" href="/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next &amp;raquo;</a>
     </nav>
@@ -1553,6 +1559,33 @@ Failed to add the agent.  Try again or ctrl-c to quit
         <h3 class="widget-title">recent</h3>
         <div class="widget">
             <ul id="recent-post" class="no-thumbnail">
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2022/06/01/Untitled-1removed/" class="title"></a></p>
+                            <p class="item-date"><time datetime="2022-06-01T12:27:38.285Z" itemprop="datePublished">2022-06-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2022/06/01/Untitled-1/" class="title"></a></p>
+                            <p class="item-date"><time datetime="2022-06-01T12:26:43.003Z" itemprop="datePublished">2022-06-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2022/05/22/iceberg-note/" class="title"></a></p>
+                            <p class="item-date"><time datetime="2022-05-22T09:40:41.433Z" itemprop="datePublished">2022-05-22</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -1572,33 +1605,6 @@ Failed to add the agent.  Try again or ctrl-c to quit
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2021/12/04/Building-a-Very-Slow-Movie-Player/" class="title">Building a Very Slow Movie Player</a></p>
-                            <p class="item-date"><time datetime="2021-12-04T10:23:19.000Z" itemprop="datePublished">2021-12-04</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2021/11/17/Okta-and-AWS-Control-Tower-a-happy-path-demo/" class="title">Okta and AWS Control Tower - a happy path demo</a></p>
-                            <p class="item-date"><time datetime="2021-11-17T19:17:08.000Z" itemprop="datePublished">2021-11-17</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2020/09/22/How-to-build-an-IoT-connected-car-Part-2-Data-Analytics-in-the-Cloud/" class="title">How to build an IoT connected car - Part 2: Data Analytics in the Cloud</a></p>
-                            <p class="item-date"><time datetime="2020-09-22T08:00:13.000Z" itemprop="datePublished">2020-09-22</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -1610,7 +1616,7 @@ Failed to add the agent.  Try again or ctrl-c to quit
     <div class="widget-wrap">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">3</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">3</span></li></ul>
         </div>
     </div>
 

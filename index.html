@@ -173,7 +173,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                34
+                37
                 <span>posts</span>
             </div>
             <div class="article-info-block">
@@ -214,6 +214,304 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
             
             <section id="main">
+    <article id="post-Untitled-1removed" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            {"Version":"2012-10-17","Statement":[{"Condition":{"ArnNotLike":{"aws:PrincipalARN":"arn:aws:iam::*:role/AWSControlTowerExecution"}},"Action":["lambda:AddPermission","lambda:CreateEventSourceMapping","lambda:CreateFunction","lambda:DeleteEventSourceMapping","lambda:DeleteFunction","lambda:DeleteFunctionConcurrency","lambda:PutFunctionConcurrency","lambda:RemovePermission","lambda:UpdateEventSourceMapping","lambda:UpdateFunctionCode","lambda:UpdateFunctionConfiguration"],"Resource":["arn:aws:lambda:*:*:function:aws-controltower-*"],"Effect":"Deny","Sid":"GRLAMBDAFUNCTIONPOLICY"},{"Condition":{"ForAllValues:StringEquals":{"aws:TagKeys":"aws-control-tower"},"ArnNotLike":{"aws:PrincipalARN":"arn:aws:iam::*:role/AWSControlTowerExecution"}},"Action":["config:TagResource","config:UntagResource"],"Resource":["*"],"Effect":"Deny","Sid":"GRCONFIGRULETAGSPOLICY"},{"Condition":{"ArnNotLike":{"aws:PrincipalArn":["arn:aws:iam::*:role/AWSControlTowerExecution","arn:aws:iam::*:role/stacksets-exec-*"]}},"Action":["iam:AttachRolePolicy","iam:CreateRole","iam:DeleteRole","iam:DeleteRolePermissionsBoundary","iam:DeleteRolePolicy","iam:DetachRolePolicy","iam:PutRolePermissionsBoundary","iam:PutRolePolicy","iam:UpdateAssumeRolePolicy","iam:UpdateRole","iam:UpdateRoleDescription"],"Resource":["arn:aws:iam::*:role/aws-controltower-*","arn:aws:iam::*:role/*AWSControlTower*","arn:aws:iam::*:role/stacksets-exec-*"],"Effect":"Deny","Sid":"GRIAMROLEPOLICY"},{"Condition":{"ArnNotLike":{"aws:PrincipalARN":"arn:aws:iam::*:role/AWSControlTowerExecution"}},"Action":["cloudtrail:DeleteTrail","cloudtrail:PutEventSelectors","cloudtrail:StopLogging","cloudtrail:UpdateTrail"],"Resource":["arn:aws:cloudtrail:*:*:trail/aws-controltower-*"],"Effect":"Deny","Sid":"GRCLOUDTRAILENABLED"},{"Condition":{"ArnNotLike":{"aws:PrincipalARN":"arn:aws:iam::*:role/AWSControlTowerExecution"}},"Action":["config:DeleteConfigurationRecorder","config:DeleteDeliveryChannel","config:DeleteRetentionConfiguration","config:PutConfigurationRecorder","config:PutDeliveryChannel","config:PutRetentionConfiguration","config:StopConfigurationRecorder"],"Resource":["*"],"Effect":"Deny","Sid":"GRCONFIGENABLED"},{"Condition":{"ArnNotLike":{"aws:PrincipalARN":"arn:aws:iam::*:role/AWSControlTowerExecution"}},"Action":["sns:AddPermission","sns:CreateTopic","sns:DeleteTopic","sns:RemovePermission","sns:SetTopicAttributes"],"Resource":["arn:aws:sns:*:*:aws-controltower-*"],"Effect":"Deny","Sid":"GRSNSTOPICPOLICY"},{"Condition":{"ArnNotLike":{"aws:PrincipalARN":"arn:aws:iam::*:role/AWSControlTowerExecution"}},"Action":["sns:Subscribe","sns:Unsubscribe"],"Resource":["arn:aws:sns:*:*:aws-controltower-SecurityNotifications"],"Effect":"Deny","Sid":"GRSNSSUBSCRIPTIONPOLICY"},{"Condition":{"StringNotLike":{"aws:PrincipalArn":["arn:aws:iam::*:role/AWSControlTowerExecution"]}},"Action":["logs:DeleteLogGroup","logs:PutRetentionPolicy"],"Resource":["arn:aws:logs:*:*:log-group:*aws-controltower*"],"Effect":"Deny","Sid":"GRLOGGROUPPOLICY"},{"Condition":{"StringLike":{"aws:ResourceTag/aws-control-tower":"managed-by-control-tower"},"ArnNotLike":{"aws:PrincipalArn":"arn:aws:iam::*:role/AWSControlTowerExecution"}},"Action":["config:DeleteAggregationAuthorization"],"Resource":["arn:aws:config:*:*:aggregation-authorization*"],"Effect":"Deny","Sid":"GRCONFIGAGGREGATIONAUTHORIZATIONPOLICY"},{"Condition":{"StringEquals":{"aws:ResourceTag/aws-control-tower":"managed-by-control-tower"},"ArnNotLike":{"aws:PrincipalARN":"arn:aws:iam::*:role/AWSControlTowerExecution"}},"Action":["config:PutConfigRule","config:DeleteConfigRule","config:DeleteEvaluationResults","config:DeleteConfigurationAggregator","config:PutConfigurationAggregator"],"Resource":["*"],"Effect":"Deny","Sid":"GRCONFIGRULEPOLICY"},{"Condition":{"ArnNotLike":{"aws:PrincipalARN":"arn:aws:iam::*:role/AWSControlTowerExecution"}},"Action":["events:PutRule","events:PutTargets","events:RemoveTargets","events:DisableRule","events:DeleteRule"],"Resource":["arn:aws:events:*:*:rule/aws-controltower-*"],"Effect":"Deny","Sid":"GRCLOUDWATCHEVENTPOLICY"},{"Condition":{"ArnNotLike":{"aws:PrincipalARN":"arn:aws:iam::*:role/AWSControlTowerExecution"}},"Action":["s3:PutEncryptionConfiguration"],"Resource":["*"],"Effect":"Deny","Sid":"GRAUDITBUCKETENCRYPTIONENABLED"},{"Condition":{"ArnNotLike":{"aws:PrincipalARN":"arn:aws:iam::*:role/AWSControlTowerExecution"}},"Action":["s3:PutBucketLogging"],"Resource":["*"],"Effect":"Deny","Sid":"GRAUDITBUCKETLOGGINGENABLED"}]}
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="https://feng.lu/2022/06/01/Untitled-1removed/" data-id="cl4o7jipm0002u2udhzp1anuq" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="https://feng.lu/2022/06/01/Untitled-1removed/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://feng.lu/2022/06/01/Untitled-1removed/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-Untitled-1" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            {"Version":"2012-10-17","Statement":[{"Condition":{"ArnNotLike":{"aws:PrincipalARN":"arn:aws:iam::*:role/AWSControlTowerExecution"}},"Action":["lambda:AddPermission","lambda:CreateEventSourceMapping","lambda:CreateFunction","lambda:DeleteEventSourceMapping","lambda:DeleteFunction","lambda:DeleteFunctionConcurrency","lambda:PutFunctionConcurrency","lambda:RemovePermission","lambda:UpdateEventSourceMapping","lambda:UpdateFunctionCode","lambda:UpdateFunctionConfiguration"],"Resource":["arn:aws:lambda:*:*:function:aws-controltower-*"],"Effect":"Deny","Sid":"GRLAMBDAFUNCTIONPOLICY"},{"Condition":{"ForAllValues:StringEquals":{"aws:TagKeys":"aws-control-tower"},"ArnNotLike":{"aws:PrincipalARN":"arn:aws:iam::*:role/AWSControlTowerExecution"}},"Action":["config:TagResource","config:UntagResource"],"Resource":["*"],"Effect":"Deny","Sid":"GRCONFIGRULETAGSPOLICY"},{"Condition":{"ArnNotLike":{"aws:PrincipalArn":["arn:aws:iam::*:role/AWSControlTowerExecution","arn:aws:iam::*:role/stacksets-exec-*"]}},"Action":["iam:AttachRolePolicy","iam:CreateRole","iam:DeleteRole","iam:DeleteRolePermissionsBoundary","iam:DeleteRolePolicy","iam:DetachRolePolicy","iam:PutRolePermissionsBoundary","iam:PutRolePolicy","iam:UpdateAssumeRolePolicy","iam:UpdateRole","iam:UpdateRoleDescription"],"Resource":["arn:aws:iam::*:role/aws-controltower-*","arn:aws:iam::*:role/*AWSControlTower*","arn:aws:iam::*:role/stacksets-exec-*"],"Effect":"Deny","Sid":"GRIAMROLEPOLICY"},{"Condition":{"ArnNotLike":{"aws:PrincipalARN":"arn:aws:iam::*:role/AWSControlTowerExecution"}},"Action":["cloudtrail:DeleteTrail","cloudtrail:PutEventSelectors","cloudtrail:StopLogging","cloudtrail:UpdateTrail"],"Resource":["arn:aws:cloudtrail:*:*:trail/aws-controltower-*"],"Effect":"Deny","Sid":"GRCLOUDTRAILENABLED"},{"Condition":{"ArnNotLike":{"aws:PrincipalARN":"arn:aws:iam::*:role/AWSControlTowerExecution"}},"Action":["config:DeleteConfigurationRecorder","config:DeleteDeliveryChannel","config:DeleteRetentionConfiguration","config:PutConfigurationRecorder","config:PutDeliveryChannel","config:PutRetentionConfiguration","config:StopConfigurationRecorder"],"Resource":["*"],"Effect":"Deny","Sid":"GRCONFIGENABLED"},{"Condition":{"ArnNotLike":{"aws:PrincipalARN":"arn:aws:iam::*:role/AWSControlTowerExecution"}},"Action":["sns:AddPermission","sns:CreateTopic","sns:DeleteTopic","sns:RemovePermission","sns:SetTopicAttributes"],"Resource":["arn:aws:sns:*:*:aws-controltower-*"],"Effect":"Deny","Sid":"GRSNSTOPICPOLICY"},{"Condition":{"ArnNotLike":{"aws:PrincipalARN":"arn:aws:iam::*:role/AWSControlTowerExecution"}},"Action":["sns:Subscribe","sns:Unsubscribe"],"Resource":["arn:aws:sns:*:*:aws-controltower-SecurityNotifications"],"Effect":"Deny","Sid":"GRSNSSUBSCRIPTIONPOLICY"},{"Condition":{"StringNotLike":{"aws:PrincipalArn":["arn:aws:iam::*:role/AWSControlTowerExecution"]}},"Action":["logs:DeleteLogGroup","logs:PutRetentionPolicy"],"Resource":["arn:aws:logs:*:*:log-group:*aws-controltower*"],"Effect":"Deny","Sid":"GRLOGGROUPPOLICY"},{"Condition":{"StringLike":{"aws:ResourceTag/aws-control-tower":"managed-by-control-tower"},"ArnNotLike":{"aws:PrincipalArn":"arn:aws:iam::*:role/AWSControlTowerExecution"}},"Action":["config:DeleteAggregationAuthorization"],"Resource":["arn:aws:config:*:*:aggregation-authorization*"],"Effect":"Deny","Sid":"GRCONFIGAGGREGATIONAUTHORIZATIONPOLICY"},{"Condition":{"StringEquals":{"aws:ResourceTag/aws-control-tower":"managed-by-control-tower"},"ArnNotLike":{"aws:PrincipalARN":"arn:aws:iam::*:role/AWSControlTowerExecution"}},"Action":["config:PutConfigRule","config:DeleteConfigRule","config:DeleteEvaluationResults","config:DeleteConfigurationAggregator","config:PutConfigurationAggregator"],"Resource":["*"],"Effect":"Deny","Sid":"GRCONFIGRULEPOLICY"},{"Condition":{"ArnNotLike":{"aws:PrincipalARN":"arn:aws:iam::*:role/AWSControlTowerExecution"}},"Action":["events:PutRule","events:PutTargets","events:RemoveTargets","events:DisableRule","events:DeleteRule"],"Resource":["arn:aws:events:*:*:rule/aws-controltower-*"],"Effect":"Deny","Sid":"GRCLOUDWATCHEVENTPOLICY"},{"Condition":{"ArnNotLike":{"aws:PrincipalARN":"arn:aws:iam::*:role/AWSControlTowerExecution"}},"Action":["s3:PutEncryptionConfiguration"],"Resource":["*"],"Effect":"Deny","Sid":"GRAUDITBUCKETENCRYPTIONENABLED"},{"Condition":{"ArnNotLike":{"aws:PrincipalARN":"arn:aws:iam::*:role/AWSControlTowerExecution"}},"Action":["s3:PutBucketLogging"],"Resource":["*"],"Effect":"Deny","Sid":"GRAUDITBUCKETLOGGINGENABLED"}]}
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="https://feng.lu/2022/06/01/Untitled-1/" data-id="cl4o7jipk0001u2ud1ptp2wsx" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="https://feng.lu/2022/06/01/Untitled-1/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://feng.lu/2022/06/01/Untitled-1/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
+    <article id="post-iceberg-note" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>Create<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> IF <span class="keyword">EXISTS</span> client_iceberg_table</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> IF <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> client_iceberg_table (</span><br><span class="line">  check_time <span class="type">timestamp</span>, </span><br><span class="line">  clientmac string, </span><br><span class="line">  firstseen <span class="type">timestamp</span>, </span><br><span class="line">  lastseen <span class="type">timestamp</span>, </span><br><span class="line">  power <span class="type">bigint</span>, </span><br><span class="line">  numpkts <span class="type">bigint</span>, </span><br><span class="line">  raw_bssid string, </span><br><span class="line">  raw_probedssids <span class="keyword">double</span>, </span><br><span class="line">  fixed_bssid string, </span><br><span class="line">  fixed_probedssid string, </span><br><span class="line">  duration <span class="keyword">double</span>, </span><br><span class="line">  check_time_date <span class="type">date</span>)</span><br><span class="line">LOCATION <span class="string">&#x27;s3://wifidumper-result-iceberg-dev/client_iceberg_table/&#x27;</span></span><br><span class="line">TBLPROPERTIES (</span><br><span class="line">  <span class="string">&#x27;table_type&#x27;</span><span class="operator">=</span><span class="string">&#x27;ICEBERG&#x27;</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
+<p>PARTITIONED BY (check_time_date, day(check_time_date))</p>
+<p>GENERIC_USER_ERROR: Exceeded limit of 100 open partitions when writing data. Sorting data based on the table’s partition keys is recommended to produce more optimized tables and reduce the likelihood of such error. If the error persists, please contact AWS support for further assistance. If a data manifest file was generated at ‘s3://athena-query-results-lf/8b6714cf-e18e-49e7-bf39-38a08fedf7a6-manifest.csv’, you may need to manually clean the data from locations specified in the manifest. Athena will not delete data in your account.<br>This query ran against the “wifidumper_result_iceberg” database, unless qualified by the query. Please post the error message on our forum  or contact customer support  with Query Id: 8b6714cf-e18e-49e7-bf39-38a08fedf7a6</p>
+<p>Load data<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> wifidumper_result_iceberg.client_iceberg_table</span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> wifidumper_result_db.client_parquet </span><br><span class="line"></span><br><span class="line"><span class="comment">--compare</span></span><br><span class="line"><span class="keyword">select</span> <span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">from</span> wifidumper_result_db.client_parquet  </span><br><span class="line"><span class="keyword">select</span> <span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">from</span> wifidumper_result_iceberg.client_iceberg_table </span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>Query<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> wifidumper_result_db.client_parquet</span><br><span class="line"><span class="keyword">where</span> clientmac<span class="operator">=</span> <span class="string">&#x27;00:F6:20:9C:B8:27&#x27;</span> <span class="keyword">and</span> check_time <span class="operator">=</span> <span class="type">timestamp</span> <span class="string">&#x27;2022-02-27 09:20:00.000&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> wifidumper_result_iceberg.client_iceberg_table </span><br><span class="line"><span class="keyword">where</span> check_time <span class="operator">=</span> <span class="type">timestamp</span> <span class="string">&#x27;2022-02-27 09:20:00.000&#x27;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>Drop column<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> wifidumper_result_iceberg.client_iceberg_table <span class="keyword">DROP</span> <span class="keyword">COLUMN</span> raw_bssid</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> wifidumper_result_iceberg.client_iceberg_table <span class="keyword">DROP</span> <span class="keyword">COLUMN</span> raw_probedssids</span><br></pre></td></tr></table></figure></p>
+<p>Add column<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> wifidumper_result_iceberg.client_iceberg_table <span class="keyword">ADD</span> COLUMNS (client_name string)</span><br></pre></td></tr></table></figure></p>
+<p>Rename and reorder column<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> wifidumper_result_iceberg.client_iceberg_table</span><br><span class="line">  CHANGE client_name clientname string </span><br><span class="line">  AFTER clientmac</span><br></pre></td></tr></table></figure></p>
+<p>Update data<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">UPDATE wifidumper_result_iceberg.client_iceberg_table </span><br><span class="line"><span class="keyword">SET</span> clientname<span class="operator">=</span><span class="string">&#x27;Raspberry Pi&#x27;</span></span><br><span class="line"><span class="keyword">WHERE</span> clientmac<span class="operator">=</span><span class="string">&#x27;B8:27:EB:1E:47:14&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--verify</span></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> wifidumper_result_iceberg.client_iceberg_table </span><br><span class="line"><span class="keyword">WHERE</span> clientmac<span class="operator">=</span><span class="string">&#x27;B8:27:EB:1E:47:14&#x27;</span></span><br></pre></td></tr></table></figure></p>
+<p>Time travel query<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- by timestamp</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> wifidumper_result_iceberg.client_iceberg_table  <span class="keyword">FOR</span> <span class="built_in">SYSTEM_TIME</span> <span class="keyword">AS</span> <span class="keyword">OF</span> (<span class="built_in">current_timestamp</span> <span class="operator">-</span> <span class="type">interval</span> <span class="string">&#x27;3&#x27;</span> <span class="keyword">minute</span>)</span><br><span class="line"><span class="keyword">WHERE</span> clientmac<span class="operator">=</span><span class="string">&#x27;B8:27:EB:1E:47:14&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">-- by system version (new version when data is updated)</span></span><br><span class="line"><span class="comment">-- 1. get versions</span></span><br><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> wifidumper_result_iceberg.&quot;client_iceberg_table$iceberg_history&quot;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 2. query</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> wifidumper_result_iceberg.client_iceberg_table <span class="keyword">FOR</span> SYSTEM_VERSION <span class="keyword">AS</span> <span class="keyword">OF</span> <span class="operator">&lt;</span>version_number<span class="operator">&gt;</span></span><br><span class="line"><span class="keyword">WHERE</span> clientmac<span class="operator">=</span><span class="string">&#x27;B8:27:EB:1E:47:14&#x27;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="https://feng.lu/2022/05/22/iceberg-note/" data-id="cl4o7jipi0000u2udbuta7dcf" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="https://feng.lu/2022/05/22/iceberg-note/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://feng.lu/2022/05/22/iceberg-note/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-AWS-Step-Function-with-ECS-Anywhere-on-NanoPi-Sample" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -418,6 +716,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <li>2.3. You can use <a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/vpc/latest/reachability/what-is-reachability-analyzer.html">VPC Reachability Analyzer</a> to troubleshoot the connectivity between your EC2 and Internet gateway.</li>
 <li>2.4. Create an EC2 Instance profile has IAM policy <strong>AmazonSSMManagedInstanceCore</strong>. Read the details from <a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/systems-manager/latest/userguide/setup-instance-profile.html">Step 4: Create an IAM instance profile for Systems Manager</a></li>
 <li>2.5  Attach the EC2 Instance profile to your instance.</li>
+<li>2.6  Reboot the EC2 instances.</li>
 </ul>
 <h2 id="3-EC2-instance-in-private-subnet-with-NAT-connectivity"><a href="#3-EC2-instance-in-private-subnet-with-NAT-connectivity" class="headerlink" title="3. EC2 instance in private subnet, with NAT connectivity"></a>3. EC2 instance in private subnet, with NAT connectivity</h2><p>In this case, EC2 instances have no public IP, but they can still talk to internet via NAT.</p>
 <ul>
@@ -1192,417 +1491,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
-    <article id="post-Encoding-issue-when-calling-API-via-powershell" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2020/06/20/Encoding-issue-when-calling-API-via-powershell/">Encoding issue when calling API via powershell</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2020/06/20/Encoding-issue-when-calling-API-via-powershell/">
-            <time datetime="2020-06-20T11:40:00.000Z" itemprop="datePublished">2020-06-20</time>
-        </a>
-    </div>
-
-
-                        
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/Encoding/" rel="tag">Encoding</a>, <a class="tag-link-link" href="/tags/Json/" rel="tag">Json</a>, <a class="tag-link-link" href="/tags/Powershell/" rel="tag">Powershell</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            
-            <p>Recently we need to fetch a big dataset from an API via powershell, then import to Azure Data Explorer (ADX).</p>
-<h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Used Measure-Command for measuring performance</span></span><br><span class="line">Measure-Command &#123;curl <span class="string">&#x27;THE_API_END_POINT&#x27;</span> | select -expand Content &gt; data.json&#125;</span><br></pre></td></tr></table></figure>
-<p>The data.json file looks perfectly fine, but during import to ADX, it reported error “invalid json format”.</p>
-<h2 id="Troubleshooting"><a href="#Troubleshooting" class="headerlink" title="Troubleshooting"></a>Troubleshooting</h2><ol>
-<li><p>Using online validation tool such as <a target="_blank" rel="noopener" href="https://jsonlint.com/">https://jsonlint.com/</a>, copy &amp; paste the content from data.json. The json objects are valid.</p>
-</li>
-<li><p>Using local tool <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/jsonlint">jsonlint</a>, reports error. It shows the data.json file has encoding issue.</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">PS C:\Users\lufeng\Desktop&gt; jsonlint .\data.json</span><br><span class="line">Error: Parse error on line 1:</span><br><span class="line">��[ &#123; &quot; _ i d &quot; : &#123;</span><br><span class="line">^</span><br><span class="line">Expecting &#x27;STRING&#x27;, &#x27;NUMBER&#x27;, &#x27;NULL&#x27;, &#x27;TRUE&#x27;, &#x27;FALSE&#x27;, &#x27;&#123;&#x27;, &#x27;[&#x27;, got &#x27;undefined&#x27;</span><br><span class="line">    at Object.parseError (C:\Users\lufeng\AppData\Roaming\npm\node_modules\jsonlint\lib\jsonlint.js:55:11)  </span><br><span class="line">    at Object.parse (C:\Users\lufeng\AppData\Roaming\npm\node_modules\jsonlint\lib\jsonlint.js:132:22)      </span><br><span class="line">    at parse (C:\Users\lufeng\AppData\Roaming\npm\node_modules\jsonlint\lib\cli.js:82:14)</span><br><span class="line">    at main (C:\Users\lufeng\AppData\Roaming\npm\node_modules\jsonlint\lib\cli.js:135:14)</span><br><span class="line">    at Object.&lt;anonymous&gt; (C:\Users\lufeng\AppData\Roaming\npm\node_modules\jsonlint\lib\cli.js:179:1)      </span><br><span class="line">    at Module._compile (internal/modules/cjs/loader.js:955:30)</span><br><span class="line">    at Object.Module._extensions..js (internal/modules/cjs/loader.js:991:10)</span><br><span class="line">    at Module.load (internal/modules/cjs/loader.js:811:32)</span><br><span class="line">    at Function.Module._load (internal/modules/cjs/loader.js:723:14)</span><br><span class="line">    at Function.Module.runMain (internal/modules/cjs/loader.js:1043:10)</span><br></pre></td></tr></table></figure>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>Switch to a different powershell command solved the problem</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Invoke-WebRequest -Uri &#x27;THE_API_END_POINT&#x27; -OutFile data.json</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>EOF</p>
-
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="https://feng.lu/2020/06/20/Encoding-issue-when-calling-API-via-powershell/" data-id="ckz5lujcx000cmsudhjzeg96f" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="https://feng.lu/2020/06/20/Encoding-issue-when-calling-API-via-powershell/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://feng.lu/2020/06/20/Encoding-issue-when-calling-API-via-powershell/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-How-to-Decrypt-Native-Apps-HTTPS-Traffic-and-Debug-for-In-app-Browser" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2020/04/03/How-to-Decrypt-Native-Apps-HTTPS-Traffic-and-Debug-for-In-app-Browser/">How to Decrypt Native App&#39;s HTTPS Traffic (and Debug for In-app Browser)</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2020/04/03/How-to-Decrypt-Native-Apps-HTTPS-Traffic-and-Debug-for-In-app-Browser/">
-            <time datetime="2020-04-03T18:10:18.000Z" itemprop="datePublished">2020-04-03</time>
-        </a>
-    </div>
-
-
-                        
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/Decryption/" rel="tag">Decryption</a>, <a class="tag-link-link" href="/tags/Fiddler/" rel="tag">Fiddler</a>, <a class="tag-link-link" href="/tags/HTTPS/" rel="tag">HTTPS</a>, <a class="tag-link-link" href="/tags/Native-App/" rel="tag">Native App</a>, <a class="tag-link-link" href="/tags/Troubleshooting/" rel="tag">Troubleshooting</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            <p><h2 id="Problem-with-in-app-browser-of-LinkedIn-and-Facebook-iOS-apps"><a href="#Problem-with-in-app-browser-of-LinkedIn-and-Facebook-iOS-apps" class="headerlink" title="Problem with in-app browser of LinkedIn and Facebook iOS apps"></a>Problem with in-app browser of LinkedIn and Facebook iOS apps</h2><p>Recently our QA reported an interesting issue regarding the native app and our website: When the webpage was shared on Linkedin iOS App and/or Facebook iOS App, the built-in browsers cannot show it correctly but a blank page. </p>
-<img src="/2020/04/03/How-to-Decrypt-Native-Apps-HTTPS-Traffic-and-Debug-for-In-app-Browser/problem.gif" class="" title="Problems on Facebook and Linkedin app">
-<ul>
-<li>This issue only happens on some of the iOS apps (see the list below). </li>
-<li>Other iOS native apps have no problem.</li>
-<li>Safari and Chrome for iOS have no problem.</li>
-<li>All Android-based native apps have no problem.</li>
-<li>All desktop browsers have no problem.</li>
-</ul></p>
-            <p class="article-more-link">
-                <a href="/2020/04/03/How-to-Decrypt-Native-Apps-HTTPS-Traffic-and-Debug-for-In-app-Browser/#more">Read More</a>
-            </p>
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="https://feng.lu/2020/04/03/How-to-Decrypt-Native-Apps-HTTPS-Traffic-and-Debug-for-In-app-Browser/" data-id="ckz5lujcx000dmsudcb8t2dof" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="https://feng.lu/2020/04/03/How-to-Decrypt-Native-Apps-HTTPS-Traffic-and-Debug-for-In-app-Browser/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://feng.lu/2020/04/03/How-to-Decrypt-Native-Apps-HTTPS-Traffic-and-Debug-for-In-app-Browser/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
-    <article id="post-Jump-start-Kubernetes-with-Docker-Desktop-on-Windows-10" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2019/10/05/Jump-start-Kubernetes-with-Docker-Desktop-on-Windows-10/">Jump-start Kubernetes and Istio with Docker Desktop on Windows 10</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2019/10/05/Jump-start-Kubernetes-with-Docker-Desktop-on-Windows-10/">
-            <time datetime="2019-10-05T17:57:31.000Z" itemprop="datePublished">2019-10-05</time>
-        </a>
-    </div>
-
-
-                        
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/Docker/" rel="tag">Docker</a>, <a class="tag-link-link" href="/tags/Istio/" rel="tag">Istio</a>, <a class="tag-link-link" href="/tags/Jump-start/" rel="tag">Jump-start</a>, <a class="tag-link-link" href="/tags/Kiali/" rel="tag">Kiali</a>, <a class="tag-link-link" href="/tags/Kubernetes/" rel="tag">Kubernetes</a>, <a class="tag-link-link" href="/tags/Service-mesh/" rel="tag">Service mesh</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            <p><p>Here we will setup a single-node Kubernetes cluster on a windows 10 PC (In my case it is a surface 5 with 16GB RAM). If you are new to docker, feel free to check out <a href="/2017/03/31/Jump-start-ASP-Net-Core-with-Docker/">Jump-start with docker</a>.<br>We are going to setup:</p>
-<ul>
-<li>A single-node Kubernetes cluster</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/kubernetes/dashboard">Kubernetes dashboard</a></li>
-<li>Helm</li>
-<li>Isito (service mesh, including Kiali)</li>
-<li>Deployment samples</li>
-</ul>
-<img src="/2019/10/05/Jump-start-Kubernetes-with-Docker-Desktop-on-Windows-10/Title%20picture.png" class=""></p>
-            <p class="article-more-link">
-                <a href="/2019/10/05/Jump-start-Kubernetes-with-Docker-Desktop-on-Windows-10/#more">Read More</a>
-            </p>
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="https://feng.lu/2019/10/05/Jump-start-Kubernetes-with-Docker-Desktop-on-Windows-10/" data-id="ckz5lujdm0012msud1kyt7c1w" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="https://feng.lu/2019/10/05/Jump-start-Kubernetes-with-Docker-Desktop-on-Windows-10/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://feng.lu/2019/10/05/Jump-start-Kubernetes-with-Docker-Desktop-on-Windows-10/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
     <nav id="page-nav">
         <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
     </nav>
@@ -1615,6 +1503,33 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h3 class="widget-title">recent</h3>
         <div class="widget">
             <ul id="recent-post" class="no-thumbnail">
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2022/06/01/Untitled-1removed/" class="title"></a></p>
+                            <p class="item-date"><time datetime="2022-06-01T12:27:38.285Z" itemprop="datePublished">2022-06-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2022/06/01/Untitled-1/" class="title"></a></p>
+                            <p class="item-date"><time datetime="2022-06-01T12:26:43.003Z" itemprop="datePublished">2022-06-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2022/05/22/iceberg-note/" class="title"></a></p>
+                            <p class="item-date"><time datetime="2022-05-22T09:40:41.433Z" itemprop="datePublished">2022-05-22</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -1634,33 +1549,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2021/12/04/Building-a-Very-Slow-Movie-Player/" class="title">Building a Very Slow Movie Player</a></p>
-                            <p class="item-date"><time datetime="2021-12-04T10:23:19.000Z" itemprop="datePublished">2021-12-04</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2021/11/17/Okta-and-AWS-Control-Tower-a-happy-path-demo/" class="title">Okta and AWS Control Tower - a happy path demo</a></p>
-                            <p class="item-date"><time datetime="2021-11-17T19:17:08.000Z" itemprop="datePublished">2021-11-17</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2020/09/22/How-to-build-an-IoT-connected-car-Part-2-Data-Analytics-in-the-Cloud/" class="title">How to build an IoT connected car - Part 2: Data Analytics in the Cloud</a></p>
-                            <p class="item-date"><time datetime="2020-09-22T08:00:13.000Z" itemprop="datePublished">2020-09-22</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -1672,7 +1560,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="widget-wrap">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">3</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">3</span></li></ul>
         </div>
     </div>
 
