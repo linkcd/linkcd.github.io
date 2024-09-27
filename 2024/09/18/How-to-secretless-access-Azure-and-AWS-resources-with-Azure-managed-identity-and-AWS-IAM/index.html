@@ -13,11 +13,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 	
     <meta charset="utf-8">
     
-    <title>How to secretless access Azure and AWS resources with Azure managed identity and AWS IAM | feng.blog();</title>
+    <title>Implementing Secret-less Access to Azure and AWS with Azure Managed Identities and AWS IAM | feng.blog();</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="1. User caseNowadays, it is common for companies to operate in multi-cloud environments, such as Azure and AWS. They often use Microsoft Entra ID (formerly Azure Active Directory) as their centralized">
 <meta property="og:type" content="article">
-<meta property="og:title" content="How to secretless access Azure and AWS resources with Azure managed identity and AWS IAM">
+<meta property="og:title" content="Implementing Secret-less Access to Azure and AWS with Azure Managed Identities and AWS IAM">
 <meta property="og:url" content="https://feng.lu/2024/09/18/How-to-secretless-access-Azure-and-AWS-resources-with-Azure-managed-identity-and-AWS-IAM/index.html">
 <meta property="og:site_name" content="feng.blog();">
 <meta property="og:description" content="1. User caseNowadays, it is common for companies to operate in multi-cloud environments, such as Azure and AWS. They often use Microsoft Entra ID (formerly Azure Active Directory) as their centralized">
@@ -45,7 +45,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta property="og:image" content="https://feng.lu/2024/09/18/How-to-secretless-access-Azure-and-AWS-resources-with-Azure-managed-identity-and-AWS-IAM/s3%20files.png">
 <meta property="og:image" content="https://feng.lu/2024/09/18/How-to-secretless-access-Azure-and-AWS-resources-with-Azure-managed-identity-and-AWS-IAM/demo%20screenshot.png">
 <meta property="article:published_time" content="2024-09-18T12:49:21.000Z">
-<meta property="article:modified_time" content="2024-09-26T09:08:38.815Z">
+<meta property="article:modified_time" content="2024-09-27T08:48:26.134Z">
 <meta property="article:author" content="Feng Lu">
 <meta property="article:tag" content="AWS">
 <meta property="article:tag" content="Azure">
@@ -255,7 +255,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 
     
         <h1 class="article-title" itemprop="name">
-            How to secretless access Azure and AWS resources with Azure managed identity and AWS IAM
+            Implementing Secret-less Access to Azure and AWS with Azure Managed Identities and AWS IAM
         </h1>
     
 
@@ -359,7 +359,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </li>
 </ol>
 <h3 id="3-5-Create-AWS-S3-bucket-and-related-AWS-IAM-Role-for-accessing-S3"><a href="#3-5-Create-AWS-S3-bucket-and-related-AWS-IAM-Role-for-accessing-S3" class="headerlink" title="3.5 Create AWS S3 bucket and related AWS IAM Role for accessing S3"></a>3.5 Create AWS S3 bucket and related AWS IAM Role for accessing S3</h3><ol>
-<li>Create an AWS S3 bucket named <em>mycrosscloudaccessdemos3</em></li>
+<li>Create an AWS S3 bucket</li>
 <li>Go to AWS IAM, create new Role for access S3</li>
 <li><strong>Trusted entity</strong>: the OpenID Connect Idp that we just created</li>
 <li><strong>Audience</strong>: “api://AWS-Federation-App”<img src="/2024/09/18/How-to-secretless-access-Azure-and-AWS-resources-with-Azure-managed-identity-and-AWS-IAM/s3%20role%201.png" class=""></li>
@@ -372,8 +372,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </li>
 </ol>
 <h3 id="3-6-Create-Azure-storage-account-and-setup-permission-for-managed-identities"><a href="#3-6-Create-Azure-storage-account-and-setup-permission-for-managed-identities" class="headerlink" title="3.6 Create Azure storage account and setup permission for managed identities"></a>3.6 Create Azure storage account and setup permission for managed identities</h3><ol>
-<li>Create an Azure storage account <em>crosscloudazurestorage</em> and upload some test files into a container named <em>mycontainer</em>.</li>
-<li>In the storage account <em>crosscloudazurestorage</em> management panel, grant UAMI and SAMI “Storage Blob Data Contributor/Owner” Role<br>(Note, the simple “Owner” role of storage account top level is NOT enough for read/write blobs in container), see <a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/azure/storage/common/storage-auth-aad-app?tabs=dotnet">document</a>)</li>
+<li>Create an Azure storage account and upload some test files into a container named <em>mycontainer</em>.</li>
+<li>In the storage account management panel, grant UAMI and SAMI “Storage Blob Data Contributor/Owner” Role<br>(Note, the simple “Owner” role of storage account top level is NOT enough for read/write blobs in container), see <a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/azure/storage/common/storage-auth-aad-app?tabs=dotnet">document</a>)</li>
 </ol>
 <h3 id="3-7-Update-Azure-function-source-code"><a href="#3-7-Update-Azure-function-source-code" class="headerlink" title="3.7 Update Azure function source code"></a>3.7 Update Azure function source code</h3><p>Now we got everything ready, time to work on the source code of Azure functions.</p>
 <p>Both SAMI and UAMI based functions use the <a target="_blank" rel="noopener" href="https://github.com/linkcd/Secretless-cross-cloud-access/tree/main/AzureFunction">same code base</a>, as there are only a difference of getting AzureCredential between SAMI and UAMI. If you know for sure which type of managed identity you are using, you can remove the if/else condition to optimize the code.</p>
@@ -385,7 +385,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <img src="/2024/09/18/How-to-secretless-access-Azure-and-AWS-resources-with-Azure-managed-identity-and-AWS-IAM/azure%20files.png" class="">
 <img src="/2024/09/18/How-to-secretless-access-Azure-and-AWS-resources-with-Azure-managed-identity-and-AWS-IAM/s3%20files.png" class="">
 </li>
-<li><p>Call the Azure Functions<br>Use the sample input Json for <a target="_blank" rel="noopener" href="https://github.com/linkcd/Secretless-cross-cloud-access/blob/main/AzureFunction/sample-request-UAMI.json">UAMI</a> and <a target="_blank" rel="noopener" href="https://github.com/linkcd/Secretless-cross-cloud-access/blob/main/AzureFunction/sample-request-SAMI.json">SAMI</a> when you are calling the Azure Functions. (Remember to replace the AWSRoleArn and UAMIClientId with correct values.)</p>
+<li><p>Call the Azure Functions<br>Use the sample input Json for <a target="_blank" rel="noopener" href="https://github.com/linkcd/Secretless-cross-cloud-access/blob/main/AzureFunction/sample-request-UAMI.json">UAMI</a> and <a target="_blank" rel="noopener" href="https://github.com/linkcd/Secretless-cross-cloud-access/blob/main/AzureFunction/sample-request-SAMI.json">SAMI</a> when you are calling the Azure Functions. (Remember to replace the placeholder parameters with correct values.)</p>
 </li>
 </ol>
 <p>The azure function prints the JWT in the log, it looks like<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;aud&quot;</span>: <span class="string">&quot;api://AWS-Federation-App&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;iss&quot;</span>: <span class="string">&quot;https://sts.windows.net/&lt;azure-tenant-id&gt;/&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;idp&quot;</span>: <span class="string">&quot;https://sts.windows.net/&lt;azure-tenant-id&gt;/&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;appid&quot;</span>: <span class="string">&quot;&lt;managed-identity-client-id&gt;&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;oid&quot;</span>: <span class="string">&quot;&lt;managed-identity-object-id&gt;&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;roles&quot;</span>: [</span><br><span class="line">    <span class="string">&quot;AssumeAWSRole&quot;</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">&quot;sub&quot;</span>: <span class="string">&quot;&lt;managed-identity-object-id&gt;&quot;</span>,</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -524,7 +524,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         
                         <div class="item-inner">
                             <p class="item-category"></p>
-                            <p class="item-title"><a href="/2024/09/18/How-to-secretless-access-Azure-and-AWS-resources-with-Azure-managed-identity-and-AWS-IAM/" class="title">How to secretless access Azure and AWS resources with Azure managed identity and AWS IAM</a></p>
+                            <p class="item-title"><a href="/2024/09/18/How-to-secretless-access-Azure-and-AWS-resources-with-Azure-managed-identity-and-AWS-IAM/" class="title">Implementing Secret-less Access to Azure and AWS with Azure Managed Identities and AWS IAM</a></p>
                             <p class="item-date"><time datetime="2024-09-18T12:49:21.000Z" itemprop="datePublished">2024-09-18</time></p>
                         </div>
                     </li>
