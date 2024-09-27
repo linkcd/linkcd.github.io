@@ -47,11 +47,11 @@
     
       <category term="Azure" scheme="https://feng.lu/tags/Azure/"/>
     
-      <category term="IAM" scheme="https://feng.lu/tags/IAM/"/>
-    
       <category term="Security" scheme="https://feng.lu/tags/Security/"/>
     
       <category term="Idp" scheme="https://feng.lu/tags/Idp/"/>
+    
+      <category term="IAM" scheme="https://feng.lu/tags/IAM/"/>
     
       <category term="Managed Identity" scheme="https://feng.lu/tags/Managed-Identity/"/>
     
@@ -182,13 +182,13 @@
     
       <category term="AWS" scheme="https://feng.lu/tags/AWS/"/>
     
+      <category term="IAM" scheme="https://feng.lu/tags/IAM/"/>
+    
       <category term="AWS Systems Manager" scheme="https://feng.lu/tags/AWS-Systems-Manager/"/>
     
       <category term="SSM" scheme="https://feng.lu/tags/SSM/"/>
     
       <category term="EC2" scheme="https://feng.lu/tags/EC2/"/>
-    
-      <category term="IAM" scheme="https://feng.lu/tags/IAM/"/>
     
       <category term="VPC" scheme="https://feng.lu/tags/VPC/"/>
     
@@ -303,10 +303,6 @@
     
       <category term="Car" scheme="https://feng.lu/tags/Car/"/>
     
-      <category term="Python" scheme="https://feng.lu/tags/Python/"/>
-    
-      <category term="Jupyter Notebook" scheme="https://feng.lu/tags/Jupyter-Notebook/"/>
-    
       <category term="Visualization" scheme="https://feng.lu/tags/Visualization/"/>
     
       <category term="Databricks" scheme="https://feng.lu/tags/Databricks/"/>
@@ -314,6 +310,10 @@
       <category term="Time Series Insight (TSI)" scheme="https://feng.lu/tags/Time-Series-Insight-TSI/"/>
     
       <category term="Azure Data Explorer (ADX)" scheme="https://feng.lu/tags/Azure-Data-Explorer-ADX/"/>
+    
+      <category term="Python" scheme="https://feng.lu/tags/Python/"/>
+    
+      <category term="Jupyter Notebook" scheme="https://feng.lu/tags/Jupyter-Notebook/"/>
     
       <category term="Grafana" scheme="https://feng.lu/tags/Grafana/"/>
     
@@ -378,13 +378,13 @@
     
       <category term="Data Analytics" scheme="https://feng.lu/tags/Data-Analytics/"/>
     
-      <category term="Hamster" scheme="https://feng.lu/tags/Hamster/"/>
-    
-      <category term="Home Assistant" scheme="https://feng.lu/tags/Home-Assistant/"/>
-    
       <category term="Python" scheme="https://feng.lu/tags/Python/"/>
     
       <category term="Jupyter Notebook" scheme="https://feng.lu/tags/Jupyter-Notebook/"/>
+    
+      <category term="Hamster" scheme="https://feng.lu/tags/Hamster/"/>
+    
+      <category term="Home Assistant" scheme="https://feng.lu/tags/Home-Assistant/"/>
     
       <category term="Zigbee" scheme="https://feng.lu/tags/Zigbee/"/>
     
