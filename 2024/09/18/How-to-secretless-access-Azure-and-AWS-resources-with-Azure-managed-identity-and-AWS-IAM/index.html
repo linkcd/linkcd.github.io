@@ -45,7 +45,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta property="og:image" content="https://feng.lu/2024/09/18/How-to-secretless-access-Azure-and-AWS-resources-with-Azure-managed-identity-and-AWS-IAM/s3%20files.png">
 <meta property="og:image" content="https://feng.lu/2024/09/18/How-to-secretless-access-Azure-and-AWS-resources-with-Azure-managed-identity-and-AWS-IAM/demo%20screenshot.png">
 <meta property="article:published_time" content="2024-09-18T12:49:21.000Z">
-<meta property="article:modified_time" content="2024-09-27T08:48:26.134Z">
+<meta property="article:modified_time" content="2024-10-01T08:30:19.702Z">
 <meta property="article:author" content="Feng Lu">
 <meta property="article:tag" content="AWS">
 <meta property="article:tag" content="Azure">
@@ -354,7 +354,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <h3 id="3-4-Setup-federation-between-the-Azure-application-role-and-AWS-IAM"><a href="#3-4-Setup-federation-between-the-Azure-application-role-and-AWS-IAM" class="headerlink" title="3.4 Setup federation between the Azure application role and AWS IAM"></a>3.4 Setup federation between the Azure application role and AWS IAM</h3><ol>
 <li>Go to AWS console, then head to IAM</li>
 <li>Click “Identity providers” and add an “OpenID Connect” provider</li>
-<li><strong>Provider URL</strong>: <a target="_blank" rel="noopener" href="https://sts.windows.net/[your-azure-tenant-id]/">https://sts.windows.net/[your-azure-tenant-id]/</a> (note: make sure you add “/“ at the end of the URL)<br>After created the idp, in AWS IAM Console, the provider should like “sts.windows.net/YOUR-AZURE-TENANT-ID/“<br>It JTW token issue by Azure is the following, note the “/“ in the “idp”.</li>
+<li><strong>Provider URL</strong>: <a target="_blank" rel="noopener" href="https://sts.windows.net/[your-azure-tenant-id]/">https://sts.windows.net/[your-azure-tenant-id]/</a> (note: make sure you add “/“ at the end of the URL) </li>
 <li><strong>Audience</strong>: Application ID URI “api://AWS-Federation-App”<img src="/2024/09/18/How-to-secretless-access-Azure-and-AWS-resources-with-Azure-managed-identity-and-AWS-IAM/add%20idp%20to%20aws.png" class="">
 </li>
 </ol>
@@ -409,7 +409,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </div>
 
-    <a data-url="https://feng.lu/2024/09/18/How-to-secretless-access-Azure-and-AWS-resources-with-Azure-managed-identity-and-AWS-IAM/" data-id="cm1khndof000nv5udb9ic49aw" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://feng.lu/2024/09/18/How-to-secretless-access-Azure-and-AWS-resources-with-Azure-managed-identity-and-AWS-IAM/" data-id="cm1q6i70i000ndrud7wnhacfm" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
