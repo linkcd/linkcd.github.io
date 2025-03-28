@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T85N4CJ');</script>
+<!-- End Google Tag Manager -->
+
+	
+    <meta charset="utf-8">
+    
+    <title>How to measure your Hamster&#39;s running with wireless IoT | feng.blog();</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="We recently welcomed our new family member Qiuqiu (球球) (a girl Syrian&#x2F;Golden hamster) home. She seems to enjoy the new environment  fairly well, but she is a quiet girl - does not show much activ">
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to measure your Hamster&#39;s running with wireless IoT">
+<meta property="og:url" content="https://feng.lu/2020/08/05/How-to-measure-your-Hamster-s-running-with-IoT/index.html">
+<meta property="og:site_name" content="feng.blog();">
+<meta property="og:description" content="We recently welcomed our new family member Qiuqiu (球球) (a girl Syrian&#x2F;Golden hamster) home. She seems to enjoy the new environment  fairly well, but she is a quiet girl - does not show much activ">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://feng.lu/2020/08/05/How-to-measure-your-Hamster-s-running-with-IoT/thumbnail.jpg">
+<meta property="article:published_time" content="2020-08-05T17:30:43.000Z">
+<meta property="article:modified_time" content="2025-03-28T09:05:16.741Z">
+<meta property="article:author" content="Feng Lu">
+<meta property="article:tag" content="IoT">
+<meta property="article:tag" content="Data Analytics">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="Jupyter Notebook">
+<meta property="article:tag" content="Hamster">
+<meta property="article:tag" content="Home Assistant">
+<meta property="article:tag" content="Zigbee">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://feng.lu/2020/08/05/How-to-measure-your-Hamster-s-running-with-IoT/thumbnail.jpg">
+    
+
+    
+        <link rel="alternate" href="/atom.xml" title="feng.blog();" type="application/atom+xml" />
+    
+
+    
+        <link rel="icon" href="/images/favicon.png" />
+    
+
+    
+<link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+
+    
+<link rel="stylesheet" href="/libs/open-sans/styles.css">
+
+    
+<link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+
+    
+    
+        
+<link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+
+    
+    
+    
+
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T85N4CJ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">feng.blog();</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">Home</a>
+                
+                    <a class="main-nav-link" href="/archives">Archives</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/images/avatar.jpg" />
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">Home</a></td>
+                
+                    <td><a class="main-nav-link" href="/archives">Archives</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/images/avatar.jpg" />
+            <h2 id="name">Feng Lu</h2>
+            <h3 id="title">Builder, Speaker, Architect and Technical Evangelist</h3>
+            <span id="location"><i class="fa fa-map-marker"></i>Oslo Area, Norway</span>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                39
+                <span>posts</span>
+            </div>
+            <div class="article-info-block">
+                129
+                <span>tags</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="https://www.linkedin.com/in/linkcd" target="_blank" title="linkedin" class=tooltip>
+                            <i class="fa fa-linkedin"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="https://github.com/linkcd" target="_blank" title="github" class=tooltip>
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/atom.xml" target="_blank" title="rss" class=tooltip>
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-How-to-measure-your-Hamster-s-running-with-IoT" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            How to measure your Hamster&#39;s running with wireless IoT
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2020/08/05/How-to-measure-your-Hamster-s-running-with-IoT/">
+            <time datetime="2020-08-05T17:30:43.000Z" itemprop="datePublished">2020-08-05</time>
+        </a>
+    </div>
+
+
+                        
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Data-Analytics/" rel="tag">Data Analytics</a>, <a class="tag-link-link" href="/tags/Hamster/" rel="tag">Hamster</a>, <a class="tag-link-link" href="/tags/Home-Assistant/" rel="tag">Home Assistant</a>, <a class="tag-link-link" href="/tags/IoT/" rel="tag">IoT</a>, <a class="tag-link-link" href="/tags/Jupyter-Notebook/" rel="tag">Jupyter Notebook</a>, <a class="tag-link-link" href="/tags/Python/" rel="tag">Python</a>, <a class="tag-link-link" href="/tags/Zigbee/" rel="tag">Zigbee</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <p>We recently welcomed our new family member Qiuqiu (球球) (a girl <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Golden_hamster">Syrian&#x2F;Golden hamster)</a> home. She seems to enjoy the new environment  fairly well, but she is a quiet girl - does not show much activities during the day time.</p>
+<p>Of course we understand hamsters are nocturnal animals, which means they are sleeping in day time and become more active at night. But I started wondering how she was doing during the nights, especially how much she ran on the hamster wheel. </p>
+<p>Let’s do something about it.</p>
+<img src="/2020/08/05/How-to-measure-your-Hamster-s-running-with-IoT/Qiuqiu.jpg" class="" title="This is Qiuqiu with her wheel">
+<p>Picture: Qiuqiu with her wheel</p>
+<span id="more"></span>
+
+<h1 id="1-Hardware"><a href="#1-Hardware" class="headerlink" title="1. Hardware"></a>1. Hardware</h1><p>There are many possible ways to track the hamster wheel. </p>
+<ol>
+<li><strong>Wired solution, attach wire and switch to the wheel</strong><br>It should work pretty straight forward, but I am not a fan of having wires going through the cage for connecting to the computer. Also Qiuqiu will definitely chew on the wires. </li>
+<li><strong>Wireless solution, with computer vision</strong><br>This can be a pretty cool idea: Draw a mark (e.g. a red X) on the wheel, then place a camera (ie. <a target="_blank" rel="noopener" href="https://aws.amazon.com/deeplens/">AWS DeepLens</a>) to run some computer vision tasks, for counting the wheel cycle.<br>I like this idea because it requires minimal work on the wheel and no dangerous for the hamster at all. But there also are some challenges such as how to ensure the image quality if there is no light in the room, or the wheel is running too fast to get a stable high quality image.</li>
+<li><strong>Wireless solution, with wireless sensor</strong><br>This is what I did - need to attach a sensor on the wheel, but the sensor is so small that can be well protected in a shell. I decided to use zigbee protocol as I already have a smart home system that is well integrated.</li>
+</ol>
+<h2 id="1-1-Needed-hardware"><a href="#1-1-Needed-hardware" class="headerlink" title="1.1 Needed hardware"></a>1.1 Needed hardware</h2><ol>
+<li>Sensor: <a target="_blank" rel="noopener" href="https://www.aqara.com/us/door_and_window_sensor.html">Aqara Door and Window Sensor</a></li>
+<li>Zigbee gateway: <a target="_blank" rel="noopener" href="https://www.phoscon.de/en/conbee2">Conbee II</a></li>
+<li>PC&#x2F;Laptop&#x2F;Raspberry Pi</li>
+</ol>
+<h2 id="1-2-Installation"><a href="#1-2-Installation" class="headerlink" title="1.2 Installation"></a>1.2 Installation</h2><h3 id="1-2-1-Place-the-sensor"><a href="#1-2-1-Place-the-sensor" class="headerlink" title="1.2.1 Place the sensor"></a>1.2.1 Place the sensor</h3><p>Carefully place the sensor on the wheel and the body, make sure when wheel spins, the magnet on the wheel has a small but close enough gap with the sensor body. Used lego part for some adjustments.   </p>
+<img src="/2020/08/05/How-to-measure-your-Hamster-s-running-with-IoT/installing_sensor.jpg" class="" title="Installing sensor">
+
+<h3 id="1-2-2-Test-with-realtime-sensor-reading"><a href="#1-2-2-Test-with-realtime-sensor-reading" class="headerlink" title="1.2.2 Test with realtime sensor reading"></a>1.2.2 Test with realtime sensor reading</h3><p>Before we continue, I would like to test in action, to make sure the gap is OK. It is possible monitor realtime reading of the sensor, by using the Conbee API.<br>I wrote a simple web app (<a href="/2020/08/05/How-to-measure-your-Hamster-s-running-with-IoT/hamsterwheel_realtime.html.txt">source code</a>) with javascript and WebSocket, to visualize the realtime reading. The WebSocket API is provided by the Conbee application, see the document <a target="_blank" rel="noopener" href="https://dresden-elektronik.github.io/deconz-rest-doc/websocket/">here</a>.</p>
+<img src="/2020/08/05/How-to-measure-your-Hamster-s-running-with-IoT/realtime_reading1.gif" class="">
+
+<p>Under the hood:</p>
+<img src="/2020/08/05/How-to-measure-your-Hamster-s-running-with-IoT/realtime_reading2.gif" class="">
+
+<h3 id="1-2-3-Mount-the-protective-shell"><a href="#1-2-3-Mount-the-protective-shell" class="headerlink" title="1.2.3 Mount the protective shell"></a>1.2.3 Mount the protective shell</h3><p>I made a protective shell from a spare plastic box, and mounted on the wheel. Therefore Qiuqiu cannot chew on the sensor. I even made a small hole on the shell to easily use a stick for pressing the sensor reset button, without remove the whole thing.</p>
+<img src="/2020/08/05/How-to-measure-your-Hamster-s-running-with-IoT/mount_shell.jpg" class="" title="Mount the shell">
+
+<h1 id="2-Software"><a href="#2-Software" class="headerlink" title="2. Software"></a>2. Software</h1><h2 id="2-1-Manual-data-export"><a href="#2-1-Manual-data-export" class="headerlink" title="2.1 Manual data export"></a>2.1 Manual data export</h2><p>The BeeCon 2 is a USB-based zigbee gateway that can be attached to a PC or raspberry pi. It talks to the zigbee mesh network and receives signals from sensors. For example, the sensor on the wheel send the following json payload, one for “close” event (magnet and sensor are closed) and another one for “open” event (magnet and sensor are parted). Logically one open-close event pair indicates a finished cycle:</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">	<span class="attr">&quot;e&quot;</span><span class="punctuation">:</span> <span class="string">&quot;changed&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="string">&quot;3&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;r&quot;</span><span class="punctuation">:</span> <span class="string">&quot;sensors&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;state&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">		<span class="attr">&quot;lastupdated&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2020-08-05T17:32:37.102&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;open&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span></span><br><span class="line">	<span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;t&quot;</span><span class="punctuation">:</span> <span class="string">&quot;event&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;uniqueid&quot;</span><span class="punctuation">:</span> <span class="string">&quot;00:15:8d:00:04:5c:d8:d3-01-0006&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span> </span><br><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">	<span class="attr">&quot;e&quot;</span><span class="punctuation">:</span> <span class="string">&quot;changed&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;id&quot;</span><span class="punctuation">:</span> <span class="string">&quot;3&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;r&quot;</span><span class="punctuation">:</span> <span class="string">&quot;sensors&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;state&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">		<span class="attr">&quot;lastupdated&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2020-08-05T17:32:37.227&quot;</span><span class="punctuation">,</span></span><br><span class="line">		<span class="attr">&quot;open&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line">	<span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;t&quot;</span><span class="punctuation">:</span> <span class="string">&quot;event&quot;</span><span class="punctuation">,</span></span><br><span class="line">	<span class="attr">&quot;uniqueid&quot;</span><span class="punctuation">:</span> <span class="string">&quot;00:15:8d:00:04:5c:d8:d3-01-0006&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>By connecting Conbee gateway with <a target="_blank" rel="noopener" href="https://www.home-assistant.io/">Home Assistant</a> via <a target="_blank" rel="noopener" href="https://www.home-assistant.io/integrations/deconz/">deCONZ integration</a>, it is fairly easy to export the data as a CSV file. (I plan to build a data pipeline with time series database in the later stage, but for now let’s stay with manual data export.)</p>
+<img src="/2020/08/05/How-to-measure-your-Hamster-s-running-with-IoT/exported_csv.png" class="" title="Exported CSV">
+<pre><code>Picture: exported csv, with 4 columns
+</code></pre>
+<h2 id="2-2-Data-analytics"><a href="#2-2-Data-analytics" class="headerlink" title="2.2 Data analytics"></a>2.2 Data analytics</h2><h3 id="2-2-1-Data-loading-and-transformation"><a href="#2-2-1-Data-loading-and-transformation" class="headerlink" title="2.2.1 Data loading and transformation"></a>2.2.1 Data loading and transformation</h3><p>Now it is time for having some python&#x2F;jupyter notebook fun. Here we are going to use <a target="_blank" rel="noopener" href="https://www.kaggle.com/">https://www.kaggle.com/</a>. You can read more comparison of online jupyter notebook hosting at <a target="_blank" rel="noopener" href="https://www.dataschool.io/cloud-services-for-jupyter-notebook/">here</a>.</p>
+<img src="/2020/08/05/How-to-measure-your-Hamster-s-running-with-IoT/Data%20load%20and%20transformation.png" class="">
+<p>The above code snippet does:</p>
+<ol>
+<li>Load CSV file into pandas DataFrame, with needed 2 columns <em>‘last_changed’ and ‘state’</em></li>
+<li>During loading, parse datetime and also set <em>last_changed</em> as index</li>
+<li>Convert fixed string value “on”&#x2F;“off” in <em>‘state’</em> to digital 0&#x2F;1 in <em>‘finshedOneRound’</em> that can be used for plot</li>
+</ol>
+<h3 id="2-2-2-Check-the-raw-data-and-noises"><a href="#2-2-2-Check-the-raw-data-and-noises" class="headerlink" title="2.2.2 Check the raw data and noises"></a>2.2.2 Check the raw data and noises</h3><p>Let’s take a look at the raw data. The first thing I noticed is the “noise” of each cycle. As the door-window close sensor is not designed for tracking a spin, whenever a cycle finished, instead of report simple 2 events: on and off, it actually generates a sequence of events: <strong>on-off-on-off-on-off</strong>. This is a “noise” that we need to take care of.  </p>
+<p>it is worth noting that not all cycles follow the same pattern. For example, the 3rd red circle on the screenshot shows an exception: it only has one “on-off” event pair. </p>
+<img src="/2020/08/05/How-to-measure-your-Hamster-s-running-with-IoT/Raw%20data%20visualization.png" class="" title="Raw data visualization">
+
+<h3 id="2-3-Noise-reduction-by-rolling-window-calculations"><a href="#2-3-Noise-reduction-by-rolling-window-calculations" class="headerlink" title="2.3 Noise reduction by rolling window calculations"></a>2.3 Noise reduction by rolling window calculations</h3><p>We need a way to “group” the multiple events (“on-off-on-off-on-off”) into one event that indicates a cycle, but we cannot group by a fixed pattern as there are exceptions (as we mentioned above). </p>
+<p>After some quick research and testing, without diving into hard-core data science part, I found the <a target="_blank" rel="noopener" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.rolling.html">rolling window calculation</a> can be a solution for our case.</p>
+<p>Lets set the rolling windows to 150 ms - it is “magic number” that  works good with the raw data. It purely depends on how fast the hamster runs. </p>
+<img src="/2020/08/05/How-to-measure-your-Hamster-s-running-with-IoT/rolling_window.png" class="">
+
+<p>Lets visualize the rolling calculation results.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> plotly.graph_objects <span class="keyword">as</span> go</span><br><span class="line"></span><br><span class="line">fig = go.Figure()</span><br><span class="line"></span><br><span class="line">fig.add_trace(go.Scatter(x=df.index, y=df[<span class="string">&#x27;finshedOneRound&#x27;</span>], name=<span class="string">&#x27;raw&#x27;</span>))</span><br><span class="line">fig.add_trace(go.Scatter(x=df.index, y=df[<span class="string">&#x27;finshedOneRound_rolled&#x27;</span>], mode=<span class="string">&#x27;lines+markers&#x27;</span>, name=<span class="string">&#x27;rolling&#x27;</span>))</span><br><span class="line"></span><br><span class="line">fig.update_xaxes(rangeslider_visible=<span class="literal">True</span>)</span><br><span class="line">fig.update_yaxes(tick0=<span class="number">0</span>, dtick=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">fig.show()</span><br></pre></td></tr></table></figure>
+<p>Now you can see that the result of rolling calculation does generate unique markers for each cycle (the green circles), and it works for different patterns in the raw data!</p>
+<img src="/2020/08/05/How-to-measure-your-Hamster-s-running-with-IoT/rolling_window_visualization.png" class="">
+
+<p>Extract the markers (where rolling result &#x3D;&#x3D; 1) into a new dataframe df_cycle_log for the next step.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df_cycle_log = df.loc[df[<span class="string">&quot;finshedOneRound_rolled&quot;</span>] == <span class="number">1</span>]</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="2-4-Calculation-and-visualization-for-the-final-result"><a href="#2-4-Calculation-and-visualization-for-the-final-result" class="headerlink" title="2.4 Calculation and visualization for the final result"></a>2.4 Calculation and visualization for the final result</h3><p>I would like to know:</p>
+<ul>
+<li>When did Qiuqiu run?</li>
+<li>How far did she run?</li>
+<li>What was the speed?</li>
+<li>What kind of running pattern she has? (sprint or marathon?)</li>
+</ul>
+<p>Lets do some match and populate the results:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_distance_by_wheel_cycle_count</span>(<span class="params">cycle_count</span>):</span><br><span class="line">    diameter = <span class="number">0.2</span> <span class="comment">#the wheel diameter is 20cm</span></span><br><span class="line">    <span class="keyword">return</span> cycle_count * diameter * math.pi</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_speed_in_KMh</span>(<span class="params">traveled_range_in_m, run_time_in_sec</span>):</span><br><span class="line">    <span class="keyword">return</span> traveled_range_in_m / run_time_in_sec * <span class="number">3.6</span> <span class="comment">#(1m/s = 3.6 km/h)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_speed_by_cycle_count</span>(<span class="params">cycle_count, run_time_in_sec</span>):</span><br><span class="line">    distance = get_distance_by_wheel_cycle_count(cycle_count) </span><br><span class="line">    <span class="keyword">return</span> get_speed_in_KMh(distance, run_time_in_sec)</span><br><span class="line"></span><br><span class="line"><span class="comment">#Aggreate the cycle counts every 30sec, popluate the data</span></span><br><span class="line">run_time_segment = <span class="string">&quot;30s&quot;</span></span><br><span class="line"></span><br><span class="line">df_result = pd.DataFrame()</span><br><span class="line">df_result[<span class="string">&quot;cycle_count&quot;</span>] = df_cycle_log[<span class="string">&quot;finshedOneRound_rolled&quot;</span>].resample(run_time_segment).count()</span><br><span class="line">df_result[<span class="string">&quot;distance&quot;</span>] = df_result[<span class="string">&quot;cycle_count&quot;</span>].apply(get_distance_by_wheel_cycle_count)</span><br><span class="line">df_result[<span class="string">&quot;speed_km&quot;</span>] = df_result[<span class="string">&quot;cycle_count&quot;</span>].apply(<span class="keyword">lambda</span> count: get_speed_by_cycle_count(count, <span class="number">30</span>))</span><br></pre></td></tr></table></figure>
+<p>Then plot</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> plotly.graph_objects <span class="keyword">as</span> go</span><br><span class="line"><span class="keyword">from</span> plotly.subplots <span class="keyword">import</span> make_subplots</span><br><span class="line"><span class="comment"># Create figure with secondary y-axis</span></span><br><span class="line">fig = make_subplots(specs=[[&#123;<span class="string">&quot;secondary_y&quot;</span>: <span class="literal">True</span>&#125;]])</span><br><span class="line"></span><br><span class="line"><span class="comment">#fig.add_trace(go.Scatter(x=df_result.index, y=df_result[&#x27;cycle_count&#x27;], name=&quot;wheel count&quot;))</span></span><br><span class="line">fig.add_trace(go.Scatter(x=df_result.index, y=df_result[<span class="string">&#x27;speed_km&#x27;</span>], name=<span class="string">&quot;speed(km/h)&quot;</span>), secondary_y=<span class="literal">False</span>)</span><br><span class="line">fig.add_trace(go.Scatter(x=df_result.index, y=df_result[<span class="string">&quot;distance&quot;</span>].cumsum()/<span class="number">1000</span>, name=<span class="string">&quot;distance(km)&quot;</span>), secondary_y=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">fig.update_xaxes(rangeslider_visible=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">fig.show()</span><br></pre></td></tr></table></figure>
+
+<img src="/2020/08/05/How-to-measure-your-Hamster-s-running-with-IoT/final_chart.png" class="">
+
+<p>Conclusion from the result:</p>
+<ul>
+<li><strong>When did Qiuqiu run?</strong><br>She mainly ran for about 4 hours, between 21:30 and 01:30 UTC time (or 23:30 and 03:30 Oslo time).</li>
+<li><strong>How far did she run?</strong><br>During these 4 hours, she ran about 7.74 KM (12315 cycles). </li>
+<li><strong>What was the speed?</strong><br>Average speed was about 3KM&#x2F;h, with a peak 3.7 KM&#x2F;h.</li>
+<li><strong>What kind of running pattern she had? (sprint or marathon?)</strong><br>She typically ran 5 minutes sprints, and took 2 min small breaks between them.</li>
+</ul>
+<p>According to the internet, Qiuqiu is not the fastest runner (<a target="_blank" rel="noopener" href="https://firsthamster.com/how-much-how-fast-hamsters-run/">a hamster can run up to 5-9 KM&#x2F;h</a>), and also ran slightly less than <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Hamster_wheel">average range 9 KM</a> in that evening. </p>
+<p>Of course the speed&#x2F;range can vary from hamster to hamster, and this is data for one evening. The next step is to build a fully automated data pipeline with time series database, create some Grafana dashboards with daily&#x2F;weekly baseline for long term tracking. </p>
+<p>Thanks for the reading.</p>
+<img src="/2020/08/05/How-to-measure-your-Hamster-s-running-with-IoT/qiuqiu_running.gif" class="">
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="https://feng.lu/2020/08/05/How-to-measure-your-Hamster-s-running-with-IoT/" data-id="cm8smes99001370ndagkj0t1r" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="https://feng.lu/2020/08/05/How-to-measure-your-Hamster-s-running-with-IoT/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://feng.lu/2020/08/05/How-to-measure-your-Hamster-s-running-with-IoT/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2020/09/15/How-to-build-an-IoT-connected-car-Part-1-On-the-Edge/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Newer</strong>
+            <div class="article-nav-title">
+                
+                    How to build an IoT connected car - Part 1: On the Edge
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2020/06/20/Encoding-issue-when-calling-API-via-powershell/" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">Older</strong>
+            <div class="article-nav-title">Encoding issue when calling API via powershell</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+</section>
+            
+                <aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">recent</h3>
+        <div class="widget">
+            <ul id="recent-post" class="no-thumbnail">
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2025/03/28/Building-a-Tibber-MCP-Server-Connect-Your-AI-Agent-to-Energy-Consumption-Data/" class="title">Building a Tibber MCP Server: Connect Your AI Agent to Energy Consumption Data</a></p>
+                            <p class="item-date"><time datetime="2025-03-28T13:25:48.000Z" itemprop="datePublished">2025-03-28</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2024/12/03/Build-a-Multi-Agent-System-to-Discover-the-Top-AI-Model-for-Rock-Paper-Scissors-Games/" class="title">Build a Multi-Agent System to Discover the Top AI Model for Rock-Paper-Scissors Games</a></p>
+                            <p class="item-date"><time datetime="2024-12-03T15:21:40.000Z" itemprop="datePublished">2024-12-03</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2024/09/18/How-to-secretless-access-Azure-and-AWS-resources-with-Azure-managed-identity-and-AWS-IAM/" class="title">Implementing Secret-less Access to Azure and AWS with Azure Managed Identities and AWS IAM</a></p>
+                            <p class="item-date"><time datetime="2024-09-18T12:49:21.000Z" itemprop="datePublished">2024-09-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2024/07/04/AWS-Blog-Build-your-multilingual-personal-calendar-assistant-with-Amazon-Bedrock-and-AWS-Step-Functions/" class="title">AWS Blog - Build your multilingual personal calendar assistant with Amazon Bedrock and AWS Step Functions</a></p>
+                            <p class="item-date"><time datetime="2024-07-04T08:50:24.000Z" itemprop="datePublished">2024-07-04</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2023/05/23/Manage-IoT-device-state-anywhere-using-AWS-IoT-services/" class="title">AWS Blog - Manage IoT device state anywhere using AWS IoT Device Shadow service and AWS IoT Greengrass</a></p>
+                            <p class="item-date"><time datetime="2023-05-23T08:34:20.000Z" itemprop="datePublished">2023-05-23</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/03/">March 2025</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/12/">December 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/ADFS/" style="font-size: 10px;">ADFS</a> <a href="/tags/AI/" style="font-size: 11.43px;">AI</a> <a href="/tags/AI-Agent/" style="font-size: 11.43px;">AI Agent</a> <a href="/tags/API/" style="font-size: 10px;">API</a> <a href="/tags/ASP-Net-Core/" style="font-size: 10px;">ASP.Net Core</a> <a href="/tags/AWS/" style="font-size: 17.14px;">AWS</a> <a href="/tags/AWS-Control-Tower/" style="font-size: 10px;">AWS Control Tower</a> <a href="/tags/AWS-IoT-Core/" style="font-size: 10px;">AWS IoT Core</a> <a href="/tags/AWS-IoT-Greengrass/" style="font-size: 10px;">AWS IoT Greengrass</a> <a href="/tags/AWS-SSO/" style="font-size: 10px;">AWS SSO</a> <a href="/tags/AWS-Step-Functions/" style="font-size: 10px;">AWS Step Functions</a> <a href="/tags/AWS-Systems-Manager/" style="font-size: 10px;">AWS Systems Manager</a> <a href="/tags/Agent/" style="font-size: 10px;">Agent</a> <a href="/tags/Amazon-Bedrock/" style="font-size: 10px;">Amazon Bedrock,</a> <a href="/tags/Amazon-Lookout-for-Vision/" style="font-size: 10px;">Amazon Lookout for Vision</a> <a href="/tags/Application-Insights/" style="font-size: 12.86px;">Application Insights</a> <a href="/tags/Artificial-Intelligence/" style="font-size: 11.43px;">Artificial Intelligence</a> <a href="/tags/Authentication/" style="font-size: 10px;">Authentication</a> <a href="/tags/Authorization/" style="font-size: 10px;">Authorization</a> <a href="/tags/Azure/" style="font-size: 18.57px;">Azure</a> <a href="/tags/Azure-AD-B2C/" style="font-size: 10px;">Azure AD B2C</a> <a href="/tags/Azure-Data-Explorer-ADX/" style="font-size: 10px;">Azure Data Explorer (ADX)</a> <a href="/tags/Azure-IoT-Edge/" style="font-size: 10px;">Azure IoT Edge</a> <a href="/tags/Azure-IoT-Hub/" style="font-size: 10px;">Azure IoT Hub</a> <a href="/tags/Azure-Template/" style="font-size: 10px;">Azure Template</a> <a href="/tags/Blockchain/" style="font-size: 10px;">Blockchain</a> <a href="/tags/Blog/" style="font-size: 12.86px;">Blog</a> <a href="/tags/Build/" style="font-size: 11.43px;">Build</a> <a href="/tags/Car/" style="font-size: 11.43px;">Car</a> <a href="/tags/Chatbot/" style="font-size: 11.43px;">Chatbot</a> <a href="/tags/Claude/" style="font-size: 10px;">Claude</a> <a href="/tags/Continuous-Deployment/" style="font-size: 10px;">Continuous Deployment</a> <a href="/tags/Continuous-Integration/" style="font-size: 10px;">Continuous Integration</a> <a href="/tags/CrewAI/" style="font-size: 10px;">CrewAI</a> <a href="/tags/DIY/" style="font-size: 10px;">DIY</a> <a href="/tags/DLT/" style="font-size: 15.71px;">DLT</a> <a href="/tags/DNS/" style="font-size: 10px;">DNS</a> <a href="/tags/Data-Analytics/" style="font-size: 12.86px;">Data Analytics</a> <a href="/tags/Data-Integrity/" style="font-size: 14.29px;">Data Integrity</a> <a href="/tags/Data-Lineage/" style="font-size: 14.29px;">Data Lineage</a> <a href="/tags/Databricks/" style="font-size: 10px;">Databricks</a> <a href="/tags/Decryption/" style="font-size: 10px;">Decryption</a> <a href="/tags/DevOps/" style="font-size: 14.29px;">DevOps</a> <a href="/tags/Device-Shadow/" style="font-size: 10px;">Device Shadow</a> <a href="/tags/Distributed-Ledger-Technology/" style="font-size: 15.71px;">Distributed Ledger Technology</a> <a href="/tags/Docker/" style="font-size: 11.43px;">Docker</a> <a href="/tags/Domain/" style="font-size: 10px;">Domain</a> <a href="/tags/EC2/" style="font-size: 10px;">EC2</a> <a href="/tags/ECS-Anywhere/" style="font-size: 10px;">ECS Anywhere</a> <a href="/tags/Encoding/" style="font-size: 10px;">Encoding</a> <a href="/tags/Entra-ID/" style="font-size: 10px;">Entra ID</a> <a href="/tags/Fiddler/" style="font-size: 10px;">Fiddler</a> <a href="/tags/Fullnode/" style="font-size: 10px;">Fullnode</a> <a href="/tags/GPS/" style="font-size: 10px;">GPS</a> <a href="/tags/Game/" style="font-size: 10px;">Game</a> <a href="/tags/GenAI/" style="font-size: 12.86px;">GenAI</a> <a href="/tags/Generative-AI/" style="font-size: 12.86px;">Generative AI</a> <a href="/tags/Git/" style="font-size: 12.86px;">Git</a> <a href="/tags/Github/" style="font-size: 11.43px;">Github</a> <a href="/tags/Google-Analytics/" style="font-size: 10px;">Google Analytics</a> <a href="/tags/Google-Tag-Manager/" style="font-size: 10px;">Google Tag Manager</a> <a href="/tags/Grafana/" style="font-size: 10px;">Grafana</a> <a href="/tags/HTTPS/" style="font-size: 10px;">HTTPS</a> <a href="/tags/Hamster/" style="font-size: 10px;">Hamster</a> <a href="/tags/Hexo/" style="font-size: 11.43px;">Hexo</a> <a href="/tags/Home-Assistant/" style="font-size: 10px;">Home Assistant</a> <a href="/tags/IAM/" style="font-size: 11.43px;">IAM</a> <a href="/tags/IOTA/" style="font-size: 15.71px;">IOTA</a> <a href="/tags/Idp/" style="font-size: 10px;">Idp</a> <a href="/tags/Infrastructure-as-Code/" style="font-size: 10px;">Infrastructure as Code</a> <a href="/tags/IoT/" style="font-size: 20px;">IoT</a> <a href="/tags/Istio/" style="font-size: 10px;">Istio</a> <a href="/tags/Json/" style="font-size: 10px;">Json</a> <a href="/tags/Jump-start/" style="font-size: 10px;">Jump-start</a> <a href="/tags/Jupyter-Notebook/" style="font-size: 11.43px;">Jupyter Notebook</a> <a href="/tags/KUDU/" style="font-size: 10px;">KUDU</a> <a href="/tags/Kiali/" style="font-size: 10px;">Kiali</a> <a href="/tags/Kubernetes/" style="font-size: 10px;">Kubernetes</a> <a href="/tags/LLM/" style="font-size: 10px;">LLM</a> <a href="/tags/LangGraph/" style="font-size: 10px;">LangGraph</a> <a href="/tags/Linkedin/" style="font-size: 10px;">Linkedin</a> <a href="/tags/Llama/" style="font-size: 10px;">Llama</a> <a href="/tags/Load-Testing/" style="font-size: 10px;">Load Testing</a> <a href="/tags/MCP/" style="font-size: 10px;">MCP</a> <a href="/tags/Machine-Learning/" style="font-size: 11.43px;">Machine Learning</a> <a href="/tags/Managed-Identity/" style="font-size: 10px;">Managed Identity</a> <a href="/tags/Microsoft-language-understanding-intelligent-service/" style="font-size: 11.43px;">Microsoft language understanding intelligent service</a> <a href="/tags/Model-Context-Protocol/" style="font-size: 10px;">Model Context Protocol</a> <a href="/tags/Monitoring/" style="font-size: 12.86px;">Monitoring</a> <a href="/tags/Movie/" style="font-size: 10px;">Movie</a> <a href="/tags/Nano-Pi/" style="font-size: 10px;">Nano Pi</a> <a href="/tags/Native-App/" style="font-size: 10px;">Native App</a> <a href="/tags/Nodejs/" style="font-size: 10px;">Nodejs</a> <a href="/tags/OAuth/" style="font-size: 11.43px;">OAuth</a> <a href="/tags/OBD2/" style="font-size: 10px;">OBD2</a> <a href="/tags/Okta/" style="font-size: 10px;">Okta</a> <a href="/tags/OpenAI/" style="font-size: 10px;">OpenAI</a> <a href="/tags/OpenID/" style="font-size: 10px;">OpenID</a> <a href="/tags/Plugin/" style="font-size: 10px;">Plugin</a> <a href="/tags/Postman/" style="font-size: 10px;">Postman</a> <a href="/tags/PowerBI/" style="font-size: 12.86px;">PowerBI</a> <a href="/tags/Powershell/" style="font-size: 10px;">Powershell</a> <a href="/tags/Prototype/" style="font-size: 11.43px;">Prototype</a> <a href="/tags/Python/" style="font-size: 12.86px;">Python</a> <a href="/tags/Raspberry-Pi/" style="font-size: 12.86px;">Raspberry Pi</a> <a href="/tags/Release-Management/" style="font-size: 10px;">Release Management</a> <a href="/tags/Release-management/" style="font-size: 10px;">Release management</a> <a href="/tags/SSH/" style="font-size: 10px;">SSH</a> <a href="/tags/SSM/" style="font-size: 10px;">SSM</a> <a href="/tags/SSO/" style="font-size: 10px;">SSO</a> <a href="/tags/SVMP/" style="font-size: 10px;">SVMP</a> <a href="/tags/Scripting/" style="font-size: 10px;">Scripting</a> <a href="/tags/Security/" style="font-size: 10px;">Security</a> <a href="/tags/Service-mesh/" style="font-size: 10px;">Service mesh</a> <a href="/tags/SharePoint-PnP/" style="font-size: 10px;">SharePoint PnP</a> <a href="/tags/Social-Sharing/" style="font-size: 10px;">Social Sharing</a> <a href="/tags/Step-Functions/" style="font-size: 10px;">Step Functions</a> <a href="/tags/Tangle/" style="font-size: 14.29px;">Tangle</a> <a href="/tags/Tibber/" style="font-size: 10px;">Tibber</a> <a href="/tags/Time-Series-Insight-TSI/" style="font-size: 10px;">Time Series Insight (TSI)</a> <a href="/tags/Troubleshooting/" style="font-size: 11.43px;">Troubleshooting</a> <a href="/tags/VPC/" style="font-size: 10px;">VPC</a> <a href="/tags/VPC-Endpoint/" style="font-size: 10px;">VPC Endpoint</a> <a href="/tags/VSTS/" style="font-size: 12.86px;">VSTS</a> <a href="/tags/Vim/" style="font-size: 10px;">Vim</a> <a href="/tags/Visualization/" style="font-size: 10px;">Visualization</a> <a href="/tags/Web-Testing/" style="font-size: 10px;">Web Testing</a> <a href="/tags/Zigbee/" style="font-size: 10px;">Zigbee</a> <a href="/tags/e-paper/" style="font-size: 10px;">e-paper</a>
+        </div>
+    </div>
+
+    
+    <div id="toTop" class="fa fa-angle-up"></div>
+</aside>
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2025 Feng Lu<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a target="_blank" rel="noopener" href="http://github.com/ppoffice">PPOffice</a>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_config = function () {
+        
+            this.page.url = 'https://feng.lu/2020/08/05/How-to-measure-your-Hamster-s-running-with-IoT/';
+        
+        this.page.identifier = 'How-to-measure-your-Hamster-s-running-with-IoT';
+    };
+    (function() { 
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + 'linkcd' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+
+
+    
+        
+<script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-share.min.js"></script>
+
+        
+<script src="/libs/lightgallery/js/lg-video.min.js"></script>
+
+    
+    
+        
+<script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+
+    
+
+
+
+<!-- Custom Scripts -->
+
+<script src="/js/main.js"></script>
+
+
+    </div>
+</body>
+</html>
