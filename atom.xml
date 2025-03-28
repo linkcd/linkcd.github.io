@@ -36,11 +36,11 @@
     
     <category term="AI" scheme="https://feng.lu/tags/AI/"/>
     
-    <category term="GenAI" scheme="https://feng.lu/tags/GenAI/"/>
+    <category term="AI Agent" scheme="https://feng.lu/tags/AI-Agent/"/>
     
     <category term="Generative AI" scheme="https://feng.lu/tags/Generative-AI/"/>
     
-    <category term="AI Agent" scheme="https://feng.lu/tags/AI-Agent/"/>
+    <category term="GenAI" scheme="https://feng.lu/tags/GenAI/"/>
     
     <category term="MCP" scheme="https://feng.lu/tags/MCP/"/>
     
@@ -95,9 +95,11 @@
     
     <category term="AI" scheme="https://feng.lu/tags/AI/"/>
     
-    <category term="GenAI" scheme="https://feng.lu/tags/GenAI/"/>
+    <category term="AI Agent" scheme="https://feng.lu/tags/AI-Agent/"/>
     
     <category term="Generative AI" scheme="https://feng.lu/tags/Generative-AI/"/>
+    
+    <category term="GenAI" scheme="https://feng.lu/tags/GenAI/"/>
     
     <category term="Agent" scheme="https://feng.lu/tags/Agent/"/>
     
@@ -114,8 +116,6 @@
     <category term="LLM" scheme="https://feng.lu/tags/LLM/"/>
     
     <category term="Game" scheme="https://feng.lu/tags/Game/"/>
-    
-    <category term="AI Agent" scheme="https://feng.lu/tags/AI-Agent/"/>
     
   </entry>
   
@@ -185,15 +185,15 @@
     
     <category term="AI" scheme="https://feng.lu/tags/AI/"/>
     
-    <category term="GenAI" scheme="https://feng.lu/tags/GenAI/"/>
+    <category term="AI Agent" scheme="https://feng.lu/tags/AI-Agent/"/>
     
     <category term="Generative AI" scheme="https://feng.lu/tags/Generative-AI/"/>
     
-    <category term="AWS Step Functions" scheme="https://feng.lu/tags/AWS-Step-Functions/"/>
-    
-    <category term="AI Agent" scheme="https://feng.lu/tags/AI-Agent/"/>
+    <category term="GenAI" scheme="https://feng.lu/tags/GenAI/"/>
     
     <category term="Amazon Bedrock" scheme="https://feng.lu/tags/Amazon-Bedrock/"/>
+    
+    <category term="AWS Step Functions" scheme="https://feng.lu/tags/AWS-Step-Functions/"/>
     
   </entry>
   
@@ -411,19 +411,19 @@
     
     <category term="Data Analytics" scheme="https://feng.lu/tags/Data-Analytics/"/>
     
-    <category term="Car" scheme="https://feng.lu/tags/Car/"/>
+    <category term="Python" scheme="https://feng.lu/tags/Python/"/>
+    
+    <category term="Jupyter Notebook" scheme="https://feng.lu/tags/Jupyter-Notebook/"/>
     
     <category term="Visualization" scheme="https://feng.lu/tags/Visualization/"/>
+    
+    <category term="Car" scheme="https://feng.lu/tags/Car/"/>
     
     <category term="Databricks" scheme="https://feng.lu/tags/Databricks/"/>
     
     <category term="Time Series Insight (TSI)" scheme="https://feng.lu/tags/Time-Series-Insight-TSI/"/>
     
     <category term="Azure Data Explorer (ADX)" scheme="https://feng.lu/tags/Azure-Data-Explorer-ADX/"/>
-    
-    <category term="Python" scheme="https://feng.lu/tags/Python/"/>
-    
-    <category term="Jupyter Notebook" scheme="https://feng.lu/tags/Jupyter-Notebook/"/>
     
     <category term="Grafana" scheme="https://feng.lu/tags/Grafana/"/>
     
@@ -451,11 +451,11 @@
     
     <category term="Data Analytics" scheme="https://feng.lu/tags/Data-Analytics/"/>
     
+    <category term="Car" scheme="https://feng.lu/tags/Car/"/>
+    
     <category term="Azure IoT Hub" scheme="https://feng.lu/tags/Azure-IoT-Hub/"/>
     
     <category term="Azure IoT Edge" scheme="https://feng.lu/tags/Azure-IoT-Edge/"/>
-    
-    <category term="Car" scheme="https://feng.lu/tags/Car/"/>
     
     <category term="GPS" scheme="https://feng.lu/tags/GPS/"/>
     
@@ -484,15 +484,15 @@
     
     <category term="IoT" scheme="https://feng.lu/tags/IoT/"/>
     
+    <category term="Hamster" scheme="https://feng.lu/tags/Hamster/"/>
+    
     <category term="Data Analytics" scheme="https://feng.lu/tags/Data-Analytics/"/>
+    
+    <category term="Home Assistant" scheme="https://feng.lu/tags/Home-Assistant/"/>
     
     <category term="Python" scheme="https://feng.lu/tags/Python/"/>
     
     <category term="Jupyter Notebook" scheme="https://feng.lu/tags/Jupyter-Notebook/"/>
-    
-    <category term="Hamster" scheme="https://feng.lu/tags/Hamster/"/>
-    
-    <category term="Home Assistant" scheme="https://feng.lu/tags/Home-Assistant/"/>
     
     <category term="Zigbee" scheme="https://feng.lu/tags/Zigbee/"/>
     
