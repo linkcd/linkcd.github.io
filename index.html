@@ -173,11 +173,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
         <div class="article-info profile-block">
             <div class="article-info-block">
-                39
+                40
                 <span>posts</span>
             </div>
             <div class="article-info-block">
-                128
+                132
                 <span>tags</span>
             </div>
         </div>
@@ -214,6 +214,149 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
             
             <section id="main">
+    <article id="post-How-to-Use-AI-to-Automatically-Submit-Invoices-at-Scale" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 itemprop="name">
+            <a class="article-title" href="/2025/12/16/How-to-Use-AI-to-Automatically-Submit-Invoices-at-Scale/">How to Use AI to Automatically Submit Invoices at Scale</a>
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fa fa-calendar"></i>
+        <a href="/2025/12/16/How-to-Use-AI-to-Automatically-Submit-Invoices-at-Scale/">
+            <time datetime="2025-12-16T10:58:36.000Z" itemprop="datePublished">2025-12-16</time>
+        </a>
+    </div>
+
+
+                        
+                        
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link-link" href="/tags/AI/" rel="tag">AI</a>, <a class="tag-link-link" href="/tags/AI-Agent/" rel="tag">AI Agent</a>, <a class="tag-link-link" href="/tags/Agentic/" rel="tag">Agentic</a>, <a class="tag-link-link" href="/tags/Amazon-Bedrock/" rel="tag">Amazon Bedrock</a>, <a class="tag-link-link" href="/tags/Automation/" rel="tag">Automation</a>, <a class="tag-link-link" href="/tags/GenAI/" rel="tag">GenAI</a>, <a class="tag-link-link" href="/tags/Generative-AI/" rel="tag">Generative AI</a>, <a class="tag-link-link" href="/tags/Invoice-Processing/" rel="tag">Invoice Processing</a>, <a class="tag-link-link" href="/tags/MCP/" rel="tag">MCP</a>, <a class="tag-link-link" href="/tags/Model-Context-Protocol/" rel="tag">Model Context Protocol</a>, <a class="tag-link-link" href="/tags/Ruter/" rel="tag">Ruter</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            <p><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Picture this: It’s December, and you’re staring at a pile of 20+ invoice PDFs scattered across your desktop. Sound familiar?</p>
+<p>We’ve all been there. The holiday season is approaching, you’re dreaming of that well-deserved break, but first – the dreaded year-end expense reports. You know the drill:</p>
+<ul>
+<li>Open each invoice PDF file</li>
+<li>Copy and paste dates, amounts, and ticket numbers (hoping you don’t mix them up)</li>
+<li>Navigate to that expense portal that takes forever to load</li>
+<li>Fill out the same form fields over and over again</li>
+<li>Upload attachments one by one</li>
+<li>Click submit and pray nothing went wrong</li>
+<li>Rinse and repeat… 20 more times</li>
+</ul>
+<p>If you’ve ever done this mind-numbing dance, you’re not alone. It’s a boring, repetitive task that eats up hours and can easily introduce errors.</p>
+<p>But what if there were a better way?</p>
+<p>I built an AI-powered solution that automates the entire workflow—no APIs to integrate, no complex system changes. It works with any web-based expense system by extracting data from your PDFs and filling out forms directly in your browser, just like you would… minus the headache.</p>
+<p>Here’s how it works:</p>
+<h3 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h3><img src="/2025/12/16/How-to-Use-AI-to-Automatically-Submit-Invoices-at-Scale/demo.gif" class="" title="AI Invoice Submission Demo"></p>
+            <p class="article-more-link">
+                <a href="/2025/12/16/How-to-Use-AI-to-Automatically-Submit-Invoices-at-Scale/#more">Read More</a>
+            </p>
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="https://feng.lu/2025/12/16/How-to-Use-AI-to-Automatically-Submit-Invoices-at-Scale/" data-id="cmj8pt5bg000vf1nd6p5g829r" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+        <a href="https://feng.lu/2025/12/16/How-to-Use-AI-to-Automatically-Submit-Invoices-at-Scale/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://feng.lu/2025/12/16/How-to-Use-AI-to-Automatically-Submit-Invoices-at-Scale/">Comments</a>
+    
+
+        </footer>
+    </div>
+    
+</article>
+
+
+
     <article id="post-Building-a-Tibber-MCP-Server-Connect-Your-AI-Agent-to-Energy-Consumption-Data" class="article article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
@@ -293,7 +436,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </div>
 
-    <a data-url="https://feng.lu/2025/03/28/Building-a-Tibber-MCP-Server-Connect-Your-AI-Agent-to-Energy-Consumption-Data/" data-id="cm8t2psx7000cuandcehmcygw" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://feng.lu/2025/03/28/Building-a-Tibber-MCP-Server-Connect-Your-AI-Agent-to-Energy-Consumption-Data/" data-id="cmj8pt5b9000df1ndg4jgfloy" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -449,7 +592,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </div>
 
-    <a data-url="https://feng.lu/2024/12/03/Build-a-Multi-Agent-System-to-Discover-the-Top-AI-Model-for-Rock-Paper-Scissors-Games/" data-id="cm8t2psx6000auandbspyg2nw" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://feng.lu/2024/12/03/Build-a-Multi-Agent-System-to-Discover-the-Top-AI-Model-for-Rock-Paper-Scissors-Games/" data-id="cmj8pt5b8000cf1nd6llwcgky" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -589,7 +732,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </div>
 
-    <a data-url="https://feng.lu/2024/09/18/How-to-secretless-access-Azure-and-AWS-resources-with-Azure-managed-identity-and-AWS-IAM/" data-id="cm8t2psxd0013uand8yno0z0h" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://feng.lu/2024/09/18/How-to-secretless-access-Azure-and-AWS-resources-with-Azure-managed-identity-and-AWS-IAM/" data-id="cmj8pt5bi0014f1ndeffxepmz" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -721,7 +864,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </div>
 
-    <a data-url="https://feng.lu/2024/07/04/AWS-Blog-Build-your-multilingual-personal-calendar-assistant-with-Amazon-Bedrock-and-AWS-Step-Functions/" data-id="cm8t2psx9000iuandh6t7dlsn" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://feng.lu/2024/07/04/AWS-Blog-Build-your-multilingual-personal-calendar-assistant-with-Amazon-Bedrock-and-AWS-Step-Functions/" data-id="cmj8pt5b30006f1nd5z275920" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -852,7 +995,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </div>
 
-    <a data-url="https://feng.lu/2023/05/23/Manage-IoT-device-state-anywhere-using-AWS-IoT-services/" data-id="cm8t2psxi001auand180920og" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://feng.lu/2023/05/23/Manage-IoT-device-state-anywhere-using-AWS-IoT-services/" data-id="cmj8pt5bl001df1nd1cbm80ra" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -990,7 +1133,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </div>
 
-    <a data-url="https://feng.lu/2022/02/02/AWS-Step-Function-with-ECS-Anywhere-on-NanoPi-Sample/" data-id="cm8t2psx40006uandg0298fvt" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://feng.lu/2022/02/02/AWS-Step-Function-with-ECS-Anywhere-on-NanoPi-Sample/" data-id="cmj8pt5b50008f1ndg8gz4hat" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1165,7 +1308,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </div>
 
-    <a data-url="https://feng.lu/2021/12/17/Using-SSM-to-access-EC2-instances/" data-id="cm8t2psyi00c4uand7gprc3a6" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://feng.lu/2021/12/17/Using-SSM-to-access-EC2-instances/" data-id="cmj8pt5ct00auf1nd81zagz24" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1300,7 +1443,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </div>
 
-    <a data-url="https://feng.lu/2021/12/04/Building-a-Very-Slow-Movie-Player/" data-id="cm8t2psx8000guand3fs4eaf0" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://feng.lu/2021/12/04/Building-a-Very-Slow-Movie-Player/" data-id="cmj8pt5ba000ff1ndcjgpbwna" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1442,7 +1585,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </div>
 
-    <a data-url="https://feng.lu/2021/11/17/Okta-and-AWS-Control-Tower-a-happy-path-demo/" data-id="cm8t2psxl001kuand286fgl5f" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+    <a data-url="https://feng.lu/2021/11/17/Okta-and-AWS-Control-Tower-a-happy-path-demo/" data-id="cmj8pt5cr00anf1nda6l7662y" class="article-share-link"><i class="fa fa-share"></i>Share</a>
 <script>
     (function ($) {
         // Prevent duplicate binding
@@ -1520,143 +1663,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
 
-    <article id="post-How-to-build-an-IoT-connected-car-Part-2-Data-Analytics-in-the-Cloud" class="article article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
-        
-        
-            <header class="article-header">
-                
-    
-        <h1 itemprop="name">
-            <a class="article-title" href="/2020/09/22/How-to-build-an-IoT-connected-car-Part-2-Data-Analytics-in-the-Cloud/">How to build an IoT connected car - Part 2: Data Analytics in the Cloud</a>
-        </h1>
-    
-
-                
-                    <div class="article-meta">
-                        
-    <div class="article-date">
-        <i class="fa fa-calendar"></i>
-        <a href="/2020/09/22/How-to-build-an-IoT-connected-car-Part-2-Data-Analytics-in-the-Cloud/">
-            <time datetime="2020-09-22T08:00:13.000Z" itemprop="datePublished">2020-09-22</time>
-        </a>
-    </div>
-
-
-                        
-                        
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link-link" href="/tags/Azure/" rel="tag">Azure</a>, <a class="tag-link-link" href="/tags/Azure-Data-Explorer-ADX/" rel="tag">Azure Data Explorer (ADX)</a>, <a class="tag-link-link" href="/tags/Car/" rel="tag">Car</a>, <a class="tag-link-link" href="/tags/Data-Analytics/" rel="tag">Data Analytics</a>, <a class="tag-link-link" href="/tags/Databricks/" rel="tag">Databricks</a>, <a class="tag-link-link" href="/tags/Grafana/" rel="tag">Grafana</a>, <a class="tag-link-link" href="/tags/IoT/" rel="tag">IoT</a>, <a class="tag-link-link" href="/tags/Jupyter-Notebook/" rel="tag">Jupyter Notebook</a>, <a class="tag-link-link" href="/tags/PowerBI/" rel="tag">PowerBI</a>, <a class="tag-link-link" href="/tags/Python/" rel="tag">Python</a>, <a class="tag-link-link" href="/tags/Time-Series-Insight-TSI/" rel="tag">Time Series Insight (TSI)</a>, <a class="tag-link-link" href="/tags/Visualization/" rel="tag">Visualization</a>
-    </div>
-
-                    </div>
-                
-            </header>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-        
-            <p><p>In <a href="/2020/09/15/How-to-build-an-IoT-connected-car-Part-1-On-the-Edge/" title="How to build an IoT connected car - Part 1: On the Edge">Part 1</a>, we have talked about the hardware&#x2F;software running on the edge (the car) for collecting data.</p>
-<p>Now we have the data, and how to gain some insights by doing data analytics? I have been using the following products, and would like to share my quick thoughts</p>
-<ul>
-<li>Azure Time Series Insight (TSI)</li>
-<li>Azure Databricks</li>
-<li>Azure Data Explorer (ADX)</li>
-<li>PowerBI</li>
-<li>Grafana</li>
-</ul>
-<img src="/2020/09/22/How-to-build-an-IoT-connected-car-Part-2-Data-Analytics-in-the-Cloud/Thumbnail.png" class="" title="Thumbnail"></p>
-            <p class="article-more-link">
-                <a href="/2020/09/22/How-to-build-an-IoT-connected-car-Part-2-Data-Analytics-in-the-Cloud/#more">Read More</a>
-            </p>
-        
-        </div>
-        <footer class="article-footer">
-            <div class="share-container">
-
-
-
-</div>
-
-    <a data-url="https://feng.lu/2020/09/22/How-to-build-an-IoT-connected-car-Part-2-Data-Analytics-in-the-Cloud/" data-id="cm8t2psxc0011uanddywaatzq" class="article-share-link"><i class="fa fa-share"></i>Share</a>
-<script>
-    (function ($) {
-        // Prevent duplicate binding
-        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
-            __SHARE_BUTTON_BINDED__ = true;
-        } else {
-            return;
-        }
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-            
-    
-        <a href="https://feng.lu/2020/09/22/How-to-build-an-IoT-connected-car-Part-2-Data-Analytics-in-the-Cloud/#comments" class="article-comment-link disqus-comment-count" data-disqus-url="https://feng.lu/2020/09/22/How-to-build-an-IoT-connected-car-Part-2-Data-Analytics-in-the-Cloud/">Comments</a>
-    
-
-        </footer>
-    </div>
-    
-</article>
-
-
-
     <nav id="page-nav">
         <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
@@ -1669,6 +1675,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h3 class="widget-title">recent</h3>
         <div class="widget">
             <ul id="recent-post" class="no-thumbnail">
+                
+                    <li>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"></p>
+                            <p class="item-title"><a href="/2025/12/16/How-to-Use-AI-to-Automatically-Submit-Invoices-at-Scale/" class="title">How to Use AI to Automatically Submit Invoices at Scale</a></p>
+                            <p class="item-date"><time datetime="2025-12-16T10:58:36.000Z" itemprop="datePublished">2025-12-16</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -1706,15 +1721,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"></p>
-                            <p class="item-title"><a href="/2023/05/23/Manage-IoT-device-state-anywhere-using-AWS-IoT-services/" class="title">AWS Blog - Manage IoT device state anywhere using AWS IoT Device Shadow service and AWS IoT Greengrass</a></p>
-                            <p class="item-date"><time datetime="2023-05-23T08:34:20.000Z" itemprop="datePublished">2023-05-23</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -1726,7 +1732,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="widget-wrap">
         <h3 class="widget-title">archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/03/">March 2025</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/12/">December 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">3</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/12/">December 2025</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/03/">March 2025</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/12/">December 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/05/">May 2023</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">February 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/12/">December 2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">November 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/09/">September 2020</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/08/">August 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/04/">April 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">October 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">October 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/05/">May 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/11/">November 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">3</span></li></ul>
         </div>
     </div>
 
@@ -1735,7 +1741,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="widget-wrap">
         <h3 class="widget-title">tag cloud</h3>
         <div class="widget tagcloud">
-            <a href="/tags/ADFS/" style="font-size: 10px;">ADFS</a> <a href="/tags/AI/" style="font-size: 12.86px;">AI</a> <a href="/tags/AI-Agent/" style="font-size: 12.86px;">AI Agent</a> <a href="/tags/API/" style="font-size: 10px;">API</a> <a href="/tags/ASP-Net-Core/" style="font-size: 10px;">ASP.Net Core</a> <a href="/tags/AWS/" style="font-size: 17.14px;">AWS</a> <a href="/tags/AWS-Control-Tower/" style="font-size: 10px;">AWS Control Tower</a> <a href="/tags/AWS-IoT-Core/" style="font-size: 10px;">AWS IoT Core</a> <a href="/tags/AWS-IoT-Greengrass/" style="font-size: 10px;">AWS IoT Greengrass</a> <a href="/tags/AWS-SSO/" style="font-size: 10px;">AWS SSO</a> <a href="/tags/AWS-Step-Functions/" style="font-size: 10px;">AWS Step Functions</a> <a href="/tags/AWS-Systems-Manager/" style="font-size: 10px;">AWS Systems Manager</a> <a href="/tags/Amazon-Bedrock/" style="font-size: 10px;">Amazon Bedrock</a> <a href="/tags/Amazon-Lookout-for-Vision/" style="font-size: 10px;">Amazon Lookout for Vision</a> <a href="/tags/Application-Insights/" style="font-size: 12.86px;">Application Insights</a> <a href="/tags/Artificial-Intelligence/" style="font-size: 11.43px;">Artificial Intelligence</a> <a href="/tags/Authentication/" style="font-size: 10px;">Authentication</a> <a href="/tags/Authorization/" style="font-size: 10px;">Authorization</a> <a href="/tags/Azure/" style="font-size: 18.57px;">Azure</a> <a href="/tags/Azure-AD-B2C/" style="font-size: 10px;">Azure AD B2C</a> <a href="/tags/Azure-Data-Explorer-ADX/" style="font-size: 10px;">Azure Data Explorer (ADX)</a> <a href="/tags/Azure-IoT-Edge/" style="font-size: 10px;">Azure IoT Edge</a> <a href="/tags/Azure-IoT-Hub/" style="font-size: 10px;">Azure IoT Hub</a> <a href="/tags/Azure-Template/" style="font-size: 10px;">Azure Template</a> <a href="/tags/Blockchain/" style="font-size: 10px;">Blockchain</a> <a href="/tags/Blog/" style="font-size: 12.86px;">Blog</a> <a href="/tags/Build/" style="font-size: 11.43px;">Build</a> <a href="/tags/Car/" style="font-size: 11.43px;">Car</a> <a href="/tags/Chatbot/" style="font-size: 11.43px;">Chatbot</a> <a href="/tags/Claude/" style="font-size: 10px;">Claude</a> <a href="/tags/Continuous-Deployment/" style="font-size: 10px;">Continuous Deployment</a> <a href="/tags/Continuous-Integration/" style="font-size: 10px;">Continuous Integration</a> <a href="/tags/CrewAI/" style="font-size: 10px;">CrewAI</a> <a href="/tags/DIY/" style="font-size: 10px;">DIY</a> <a href="/tags/DLT/" style="font-size: 15.71px;">DLT</a> <a href="/tags/DNS/" style="font-size: 10px;">DNS</a> <a href="/tags/Data-Analytics/" style="font-size: 12.86px;">Data Analytics</a> <a href="/tags/Data-Integrity/" style="font-size: 14.29px;">Data Integrity</a> <a href="/tags/Data-Lineage/" style="font-size: 14.29px;">Data Lineage</a> <a href="/tags/Databricks/" style="font-size: 10px;">Databricks</a> <a href="/tags/Decryption/" style="font-size: 10px;">Decryption</a> <a href="/tags/DevOps/" style="font-size: 14.29px;">DevOps</a> <a href="/tags/Device-Shadow/" style="font-size: 10px;">Device Shadow</a> <a href="/tags/Distributed-Ledger-Technology/" style="font-size: 15.71px;">Distributed Ledger Technology</a> <a href="/tags/Docker/" style="font-size: 11.43px;">Docker</a> <a href="/tags/Domain/" style="font-size: 10px;">Domain</a> <a href="/tags/EC2/" style="font-size: 10px;">EC2</a> <a href="/tags/ECS-Anywhere/" style="font-size: 10px;">ECS Anywhere</a> <a href="/tags/Encoding/" style="font-size: 10px;">Encoding</a> <a href="/tags/Entra-ID/" style="font-size: 10px;">Entra ID</a> <a href="/tags/Fiddler/" style="font-size: 10px;">Fiddler</a> <a href="/tags/Fullnode/" style="font-size: 10px;">Fullnode</a> <a href="/tags/GPS/" style="font-size: 10px;">GPS</a> <a href="/tags/Game/" style="font-size: 10px;">Game</a> <a href="/tags/GenAI/" style="font-size: 12.86px;">GenAI</a> <a href="/tags/Generative-AI/" style="font-size: 12.86px;">Generative AI</a> <a href="/tags/Git/" style="font-size: 12.86px;">Git</a> <a href="/tags/Github/" style="font-size: 11.43px;">Github</a> <a href="/tags/Google-Analytics/" style="font-size: 10px;">Google Analytics</a> <a href="/tags/Google-Tag-Manager/" style="font-size: 10px;">Google Tag Manager</a> <a href="/tags/Grafana/" style="font-size: 10px;">Grafana</a> <a href="/tags/HTTPS/" style="font-size: 10px;">HTTPS</a> <a href="/tags/Hamster/" style="font-size: 10px;">Hamster</a> <a href="/tags/Hexo/" style="font-size: 11.43px;">Hexo</a> <a href="/tags/Home-Assistant/" style="font-size: 10px;">Home Assistant</a> <a href="/tags/IAM/" style="font-size: 11.43px;">IAM</a> <a href="/tags/IOTA/" style="font-size: 15.71px;">IOTA</a> <a href="/tags/Idp/" style="font-size: 10px;">Idp</a> <a href="/tags/Infrastructure-as-Code/" style="font-size: 10px;">Infrastructure as Code</a> <a href="/tags/IoT/" style="font-size: 20px;">IoT</a> <a href="/tags/Istio/" style="font-size: 10px;">Istio</a> <a href="/tags/Json/" style="font-size: 10px;">Json</a> <a href="/tags/Jump-start/" style="font-size: 10px;">Jump-start</a> <a href="/tags/Jupyter-Notebook/" style="font-size: 11.43px;">Jupyter Notebook</a> <a href="/tags/KUDU/" style="font-size: 10px;">KUDU</a> <a href="/tags/Kiali/" style="font-size: 10px;">Kiali</a> <a href="/tags/Kubernetes/" style="font-size: 10px;">Kubernetes</a> <a href="/tags/LLM/" style="font-size: 10px;">LLM</a> <a href="/tags/LangGraph/" style="font-size: 10px;">LangGraph</a> <a href="/tags/Linkedin/" style="font-size: 10px;">Linkedin</a> <a href="/tags/Llama/" style="font-size: 10px;">Llama</a> <a href="/tags/Load-Testing/" style="font-size: 10px;">Load Testing</a> <a href="/tags/MCP/" style="font-size: 10px;">MCP</a> <a href="/tags/Machine-Learning/" style="font-size: 11.43px;">Machine Learning</a> <a href="/tags/Managed-Identity/" style="font-size: 10px;">Managed Identity</a> <a href="/tags/Microsoft-language-understanding-intelligent-service/" style="font-size: 11.43px;">Microsoft language understanding intelligent service</a> <a href="/tags/Model-Context-Protocol/" style="font-size: 10px;">Model Context Protocol</a> <a href="/tags/Monitoring/" style="font-size: 12.86px;">Monitoring</a> <a href="/tags/Movie/" style="font-size: 10px;">Movie</a> <a href="/tags/Nano-Pi/" style="font-size: 10px;">Nano Pi</a> <a href="/tags/Native-App/" style="font-size: 10px;">Native App</a> <a href="/tags/Nodejs/" style="font-size: 10px;">Nodejs</a> <a href="/tags/OAuth/" style="font-size: 11.43px;">OAuth</a> <a href="/tags/OBD2/" style="font-size: 10px;">OBD2</a> <a href="/tags/Okta/" style="font-size: 10px;">Okta</a> <a href="/tags/OpenAI/" style="font-size: 10px;">OpenAI</a> <a href="/tags/OpenID/" style="font-size: 10px;">OpenID</a> <a href="/tags/Plugin/" style="font-size: 10px;">Plugin</a> <a href="/tags/Postman/" style="font-size: 10px;">Postman</a> <a href="/tags/PowerBI/" style="font-size: 12.86px;">PowerBI</a> <a href="/tags/Powershell/" style="font-size: 10px;">Powershell</a> <a href="/tags/Prototype/" style="font-size: 11.43px;">Prototype</a> <a href="/tags/Python/" style="font-size: 12.86px;">Python</a> <a href="/tags/Raspberry-Pi/" style="font-size: 12.86px;">Raspberry Pi</a> <a href="/tags/Release-Management/" style="font-size: 10px;">Release Management</a> <a href="/tags/Release-management/" style="font-size: 10px;">Release management</a> <a href="/tags/SSH/" style="font-size: 10px;">SSH</a> <a href="/tags/SSM/" style="font-size: 10px;">SSM</a> <a href="/tags/SSO/" style="font-size: 10px;">SSO</a> <a href="/tags/SVMP/" style="font-size: 10px;">SVMP</a> <a href="/tags/Scripting/" style="font-size: 10px;">Scripting</a> <a href="/tags/Security/" style="font-size: 10px;">Security</a> <a href="/tags/Service-mesh/" style="font-size: 10px;">Service mesh</a> <a href="/tags/SharePoint-PnP/" style="font-size: 10px;">SharePoint PnP</a> <a href="/tags/Social-Sharing/" style="font-size: 10px;">Social Sharing</a> <a href="/tags/Step-Functions/" style="font-size: 10px;">Step Functions</a> <a href="/tags/Tangle/" style="font-size: 14.29px;">Tangle</a> <a href="/tags/Tibber/" style="font-size: 10px;">Tibber</a> <a href="/tags/Time-Series-Insight-TSI/" style="font-size: 10px;">Time Series Insight (TSI)</a> <a href="/tags/Troubleshooting/" style="font-size: 11.43px;">Troubleshooting</a> <a href="/tags/VPC/" style="font-size: 10px;">VPC</a> <a href="/tags/VPC-Endpoint/" style="font-size: 10px;">VPC Endpoint</a> <a href="/tags/VSTS/" style="font-size: 12.86px;">VSTS</a> <a href="/tags/Vim/" style="font-size: 10px;">Vim</a> <a href="/tags/Visualization/" style="font-size: 10px;">Visualization</a> <a href="/tags/Web-Testing/" style="font-size: 10px;">Web Testing</a> <a href="/tags/Zigbee/" style="font-size: 10px;">Zigbee</a> <a href="/tags/e-paper/" style="font-size: 10px;">e-paper</a>
+            <a href="/tags/ADFS/" style="font-size: 10px;">ADFS</a> <a href="/tags/AI/" style="font-size: 14.29px;">AI</a> <a href="/tags/AI-Agent/" style="font-size: 14.29px;">AI Agent</a> <a href="/tags/API/" style="font-size: 10px;">API</a> <a href="/tags/ASP-Net-Core/" style="font-size: 10px;">ASP.Net Core</a> <a href="/tags/AWS/" style="font-size: 17.14px;">AWS</a> <a href="/tags/AWS-Control-Tower/" style="font-size: 10px;">AWS Control Tower</a> <a href="/tags/AWS-IoT-Core/" style="font-size: 10px;">AWS IoT Core</a> <a href="/tags/AWS-IoT-Greengrass/" style="font-size: 10px;">AWS IoT Greengrass</a> <a href="/tags/AWS-SSO/" style="font-size: 10px;">AWS SSO</a> <a href="/tags/AWS-Step-Functions/" style="font-size: 10px;">AWS Step Functions</a> <a href="/tags/AWS-Systems-Manager/" style="font-size: 10px;">AWS Systems Manager</a> <a href="/tags/Agentic/" style="font-size: 10px;">Agentic</a> <a href="/tags/Amazon-Bedrock/" style="font-size: 11.43px;">Amazon Bedrock</a> <a href="/tags/Amazon-Lookout-for-Vision/" style="font-size: 10px;">Amazon Lookout for Vision</a> <a href="/tags/Application-Insights/" style="font-size: 12.86px;">Application Insights</a> <a href="/tags/Artificial-Intelligence/" style="font-size: 11.43px;">Artificial Intelligence</a> <a href="/tags/Authentication/" style="font-size: 10px;">Authentication</a> <a href="/tags/Authorization/" style="font-size: 10px;">Authorization</a> <a href="/tags/Automation/" style="font-size: 10px;">Automation</a> <a href="/tags/Azure/" style="font-size: 18.57px;">Azure</a> <a href="/tags/Azure-AD-B2C/" style="font-size: 10px;">Azure AD B2C</a> <a href="/tags/Azure-Data-Explorer-ADX/" style="font-size: 10px;">Azure Data Explorer (ADX)</a> <a href="/tags/Azure-IoT-Edge/" style="font-size: 10px;">Azure IoT Edge</a> <a href="/tags/Azure-IoT-Hub/" style="font-size: 10px;">Azure IoT Hub</a> <a href="/tags/Azure-Template/" style="font-size: 10px;">Azure Template</a> <a href="/tags/Blockchain/" style="font-size: 10px;">Blockchain</a> <a href="/tags/Blog/" style="font-size: 12.86px;">Blog</a> <a href="/tags/Build/" style="font-size: 11.43px;">Build</a> <a href="/tags/Car/" style="font-size: 11.43px;">Car</a> <a href="/tags/Chatbot/" style="font-size: 11.43px;">Chatbot</a> <a href="/tags/Claude/" style="font-size: 10px;">Claude</a> <a href="/tags/Continuous-Deployment/" style="font-size: 10px;">Continuous Deployment</a> <a href="/tags/Continuous-Integration/" style="font-size: 10px;">Continuous Integration</a> <a href="/tags/CrewAI/" style="font-size: 10px;">CrewAI</a> <a href="/tags/DIY/" style="font-size: 10px;">DIY</a> <a href="/tags/DLT/" style="font-size: 15.71px;">DLT</a> <a href="/tags/DNS/" style="font-size: 10px;">DNS</a> <a href="/tags/Data-Analytics/" style="font-size: 12.86px;">Data Analytics</a> <a href="/tags/Data-Integrity/" style="font-size: 14.29px;">Data Integrity</a> <a href="/tags/Data-Lineage/" style="font-size: 14.29px;">Data Lineage</a> <a href="/tags/Databricks/" style="font-size: 10px;">Databricks</a> <a href="/tags/Decryption/" style="font-size: 10px;">Decryption</a> <a href="/tags/DevOps/" style="font-size: 14.29px;">DevOps</a> <a href="/tags/Device-Shadow/" style="font-size: 10px;">Device Shadow</a> <a href="/tags/Distributed-Ledger-Technology/" style="font-size: 15.71px;">Distributed Ledger Technology</a> <a href="/tags/Docker/" style="font-size: 11.43px;">Docker</a> <a href="/tags/Domain/" style="font-size: 10px;">Domain</a> <a href="/tags/EC2/" style="font-size: 10px;">EC2</a> <a href="/tags/ECS-Anywhere/" style="font-size: 10px;">ECS Anywhere</a> <a href="/tags/Encoding/" style="font-size: 10px;">Encoding</a> <a href="/tags/Entra-ID/" style="font-size: 10px;">Entra ID</a> <a href="/tags/Fiddler/" style="font-size: 10px;">Fiddler</a> <a href="/tags/Fullnode/" style="font-size: 10px;">Fullnode</a> <a href="/tags/GPS/" style="font-size: 10px;">GPS</a> <a href="/tags/Game/" style="font-size: 10px;">Game</a> <a href="/tags/GenAI/" style="font-size: 14.29px;">GenAI</a> <a href="/tags/Generative-AI/" style="font-size: 14.29px;">Generative AI</a> <a href="/tags/Git/" style="font-size: 12.86px;">Git</a> <a href="/tags/Github/" style="font-size: 11.43px;">Github</a> <a href="/tags/Google-Analytics/" style="font-size: 10px;">Google Analytics</a> <a href="/tags/Google-Tag-Manager/" style="font-size: 10px;">Google Tag Manager</a> <a href="/tags/Grafana/" style="font-size: 10px;">Grafana</a> <a href="/tags/HTTPS/" style="font-size: 10px;">HTTPS</a> <a href="/tags/Hamster/" style="font-size: 10px;">Hamster</a> <a href="/tags/Hexo/" style="font-size: 11.43px;">Hexo</a> <a href="/tags/Home-Assistant/" style="font-size: 10px;">Home Assistant</a> <a href="/tags/IAM/" style="font-size: 11.43px;">IAM</a> <a href="/tags/IOTA/" style="font-size: 15.71px;">IOTA</a> <a href="/tags/Idp/" style="font-size: 10px;">Idp</a> <a href="/tags/Infrastructure-as-Code/" style="font-size: 10px;">Infrastructure as Code</a> <a href="/tags/Invoice-Processing/" style="font-size: 10px;">Invoice Processing</a> <a href="/tags/IoT/" style="font-size: 20px;">IoT</a> <a href="/tags/Istio/" style="font-size: 10px;">Istio</a> <a href="/tags/Json/" style="font-size: 10px;">Json</a> <a href="/tags/Jump-start/" style="font-size: 10px;">Jump-start</a> <a href="/tags/Jupyter-Notebook/" style="font-size: 11.43px;">Jupyter Notebook</a> <a href="/tags/KUDU/" style="font-size: 10px;">KUDU</a> <a href="/tags/Kiali/" style="font-size: 10px;">Kiali</a> <a href="/tags/Kubernetes/" style="font-size: 10px;">Kubernetes</a> <a href="/tags/LLM/" style="font-size: 10px;">LLM</a> <a href="/tags/LangGraph/" style="font-size: 10px;">LangGraph</a> <a href="/tags/Linkedin/" style="font-size: 10px;">Linkedin</a> <a href="/tags/Llama/" style="font-size: 10px;">Llama</a> <a href="/tags/Load-Testing/" style="font-size: 10px;">Load Testing</a> <a href="/tags/MCP/" style="font-size: 11.43px;">MCP</a> <a href="/tags/Machine-Learning/" style="font-size: 11.43px;">Machine Learning</a> <a href="/tags/Managed-Identity/" style="font-size: 10px;">Managed Identity</a> <a href="/tags/Microsoft-language-understanding-intelligent-service/" style="font-size: 11.43px;">Microsoft language understanding intelligent service</a> <a href="/tags/Model-Context-Protocol/" style="font-size: 11.43px;">Model Context Protocol</a> <a href="/tags/Monitoring/" style="font-size: 12.86px;">Monitoring</a> <a href="/tags/Movie/" style="font-size: 10px;">Movie</a> <a href="/tags/Nano-Pi/" style="font-size: 10px;">Nano Pi</a> <a href="/tags/Native-App/" style="font-size: 10px;">Native App</a> <a href="/tags/Nodejs/" style="font-size: 10px;">Nodejs</a> <a href="/tags/OAuth/" style="font-size: 11.43px;">OAuth</a> <a href="/tags/OBD2/" style="font-size: 10px;">OBD2</a> <a href="/tags/Okta/" style="font-size: 10px;">Okta</a> <a href="/tags/OpenAI/" style="font-size: 10px;">OpenAI</a> <a href="/tags/OpenID/" style="font-size: 10px;">OpenID</a> <a href="/tags/Plugin/" style="font-size: 10px;">Plugin</a> <a href="/tags/Postman/" style="font-size: 10px;">Postman</a> <a href="/tags/PowerBI/" style="font-size: 12.86px;">PowerBI</a> <a href="/tags/Powershell/" style="font-size: 10px;">Powershell</a> <a href="/tags/Prototype/" style="font-size: 11.43px;">Prototype</a> <a href="/tags/Python/" style="font-size: 12.86px;">Python</a> <a href="/tags/Raspberry-Pi/" style="font-size: 12.86px;">Raspberry Pi</a> <a href="/tags/Release-Management/" style="font-size: 10px;">Release Management</a> <a href="/tags/Release-management/" style="font-size: 10px;">Release management</a> <a href="/tags/Ruter/" style="font-size: 10px;">Ruter</a> <a href="/tags/SSH/" style="font-size: 10px;">SSH</a> <a href="/tags/SSM/" style="font-size: 10px;">SSM</a> <a href="/tags/SSO/" style="font-size: 10px;">SSO</a> <a href="/tags/SVMP/" style="font-size: 10px;">SVMP</a> <a href="/tags/Scripting/" style="font-size: 10px;">Scripting</a> <a href="/tags/Security/" style="font-size: 10px;">Security</a> <a href="/tags/Service-mesh/" style="font-size: 10px;">Service mesh</a> <a href="/tags/SharePoint-PnP/" style="font-size: 10px;">SharePoint PnP</a> <a href="/tags/Social-Sharing/" style="font-size: 10px;">Social Sharing</a> <a href="/tags/Step-Functions/" style="font-size: 10px;">Step Functions</a> <a href="/tags/Tangle/" style="font-size: 14.29px;">Tangle</a> <a href="/tags/Tibber/" style="font-size: 10px;">Tibber</a> <a href="/tags/Time-Series-Insight-TSI/" style="font-size: 10px;">Time Series Insight (TSI)</a> <a href="/tags/Troubleshooting/" style="font-size: 11.43px;">Troubleshooting</a> <a href="/tags/VPC/" style="font-size: 10px;">VPC</a> <a href="/tags/VPC-Endpoint/" style="font-size: 10px;">VPC Endpoint</a> <a href="/tags/VSTS/" style="font-size: 12.86px;">VSTS</a> <a href="/tags/Vim/" style="font-size: 10px;">Vim</a> <a href="/tags/Visualization/" style="font-size: 10px;">Visualization</a> <a href="/tags/Web-Testing/" style="font-size: 10px;">Web Testing</a> <a href="/tags/Zigbee/" style="font-size: 10px;">Zigbee</a> <a href="/tags/e-paper/" style="font-size: 10px;">e-paper</a>
         </div>
     </div>
 
